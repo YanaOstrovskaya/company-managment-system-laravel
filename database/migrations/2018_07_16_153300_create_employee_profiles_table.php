@@ -15,6 +15,7 @@ class CreateEmployeeProfilesTable extends Migration
     {
         Schema::create('employee_profiles', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->date('birhdate');
             $table->string('photo');
             $table->date('job_start_date');
