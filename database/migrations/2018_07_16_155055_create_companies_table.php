@@ -23,7 +23,7 @@ class CreateCompaniesTable extends Migration
             $table->string('province')->nullable();
             $table->string('city');
             $table->string('country');
-            $table->integer('owner_id')->unsigned();
+            $table->integer('owner_id')->unsigned()->nullable();
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
