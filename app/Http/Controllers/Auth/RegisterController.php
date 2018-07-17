@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\EmployeeProfile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Intervention\Image\Facades\Image as ImageInt;
 
 class RegisterController extends Controller
 {
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/company';
 
     /**
      * Create a new controller instance.
@@ -49,9 +51,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|min:2',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'birhdate' => 'required|date_format:Y-m-d|before:today',
+            'job_start_date' => 'required|date_format:Y-m-d|before:tomorrow',
+            'phone' => 'required|numeric',
+            'job_title' => 'required|string|max:255|min:2',
+            'photo' => 'required|image|file'
+
         ]);
     }
 
@@ -60,13 +68,53 @@ class RegisterController extends Controller
      *
      * @param  array  $data
      * @return \App\User
+     *
+     *
      */
+
     protected function create(array $data)
     {
+        //create and resize image
+        $img = ImageInt::make($data['photo'])
+            ->resize(300, null, function ($constraint) {
+                $constraint->aspectRatio();});
+
+        //type img;
+        $extension = $data['photo']->extension();
+        //generate unique name for image
+        $imgName = str_random(20).'.'.$extension;
+
+        if (!file_exists(storage_path("photo"))) {
+            mkdir(storage_path("photo"), 0777, true);
+            $img->save(storage_path("photo/$imgName"));
+        }
+        else{
+            $img->save(storage_path("photo/$imgName"));
+        }
+       // dd(storage_path("photo/$imgName"));
+
+//        $save =  $img->save(public_path($imgName));
+//        dd($save);
+
+
+        $EmployeeProfile = EmployeeProfile::create([
+            'birhdate' => $data['birhdate'],
+            'photo'=> $imgName,
+            'job_start_date' => $data['job_start_date'],
+            'phone' => $data['phone'],
+            'job_title' => $data['job_title']
+        ]);
+        $idEmployeeProfile = $EmployeeProfile->id;
+        //dd($idEmployeeProfile);
+
+
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'employee_profile_id' => $idEmployeeProfile
         ]);
+
     }
 }
