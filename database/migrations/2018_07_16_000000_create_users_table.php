@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('company_id')->unsigned();
+            $table->integer('company_id')->unsigned()->nullable();
             $table->integer('employee_profile_id')->unsigned();
             $table->enum('role', ['user', 'admin'])->default('user');
             $table->rememberToken();
