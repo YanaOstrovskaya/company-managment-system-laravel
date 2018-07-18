@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'birhdate' => 'required|date_format:Y-m-d|before:today',
             'job_start_date' => 'required|date_format:Y-m-d|before:tomorrow',
-            'phone' => 'required|numeric',
+            'phone' => 'required',
             'job_title' => 'required|string|max:255|min:2',
             'photo' => 'required|image|file'
 
@@ -84,12 +84,12 @@ class RegisterController extends Controller
         //generate unique name for image
         $imgName = str_random(20).'.'.$extension;
 
-        if (!file_exists(storage_path("photo"))) {
-            mkdir(storage_path("photo"), 0777, true);
-            $img->save(storage_path("photo/$imgName"));
+        if (!file_exists(public_path("images/photo"))) {
+            mkdir(public_path("images/photo"), 0777, true);
+            $img->save(public_path("images/photo/$imgName"));
         }
         else{
-            $img->save(storage_path("photo/$imgName"));
+            $img->save(public_path("images/photo/$imgName"));
         }
        // dd(storage_path("photo/$imgName"));
 

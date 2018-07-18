@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -19,7 +21,16 @@ class CompanyController extends Controller
 
     public function index()
     {
-        return view('company.index');
+        $companies = Company::paginate(10);
+
+        if(isset(Auth::user()->company_id)){
+            $logo = Auth::user()->company->logo;
+        }
+        else{
+            $logo = 'default-logo.png';
+        }
+
+        return view('company.index')->with(['companies'=>$companies, 'logo'=>$logo]);
     }
 
     /**
@@ -62,7 +73,8 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        $users = User::all();
+        return view('company.edit')->with(['company' => $company, 'users' => $users]);
     }
 
     /**
@@ -74,7 +86,7 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        print_r($_POST);
     }
 
     /**

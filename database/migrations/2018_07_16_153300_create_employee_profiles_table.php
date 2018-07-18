@@ -18,7 +18,7 @@ class CreateEmployeeProfilesTable extends Migration
             $table->date('birhdate');
             $table->string('photo');
             $table->date('job_start_date');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('job_title');
             $table->timestamps();
         });
