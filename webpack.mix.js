@@ -13,4 +13,6 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .copy('resources/assets/js/intlTelInput.js', 'public/js')
+    .copy('resources/assets/js/script.js', 'public/js')
+    .copy('resources/assets/sass/intlTelInput.css', 'public/css')
    .sass('resources/assets/sass/app.scss', 'public/css');

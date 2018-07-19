@@ -6,6 +6,8 @@ use App\Company;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\EditCompany;
+use Intervention\Image\Facades\Image as ImageInt;
 
 class CompanyController extends Controller
 {
@@ -21,8 +23,8 @@ class CompanyController extends Controller
 
     public function index()
     {
-        $companies = Company::paginate(10);
-
+        $companies = Company::orderBy('id', 'desc')->paginate(10);
+        $users = User::all();
         if(isset(Auth::user()->company_id)){
             $logo = Auth::user()->company->logo;
         }
@@ -30,7 +32,7 @@ class CompanyController extends Controller
             $logo = 'default-logo.png';
         }
 
-        return view('company.index')->with(['companies'=>$companies, 'logo'=>$logo]);
+        return view('company.index')->with(['companies'=>$companies, 'logo'=>$logo, 'users'=>$users]);
     }
 
     /**
@@ -40,7 +42,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -49,7 +51,7 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EditCompany $request)
     {
         //
     }
@@ -84,9 +86,41 @@ class CompanyController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(EditCompany $request, Company $company)
     {
-        print_r($_POST);
+
+        if($request->hasFile('logo')){
+            $img = ImageInt::make($request->logo)
+                ->resize(300, null, function ($constraint) {
+                    $constraint->aspectRatio();});
+            $extension = $request->logo->extension();
+            $imgName = str_random(20).'.'.$extension;
+            $img->save(public_path("images/logo/$imgName"));
+        }
+
+        $logo = $request->hasFile('logo')?$imgName:$company->logo;
+        //var_dump($request->owner_id);
+        //die();
+        Company::where('id', $company->id)->update([
+            'logo' => $logo,
+            'name' => $request->name,
+            'adress_line1' => $request->adress_line1,
+            'adress_line2' => $request->adress_line2,
+            'zip' => $request->zip,
+            'province' => $request->province,
+            'city' => $request->city,
+            'country' => $request->country,
+            'owner_id' => $request->owner_id
+        ]);
+
+        if(isset($request->owner_id)){
+            $user = User::find($request->owner_id);
+            $user->company_id = $company->id;
+            $user->save();
+        }
+
+        return redirect('/company');
+
     }
 
     /**
@@ -97,6 +131,8 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        $company = Company::find($company->id);
+        $company->delete();
+        return redirect('/company');
     }
 }

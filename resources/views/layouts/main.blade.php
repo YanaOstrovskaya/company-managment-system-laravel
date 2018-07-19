@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/intlTelInput.css') }}" rel="stylesheet">
-
+    @csrf
     <title>Managment system</title>
 </head>
 <body>

@@ -91,11 +91,6 @@ class RegisterController extends Controller
         else{
             $img->save(public_path("images/photo/$imgName"));
         }
-       // dd(storage_path("photo/$imgName"));
-
-//        $save =  $img->save(public_path($imgName));
-//        dd($save);
-
 
         $EmployeeProfile = EmployeeProfile::create([
             'birhdate' => $data['birhdate'],
@@ -105,9 +100,6 @@ class RegisterController extends Controller
             'job_title' => $data['job_title']
         ]);
         $idEmployeeProfile = $EmployeeProfile->id;
-        //dd($idEmployeeProfile);
-
-
 
         return User::create([
             'name' => $data['name'],
