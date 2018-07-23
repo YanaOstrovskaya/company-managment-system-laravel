@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EditCompany extends FormRequest
+class CreateCompany extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class EditCompany extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255|min:2',
+            'logo' => 'required|file|image',
+            'name' => 'required|max:255',
             'adress_line1' => 'required',
             'adress_line2' => 'nullable',
             'zip' => 'required|numeric',

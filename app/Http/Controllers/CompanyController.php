@@ -7,6 +7,7 @@ use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\EditCompany;
+use App\Http\Requests\CreateCompany;
 use Intervention\Image\Facades\Image as ImageInt;
 
 class CompanyController extends Controller
@@ -51,9 +52,52 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EditCompany $request)
+    public function store(CreateCompany $request)
     {
-        //
+        if($request->hasFile('logo')){
+            $img = ImageInt::make($request->logo)
+                ->resize(300, null, function ($constraint) {
+                    $constraint->aspectRatio();});
+            $extension = $request->logo->extension();
+            $imgName = str_random(20).'.'.$extension;
+            $img->save(public_path("images/logo/$imgName"));
+        }
+
+     $requestJs = Company::create([
+            'logo' => $imgName,
+            'name' => $request->name,
+            'adress_line1' => $request->adress_line1,
+            'adress_line2' => $request->adress_line2,
+            'zip' => $request->zip,
+            'province' => $request->province,
+            'city' => $request->city,
+            'country' => $request->country,
+            'owner_id' => $request->owner_id,
+
+        ]);
+
+        //dd($user);
+        //dd(response()->json('error'));
+        return response()->json($requestJs);
+
+
+//return response()->json($request);
+
+
+//
+//        $data = [
+//            'logo' => $request->logo,
+//            'name' => $request->name,
+//            'adress_line1' => $request->adress_line1,
+//            'adress_line2' => $request->adress_line2,
+//            'zip' => $request->zip,
+//            'province' => $request->province,
+//            'city' => $request->city,
+//            'country' => $request->country,
+//            'owner_id' => $request->owner_id
+//    ];
+
+     //   return $data;
     }
 
     /**
@@ -75,8 +119,13 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
+        if(Auth::user()->role==='admin' || isset(Auth::user()->company->owner_id) && Auth::user()->company->owner_id==$company->owner_id){
         $users = User::all();
         return view('company.edit')->with(['company' => $company, 'users' => $users]);
+        }
+        else{
+            return back();
+        }
     }
 
     /**
@@ -99,8 +148,7 @@ class CompanyController extends Controller
         }
 
         $logo = $request->hasFile('logo')?$imgName:$company->logo;
-        //var_dump($request->owner_id);
-        //die();
+
         Company::where('id', $company->id)->update([
             'logo' => $logo,
             'name' => $request->name,
@@ -113,10 +161,12 @@ class CompanyController extends Controller
             'owner_id' => $request->owner_id
         ]);
 
-        if(isset($request->owner_id)){
+        if(!empty($request->owner_id)){
             $user = User::find($request->owner_id);
             $user->company_id = $company->id;
             $user->save();
+        }else{
+            User::where('company_id', $company->id)->update(['company_id' => null]);
         }
 
         return redirect('/company');
