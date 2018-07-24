@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('layouts.nav',function($view){
+            if(isset(Auth::user()->company_id)){
+                $logo = Auth::user()->company->logo;
+            }
+            else{
+                $logo = 'default-logo.png';
+            }
+            $view->with('logo', $logo);
+        });
     }
 
     /**

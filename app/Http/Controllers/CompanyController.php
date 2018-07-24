@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
-use App\User;
+use App\Models\Company;
+use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\EditCompany;
@@ -75,35 +75,22 @@ class CompanyController extends Controller
             'owner_id' => $request->owner_id,
 
         ]);
+        if(!empty($request->owner_id)){
+            $user = User::find($request->owner_id);
+            $user->company_id = $requestJs->id;
+            $user->save();
+        }
 
-        //dd($user);
-        //dd(response()->json('error'));
-        return response()->json($requestJs);
+           $user = Auth::user()->role;
 
+        return response()->json([$requestJs, $user]);
 
-//return response()->json($request);
-
-
-//
-//        $data = [
-//            'logo' => $request->logo,
-//            'name' => $request->name,
-//            'adress_line1' => $request->adress_line1,
-//            'adress_line2' => $request->adress_line2,
-//            'zip' => $request->zip,
-//            'province' => $request->province,
-//            'city' => $request->city,
-//            'country' => $request->country,
-//            'owner_id' => $request->owner_id
-//    ];
-
-     //   return $data;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Company  $company
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function show(Company $company)
@@ -114,14 +101,15 @@ class CompanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Company  $company
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function edit(Company $company)
     {
         if(Auth::user()->role==='admin' || isset(Auth::user()->company->owner_id) && Auth::user()->company->owner_id==$company->owner_id){
         $users = User::all();
-        return view('company.edit')->with(['company' => $company, 'users' => $users]);
+        $logo = $company->logo;
+        return view('company.edit')->with(['company' => $company, 'users' => $users, 'logo' => $logo]);
         }
         else{
             return back();
@@ -132,7 +120,7 @@ class CompanyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Company  $company
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function update(EditCompany $request, Company $company)
@@ -182,6 +170,7 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
         $company = Company::find($company->id);
+        //dd($company->id);
         $company->delete();
         return redirect('/company');
     }
