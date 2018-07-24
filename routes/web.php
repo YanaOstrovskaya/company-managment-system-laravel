@@ -17,4 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('/company', 'CompanyController');
+Route::resource('/company', 'CompanyController')->except(['create', 'show']);
+
+Route::resource('/users', 'UserController');
