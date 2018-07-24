@@ -30,6 +30,10 @@
                     </div>
                     <div class="form-group">
                         <label for="adress_line2">Logo:</label>
+                        <img class="img-thumbnail" src="{{ asset('images/logo/'.$logo) }}" alt="{{$company->name}}" width="100px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="adress_line2">Replace:</label>
                         <input type="file" class="form-control" id="logo" name="logo" >
                     </div>
                     <div class="form-group">

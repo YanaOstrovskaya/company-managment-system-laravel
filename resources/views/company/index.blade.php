@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-3">
         <div class="container">
-           <img class="img-thumbnail" src="/images/logo/{{$logo}}" alt="" style="width: 400px;">
+
         </div>
     </div>
 
@@ -59,3 +59,4 @@
 @section('modal')
     @include('company.create')
 @endsection
+
