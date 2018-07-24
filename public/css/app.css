@@ -2,6 +2,21 @@
   border-radius: 50%;
 }
 
+.profile-foto {
+  border-radius: 50%;
+  height: 50px;
+}
+
+.align-nav {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+}
+
 /*!
  * Bootstrap v4.1.2 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
