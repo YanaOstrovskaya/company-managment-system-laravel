@@ -45,13 +45,53 @@
 
 
 
-        })
+        });
+
 
         $('body').on('click', '.delete', function(e) {
-            if(!confirm('Are you sure you want to delete the company?')){
-                e.preventDefault();
-            }
+            e.preventDefault();
+            swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+
+                    $(this).submit();
+
+                //console.log(this);
+                if (result.value) {
+                    console.log(result.value);
+                    swal(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+
+                }
+            })
+
         });
+
+
+        // $("body").on("click", '.delete', function (event) {
+        //     event.preventDefault();
+        //     swal({
+        //             title: "Are you sure?",
+        //             text: "You will not be able to recover this lorem ipsum!", type: "warning",
+        //             showCancelButton: true,
+        //             confirmButtonColor: "#dd3939",
+        //             confirmButtonText: "Yes, delete it!",
+        //              //closeOnConfirm: false
+        //         },
+        //         function () {
+        //             $('.delete').submit();
+        //         });
+        // });
+
 
 
     })

@@ -1,13 +1,11 @@
 @extends('layouts.main')
 @section('content')
 <div class="row">
-    <div class="col-md-3">
-        <div class="container">
+    <div class="col-md-2">
 
-        </div>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-10">
         <div class="container">
             <h2>Companies</h2>
                 <button type="button" class="btn btn-primary create-modal float-right" data-toggle="modal" data-target="#myModalCreate">
@@ -30,7 +28,7 @@
                 @foreach($companies as $company)
                 <tr id="addCompany">
                     <td class="align-middle company-logo"><img class="company-logo-img" src="/images/logo/{{$company->logo}}" alt="{{$company->name}}" width="100px"></td>
-                    <td class="align-middle">{{$company->name}}</td>
+                    <td class="align-middle"><a class="link" href="{{asset('company/'.$company->id)}}">{{$company->name}}</a></td>
                     <td class="align-middle">{{$company->country}}</td>
                     <td class="align-middle">{{$company->city}}</td>
                     @if(Auth::user()->role==='admin' || isset(Auth::user()->company->owner_id) && Auth::user()->company->owner_id==$company->owner_id)
@@ -55,8 +53,11 @@
 </div>
 
     @endsection
+
 <!-- The Modal -->
 @section('modal')
     @include('company.create')
 @endsection
+
+
 

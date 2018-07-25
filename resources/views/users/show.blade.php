@@ -6,7 +6,9 @@
                 <img src="{{asset('images/photo/'.$user->employeeProfile->photo)}}" alt="{{$user->name}}">
                 <br><br>
                 <div class="col-md-6 text-center">
+                    @if(Auth::user()->id === $user->id)
                     <a href="/users/{{$user->id}}/edit" class="btn btn-primary btn-block">Edit profile</a>
+                        @endif
                 </div>
             </div>
             <div class="col-md-6">
@@ -49,7 +51,7 @@
             <div class="col">
             @if(!empty($user->company))
                 <br><br>
-            <h2 class="text-center">My companies</h2>
+            <h2 class="text-center">Companies</h2>
                     <table class="table">
                         <thead>
                         <tr>
@@ -65,11 +67,19 @@
                         @foreach($companies as $company)
                         <tr>
                             <td> <img class="company-logo" src="{{ asset('images/logo/'.$company->logo) }}" width="100px"></td>
-                            <td>{{$company->name}}</td>
-                            <td>{{$company->country}}</td>
-                            <td>{{$company->city}}</td>
-                            <td><a class="btn btn-primary" href="/company/{{$company->id}}/edit">Edit</a></td>
-                            <td></td>
+                            <td class="align-middle"><a class="link" href="{{asset('company/'.$company->id)}}">{{$company->name}}</a></td>
+                            <td class="align-middle">{{$company->country}}</td>
+                            <td class="align-middle">{{$company->city}}</td>
+                            <td class="align-middle"><a class="btn btn-primary" href="/company/{{$company->id}}/edit">Edit</a></td>
+                            <td class="align-middle">
+                            @if(Auth::user()->role==='admin')
+                                    <form method="POST" action="/company/{{$company->id}}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger delete">Delete</button>
+                                    </form>
+                                @endif
+                                </td>
                         </tr>
                             @endforeach
                         </tbody>

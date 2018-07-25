@@ -12,6 +12,9 @@
             <li class="nav-item">
                 <a class="nav-link align-nav" href="/company">Companies</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link align-nav" href="/users">Users</a>
+            </li>
         @endif
     </ul>
     <ul class="navbar-nav">

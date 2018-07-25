@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Company;
+use App\Models\EmployeeProfile;
+use App\Http\Requests\EditUser;
 use Carbon\Carbon;
+use Auth;
+use Intervention\Image\Facades\Image as ImageInt;
 
 class UserController extends Controller
 {
@@ -16,7 +20,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::orderBy('id', 'desc')->paginate(10);
+        return view('users.index')->with(['users'=>$users]);
     }
 
     /**
@@ -71,7 +76,18 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(Auth::user()->id == $id || Auth::user()->role==='admin'){
+        $user = User::find($id);
+        $companies = Company::where('owner_id', $id)->get();
+
+        return view('users.edit')
+            ->with(['user' => $user,
+                    'companies' => $companies
+            ]);
+        }
+        else{
+            return back();
+        }
     }
 
     /**
@@ -81,9 +97,33 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditUser $request, $id)
     {
-        //
+        if($request->hasFile('photo')){
+            $img = ImageInt::make($request->photo)
+                ->resize(300, null, function ($constraint) {
+                    $constraint->aspectRatio();});
+            $extension = $request->photo->extension();
+            $imgName = str_random(20).'.'.$extension;
+            $img->save(public_path("images/photo/$imgName"));
+        }
+        $user = User::find($id);
+        $photo = $request->hasFile('photo')?$imgName:$user->employeeProfile->photo;
+
+        EmployeeProfile::where('id', $user->employee_profile_id)->update([
+            'birhdate' => $request->birhdate,
+            'photo' => $photo,
+            'job_start_date' => $request->job_start_date,
+            'phone' => $request->phone,
+            'job_title' => $request->job_title
+        ]);
+
+        User::where('id', $id)->update([
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
+        return back();
+
     }
 
     /**
@@ -94,6 +134,16 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Auth::user()->role === 'admin') {
+            $user = User::find($id);
+
+            //dd($company->id);
+            $user->delete();
+            return redirect('/users');
+        }
+        else{
+            return back();
+        }
     }
+
 }

@@ -29,11 +29,11 @@
                         <input type="text" class="form-control" id="adress_line2" name="adress_line2" value="{{$company->adress_line2}}">
                     </div>
                     <div class="form-group">
-                        <label for="adress_line2">Logo:</label>
-                        <img class="img-thumbnail" src="{{ asset('images/logo/'.$logo) }}" alt="{{$company->name}}" width="100px;">
+                        <label for="oldLogo">Logo:</label>
+                        <img class="img-thumbnail" src="{{ asset('images/logo/'.$logo) }}" alt="{{$company->name}}" width="100px;" id="oldLogo">
                     </div>
                     <div class="form-group">
-                        <label for="adress_line2">Replace:</label>
+                        <label for="logo">Replace:</label>
                         <input type="file" class="form-control" id="logo" name="logo" >
                     </div>
                     <div class="form-group">

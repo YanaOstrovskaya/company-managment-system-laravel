@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\User;
 use Auth;
-use Illuminate\Http\Request;
 use App\Http\Requests\EditCompany;
 use App\Http\Requests\CreateCompany;
 use Intervention\Image\Facades\Image as ImageInt;
@@ -26,14 +25,9 @@ class CompanyController extends Controller
     {
         $companies = Company::orderBy('id', 'desc')->paginate(10);
         $users = User::all();
-        if(isset(Auth::user()->company_id)){
-            $logo = Auth::user()->company->logo;
-        }
-        else{
-            $logo = 'default-logo.png';
-        }
 
-        return view('company.index')->with(['companies'=>$companies, 'logo'=>$logo, 'users'=>$users]);
+
+        return view('company.index')->with(['companies'=>$companies, 'users'=>$users]);
     }
 
     /**
@@ -95,7 +89,12 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        $company = Company::find($company->id);
+        $user = User::find($company->owner_id);
+
+
+        // dd($company);
+        return view('company.show')->with(['company' => $company, 'user'=>$user]);
     }
 
     /**
@@ -134,6 +133,7 @@ class CompanyController extends Controller
             $imgName = str_random(20).'.'.$extension;
             $img->save(public_path("images/logo/$imgName"));
         }
+        //dd($imgName);
 
         $logo = $request->hasFile('logo')?$imgName:$company->logo;
 
@@ -169,9 +169,15 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        $company = Company::find($company->id);
-        //dd($company->id);
-        $company->delete();
-        return redirect('/company');
+        if (Auth::user()->role === 'admin') {
+            $company = Company::find($company->id);
+
+            //dd($company->id);
+            $company->delete();
+            return redirect('/company');
+        }
+        else{
+            return back();
+        }
     }
 }

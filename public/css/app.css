@@ -17,6 +17,14 @@
   margin-top: 10px;
 }
 
+.link {
+  font-family: Helvetica;
+  font-size: 1em;
+  font-weight: bold;
+  color: #000099;
+  text-decoration: none;
+}
+
 /*!
  * Bootstrap v4.1.2 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors

@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Company::class, function (Faker $faker) {
+$factory->define(App\Models\Company::class, function (Faker $faker) {
     return [
         'logo' => 'default-logo.png',
         'name' => $faker->company,
