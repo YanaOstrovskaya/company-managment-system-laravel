@@ -40726,9 +40726,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = ty
         });
 
         $('body').on('click', '.delete', function (e) {
-            var _this = this;
-
             e.preventDefault();
+            var form = this;
             swal({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -40737,33 +40736,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = ty
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
-            }).then(function (result) {
-
-                $(_this).submit();
-
-                //console.log(this);
-                if (result.value) {
-                    console.log(result.value);
-                    swal('Deleted!', 'Your file has been deleted.', 'success');
-                }
+            }, function () {
+                $(form).submit();
             });
         });
-
-        // $("body").on("click", '.delete', function (event) {
-        //     event.preventDefault();
-        //     swal({
-        //             title: "Are you sure?",
-        //             text: "You will not be able to recover this lorem ipsum!", type: "warning",
-        //             showCancelButton: true,
-        //             confirmButtonColor: "#dd3939",
-        //             confirmButtonText: "Yes, delete it!",
-        //              //closeOnConfirm: false
-        //         },
-        //         function () {
-        //             $('.delete').submit();
-        //         });
-        // });
-
     });
 })(jQuery);
 

@@ -42,14 +42,11 @@
 
                 });
 
-
-
-
         });
-
 
         $('body').on('click', '.delete', function(e) {
             e.preventDefault();
+            let form = this;
             swal({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -59,38 +56,19 @@
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
-
-                    $(this).submit();
-
-                //console.log(this);
                 if (result.value) {
-                    console.log(result.value);
                     swal(
                         'Deleted!',
                         'Your file has been deleted.',
                         'success'
-                    )
-
+                    ).then(()=>{
+                        console.log(form);
+                        form.submit();
+                    })
                 }
             })
 
         });
-
-
-        // $("body").on("click", '.delete', function (event) {
-        //     event.preventDefault();
-        //     swal({
-        //             title: "Are you sure?",
-        //             text: "You will not be able to recover this lorem ipsum!", type: "warning",
-        //             showCancelButton: true,
-        //             confirmButtonColor: "#dd3939",
-        //             confirmButtonText: "Yes, delete it!",
-        //              //closeOnConfirm: false
-        //         },
-        //         function () {
-        //             $('.delete').submit();
-        //         });
-        // });
 
 
 

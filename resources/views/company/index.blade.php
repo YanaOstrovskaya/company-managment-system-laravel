@@ -39,7 +39,7 @@
                         <form method="POST" action="/company/{{$company->id}}">
                             @method('DELETE')
                             @csrf
-                            <button type="submit" class="btn btn-danger delete">Delete</button>
+                            <button type="button" class="btn btn-danger delete">Delete</button>
                         </form>
                         </td>
                     @endif
