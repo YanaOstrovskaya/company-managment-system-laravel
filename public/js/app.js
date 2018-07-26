@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,7 +71,7 @@
 
 
 var bind = __webpack_require__(5);
-var isBuffer = __webpack_require__(19);
+var isBuffer = __webpack_require__(20);
 
 /*global toString:true*/
 
@@ -10752,7 +10752,7 @@ return jQuery;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(22);
+var normalizeHeaderName = __webpack_require__(23);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -10846,7 +10846,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)))
 
 /***/ }),
 /* 3 */
@@ -13430,12 +13430,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(23);
-var buildURL = __webpack_require__(25);
-var parseHeaders = __webpack_require__(26);
-var isURLSameOrigin = __webpack_require__(27);
+var settle = __webpack_require__(24);
+var buildURL = __webpack_require__(26);
+var parseHeaders = __webpack_require__(27);
+var isURLSameOrigin = __webpack_require__(28);
 var createError = __webpack_require__(7);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(28);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(29);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -13532,7 +13532,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(29);
+      var cookies = __webpack_require__(30);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -13616,7 +13616,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(24);
+var enhanceError = __webpack_require__(25);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -13676,14 +13676,46 @@ module.exports = Cancel;
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(11);
-module.exports = __webpack_require__(39);
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(1) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+
+$.ui = $.ui || {};
+
+return $.ui.version = "1.12.1";
+
+} ) );
 
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(12);
+module.exports = __webpack_require__(43);
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery_ui_ui_widgets_datepicker_js__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery_ui_ui_widgets_datepicker_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery_ui_ui_widgets_datepicker_js__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -13691,9 +13723,14 @@ module.exports = __webpack_require__(39);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(12);
-__webpack_require__(37);
+__webpack_require__(13);
 __webpack_require__(38);
+__webpack_require__(39);
+__webpack_require__(40);
+
+window.$ = window.jQuery = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
+
+
 
 // window.Vue = require('vue');
 //
@@ -13710,13 +13747,15 @@ __webpack_require__(38);
 // });
 
 /***/ }),
-/* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-window._ = __webpack_require__(13);
+window._ = __webpack_require__(14);
 window.Popper = __webpack_require__(4).default;
-window.swal = __webpack_require__(15);
+window.swal = __webpack_require__(16);
+
+//import 'sweetalert2/src/sweetalert2.scss'
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -13726,7 +13765,7 @@ window.swal = __webpack_require__(15);
 try {
   window.$ = window.jQuery = __webpack_require__(1);
 
-  __webpack_require__(16);
+  __webpack_require__(17);
 } catch (e) {}
 
 /**
@@ -13735,7 +13774,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(17);
+window.axios = __webpack_require__(18);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -13771,7 +13810,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 // });
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -30881,10 +30920,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(14)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(15)(module)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -30912,11 +30951,11 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v7.25.4
+* sweetalert2 v7.26.0
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -31183,7 +31222,7 @@ var DismissReason = Object.freeze({
   timer: 'timer'
 });
 
-var version = "7.25.6";
+var version = "7.26.0";
 
 var argsToParams = function argsToParams(args) {
   var params = {};
@@ -31405,9 +31444,13 @@ var getFocusableElements = function getFocusableElements() {
   });
 
   // https://github.com/jkup/focusable/blob/master/index.js
-  var otherFocusableElements = toArray$1(getPopup().querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable], audio[controls], video[controls]'));
+  var otherFocusableElements = toArray$1(getPopup().querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable], audio[controls], video[controls]')).filter(function (el) {
+    return el.getAttribute('tabindex') !== '-1';
+  });
 
-  return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements));
+  return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(function (el) {
+    return isVisible(el);
+  });
 };
 
 var isModal = function isModal() {
@@ -31512,7 +31555,7 @@ var parseHtmlToContainer = function parseHtmlToContainer(param, target) {
     }
   } else if (param) {
     target.innerHTML = param;
-  } else {}
+  }
   show(target);
 };
 
@@ -31606,6 +31649,8 @@ var undoScrollbar = function undoScrollbar() {
 };
 
 // Fix iOS scrolling http://stackoverflow.com/q/39626302/1331425
+
+/* istanbul ignore next */
 var iOSfix = function iOSfix() {
   var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
@@ -31615,6 +31660,7 @@ var iOSfix = function iOSfix() {
   }
 };
 
+/* istanbul ignore next */
 var undoIOSfix = function undoIOSfix() {
   if (hasClass(document.body, swalClasses.iosfix)) {
     var offset = parseInt(document.body.style.top, 10);
@@ -31961,7 +32007,7 @@ var queue = function queue(steps) {
     document.body.removeAttribute('data-swal2-queue-step');
   };
   var queueResult = [];
-  return new Promise(function (resolve, reject) {
+  return new Promise(function (resolve) {
     (function step(i, callback) {
       if (i < currentSteps.length) {
         document.body.setAttribute('data-swal2-queue-step', i);
@@ -32059,11 +32105,13 @@ var staticMethods = Object.freeze({
 	getContent: getContent,
 	getImage: getImage,
 	getIcons: getIcons,
+	getCloseButton: getCloseButton,
 	getButtonsWrapper: getButtonsWrapper,
 	getActions: getActions,
 	getConfirmButton: getConfirmButton,
 	getCancelButton: getCancelButton,
 	getFooter: getFooter,
+	getFocusableElements: getFocusableElements,
 	isLoading: isLoading,
 	fire: fire,
 	mixin: mixin,
@@ -32078,6 +32126,7 @@ var staticMethods = Object.freeze({
 
 // https://github.com/Riim/symbol-polyfill/blob/master/index.js
 
+/* istanbul ignore next */
 var _Symbol = typeof Symbol === 'function' ? Symbol : function () {
   var idCounter = 0;
   function _Symbol(key) {
@@ -32091,6 +32140,7 @@ var _Symbol = typeof Symbol === 'function' ? Symbol : function () {
 // Related issue: https://github.com/sweetalert2/sweetalert2/issues/1071
 // http://webreflection.blogspot.fi/2015/04/a-weakmap-polyfill-in-20-lines-of-code.html
 
+/* istanbul ignore next */
 var WeakMap$1 = typeof WeakMap === 'function' ? WeakMap : function (s, dP, hOP) {
   function WeakMap() {
     dP(this, s, { value: _Symbol('WeakMap') });
@@ -32283,7 +32333,9 @@ function hideProgressSteps() {
 var Timer = function Timer(callback, delay) {
   classCallCheck(this, Timer);
 
-  var id, started, running;
+  var id = void 0,
+      started = void 0,
+      running = void 0;
   var remaining = delay;
   this.start = function () {
     running = true;
@@ -32842,7 +32894,7 @@ function _main(userParams) {
 
     if (innerParams.toast) {
       // Closing popup by internal click
-      domCache.popup.onclick = function (e) {
+      domCache.popup.onclick = function () {
         if (innerParams.showConfirmButton || innerParams.showCancelButton || innerParams.showCloseButton || innerParams.input) {
           return;
         }
@@ -32912,11 +32964,7 @@ function _main(userParams) {
           index = focusableElements.length - 1;
         }
 
-        // determine if element is visible
-        var el = focusableElements[index];
-        if (isVisible(el)) {
-          return el.focus();
-        }
+        return focusableElements[index].focus();
       }
       // no visible focusable elements, focus the popup
       domCache.popup.focus();
@@ -32945,7 +32993,7 @@ function _main(userParams) {
         var targetElement = e.target || e.srcElement;
 
         var focusableElements = getFocusableElements(innerParams.focusCancel);
-        var btnIndex = -1; // Find the button - note, this is a nodelist, not an array.
+        var btnIndex = -1;
         for (var _i2 = 0; _i2 < focusableElements.length; _i2++) {
           if (targetElement === focusableElements[_i2]) {
             btnIndex = _i2;
@@ -33042,112 +33090,128 @@ function _main(userParams) {
       case 'number':
       case 'tel':
       case 'url':
-        input = getChildByClass(domCache.content, swalClasses.input);
-        input.value = innerParams.inputValue;
-        input.placeholder = innerParams.inputPlaceholder;
-        input.type = innerParams.input;
-        show(input);
-        break;
+        {
+          input = getChildByClass(domCache.content, swalClasses.input);
+          input.value = innerParams.inputValue;
+          input.placeholder = innerParams.inputPlaceholder;
+          input.type = innerParams.input;
+          show(input);
+          break;
+        }
       case 'file':
-        input = getChildByClass(domCache.content, swalClasses.file);
-        input.placeholder = innerParams.inputPlaceholder;
-        input.type = innerParams.input;
-        show(input);
-        break;
+        {
+          input = getChildByClass(domCache.content, swalClasses.file);
+          input.placeholder = innerParams.inputPlaceholder;
+          input.type = innerParams.input;
+          show(input);
+          break;
+        }
       case 'range':
-        var range = getChildByClass(domCache.content, swalClasses.range);
-        var rangeInput = range.querySelector('input');
-        var rangeOutput = range.querySelector('output');
-        rangeInput.value = innerParams.inputValue;
-        rangeInput.type = innerParams.input;
-        rangeOutput.value = innerParams.inputValue;
-        show(range);
-        break;
+        {
+          var range = getChildByClass(domCache.content, swalClasses.range);
+          var rangeInput = range.querySelector('input');
+          var rangeOutput = range.querySelector('output');
+          rangeInput.value = innerParams.inputValue;
+          rangeInput.type = innerParams.input;
+          rangeOutput.value = innerParams.inputValue;
+          show(range);
+          break;
+        }
       case 'select':
-        var select = getChildByClass(domCache.content, swalClasses.select);
-        select.innerHTML = '';
-        if (innerParams.inputPlaceholder) {
-          var placeholder = document.createElement('option');
-          placeholder.innerHTML = innerParams.inputPlaceholder;
-          placeholder.value = '';
-          placeholder.disabled = true;
-          placeholder.selected = true;
-          select.appendChild(placeholder);
-        }
-        populateInputOptions = function populateInputOptions(inputOptions) {
-          inputOptions.forEach(function (_ref) {
-            var _ref2 = slicedToArray(_ref, 2),
-                optionValue = _ref2[0],
-                optionLabel = _ref2[1];
-
-            var option = document.createElement('option');
-            option.value = optionValue;
-            option.innerHTML = optionLabel;
-            if (innerParams.inputValue.toString() === optionValue.toString()) {
-              option.selected = true;
-            }
-            select.appendChild(option);
-          });
-          show(select);
-          select.focus();
-        };
-        break;
-      case 'radio':
-        var radio = getChildByClass(domCache.content, swalClasses.radio);
-        radio.innerHTML = '';
-        populateInputOptions = function populateInputOptions(inputOptions) {
-          inputOptions.forEach(function (_ref3) {
-            var _ref4 = slicedToArray(_ref3, 2),
-                radioValue = _ref4[0],
-                radioLabel = _ref4[1];
-
-            var radioInput = document.createElement('input');
-            var radioLabelElement = document.createElement('label');
-            radioInput.type = 'radio';
-            radioInput.name = swalClasses.radio;
-            radioInput.value = radioValue;
-            if (innerParams.inputValue.toString() === radioValue.toString()) {
-              radioInput.checked = true;
-            }
-            var label = document.createElement('span');
-            label.innerHTML = radioLabel;
-            label.className = swalClasses.label;
-            radioLabelElement.appendChild(radioInput);
-            radioLabelElement.appendChild(label);
-            radio.appendChild(radioLabelElement);
-          });
-          show(radio);
-          var radios = radio.querySelectorAll('input');
-          if (radios.length) {
-            radios[0].focus();
+        {
+          var select = getChildByClass(domCache.content, swalClasses.select);
+          select.innerHTML = '';
+          if (innerParams.inputPlaceholder) {
+            var placeholder = document.createElement('option');
+            placeholder.innerHTML = innerParams.inputPlaceholder;
+            placeholder.value = '';
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            select.appendChild(placeholder);
           }
-        };
-        break;
-      case 'checkbox':
-        var checkbox = getChildByClass(domCache.content, swalClasses.checkbox);
-        var checkboxInput = _this.getInput('checkbox');
-        checkboxInput.type = 'checkbox';
-        checkboxInput.value = 1;
-        checkboxInput.id = swalClasses.checkbox;
-        checkboxInput.checked = Boolean(innerParams.inputValue);
-        var label = checkbox.getElementsByTagName('span');
-        if (label.length) {
-          checkbox.removeChild(label[0]);
+          populateInputOptions = function populateInputOptions(inputOptions) {
+            inputOptions.forEach(function (_ref) {
+              var _ref2 = slicedToArray(_ref, 2),
+                  optionValue = _ref2[0],
+                  optionLabel = _ref2[1];
+
+              var option = document.createElement('option');
+              option.value = optionValue;
+              option.innerHTML = optionLabel;
+              if (innerParams.inputValue.toString() === optionValue.toString()) {
+                option.selected = true;
+              }
+              select.appendChild(option);
+            });
+            show(select);
+            select.focus();
+          };
+          break;
         }
-        label = document.createElement('span');
-        label.className = swalClasses.label;
-        label.innerHTML = innerParams.inputPlaceholder;
-        checkbox.appendChild(label);
-        show(checkbox);
-        break;
+      case 'radio':
+        {
+          var radio = getChildByClass(domCache.content, swalClasses.radio);
+          radio.innerHTML = '';
+          populateInputOptions = function populateInputOptions(inputOptions) {
+            inputOptions.forEach(function (_ref3) {
+              var _ref4 = slicedToArray(_ref3, 2),
+                  radioValue = _ref4[0],
+                  radioLabel = _ref4[1];
+
+              var radioInput = document.createElement('input');
+              var radioLabelElement = document.createElement('label');
+              radioInput.type = 'radio';
+              radioInput.name = swalClasses.radio;
+              radioInput.value = radioValue;
+              if (innerParams.inputValue.toString() === radioValue.toString()) {
+                radioInput.checked = true;
+              }
+              var label = document.createElement('span');
+              label.innerHTML = radioLabel;
+              label.className = swalClasses.label;
+              radioLabelElement.appendChild(radioInput);
+              radioLabelElement.appendChild(label);
+              radio.appendChild(radioLabelElement);
+            });
+            show(radio);
+            var radios = radio.querySelectorAll('input');
+            if (radios.length) {
+              radios[0].focus();
+            }
+          };
+          break;
+        }
+      case 'checkbox':
+        {
+          var checkbox = getChildByClass(domCache.content, swalClasses.checkbox);
+          var checkboxInput = _this.getInput('checkbox');
+          checkboxInput.type = 'checkbox';
+          checkboxInput.value = 1;
+          checkboxInput.id = swalClasses.checkbox;
+          checkboxInput.checked = Boolean(innerParams.inputValue);
+          var label = checkbox.getElementsByTagName('span');
+          if (label.length) {
+            checkbox.removeChild(label[0]);
+          }
+          label = document.createElement('span');
+          label.className = swalClasses.label;
+          label.innerHTML = innerParams.inputPlaceholder;
+          checkbox.appendChild(label);
+          show(checkbox);
+          break;
+        }
       case 'textarea':
-        var textarea = getChildByClass(domCache.content, swalClasses.textarea);
-        textarea.value = innerParams.inputValue;
-        textarea.placeholder = innerParams.inputPlaceholder;
-        show(textarea);
-        break;
+        {
+          var textarea = getChildByClass(domCache.content, swalClasses.textarea);
+          textarea.value = innerParams.inputValue;
+          textarea.placeholder = innerParams.inputPlaceholder;
+          show(textarea);
+          break;
+        }
       case null:
-        break;
+        {
+          break;
+        }
       default:
         error('Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "' + innerParams.input + '"');
         break;
@@ -33246,7 +33310,7 @@ function SweetAlert() {
   }
 
   if (typeof args[0] === 'undefined') {
-    error('SweetAlert2 expects at least 1 attribute!');
+    error('At least 1 argument is expected!');
     return false;
   }
 
@@ -34454,7 +34518,7 @@ if (typeof window !== 'undefined' && window.Sweetalert2){  window.swal = window.
 "            transform: rotate(360deg); } }");
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -38404,13 +38468,13 @@ if (typeof window !== 'undefined' && window.Sweetalert2){  window.swal = window.
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(18);
+module.exports = __webpack_require__(19);
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38418,7 +38482,7 @@ module.exports = __webpack_require__(18);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(5);
-var Axios = __webpack_require__(20);
+var Axios = __webpack_require__(21);
 var defaults = __webpack_require__(2);
 
 /**
@@ -38453,14 +38517,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(9);
-axios.CancelToken = __webpack_require__(35);
+axios.CancelToken = __webpack_require__(36);
 axios.isCancel = __webpack_require__(8);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(36);
+axios.spread = __webpack_require__(37);
 
 module.exports = axios;
 
@@ -38469,7 +38533,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 /*!
@@ -38496,7 +38560,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38504,8 +38568,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(2);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(30);
-var dispatchRequest = __webpack_require__(31);
+var InterceptorManager = __webpack_require__(31);
+var dispatchRequest = __webpack_require__(32);
 
 /**
  * Create a new instance of Axios
@@ -38582,7 +38646,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -38772,7 +38836,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38791,7 +38855,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38824,7 +38888,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38852,7 +38916,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38925,7 +38989,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38985,7 +39049,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39060,7 +39124,7 @@ module.exports = (
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39103,7 +39167,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39163,7 +39227,7 @@ module.exports = (
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39222,18 +39286,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(32);
+var transformData = __webpack_require__(33);
 var isCancel = __webpack_require__(8);
 var defaults = __webpack_require__(2);
-var isAbsoluteURL = __webpack_require__(33);
-var combineURLs = __webpack_require__(34);
+var isAbsoluteURL = __webpack_require__(34);
+var combineURLs = __webpack_require__(35);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -39315,7 +39379,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39342,7 +39406,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39363,7 +39427,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39384,7 +39448,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39448,7 +39512,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39482,7 +39546,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -40696,7 +40760,2153 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = ty
 });
 
 /***/ }),
-/* 38 */
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*!
+* sweetalert2 v7.18.0
+* Released under the MIT License.
+*/
+(function (global, factory) {
+  ( false ? 'undefined' : _typeof2(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory() :  true ? !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : global.Sweetalert2 = factory();
+})(this, function () {
+  'use strict';
+
+  var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+    return typeof obj === 'undefined' ? 'undefined' : _typeof2(obj);
+  } : function (obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === 'undefined' ? 'undefined' : _typeof2(obj);
+  };
+
+  var classCallCheck = function classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  };
+
+  var createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  var get = function get(object, property, receiver) {
+    if (object === null) object = Function.prototype;
+    var desc = Object.getOwnPropertyDescriptor(object, property);
+
+    if (desc === undefined) {
+      var parent = Object.getPrototypeOf(object);
+
+      if (parent === null) {
+        return undefined;
+      } else {
+        return get(parent, property, receiver);
+      }
+    } else if ("value" in desc) {
+      return desc.value;
+    } else {
+      var getter = desc.get;
+
+      if (getter === undefined) {
+        return undefined;
+      }
+
+      return getter.call(receiver);
+    }
+  };
+
+  var inherits = function inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof2(superClass)));
+    }
+
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+      constructor: {
+        value: subClass,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+  };
+
+  var possibleConstructorReturn = function possibleConstructorReturn(self, call) {
+    if (!self) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+
+    return call && ((typeof call === 'undefined' ? 'undefined' : _typeof2(call)) === "object" || typeof call === "function") ? call : self;
+  };
+
+  var slicedToArray = function () {
+    function sliceIterator(arr, i) {
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _e = undefined;
+
+      try {
+        for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+
+          if (i && _arr.length === i) break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"]) _i["return"]();
+        } finally {
+          if (_d) throw _e;
+        }
+      }
+
+      return _arr;
+    }
+
+    return function (arr, i) {
+      if (Array.isArray(arr)) {
+        return arr;
+      } else if (Symbol.iterator in Object(arr)) {
+        return sliceIterator(arr, i);
+      } else {
+        throw new TypeError("Invalid attempt to destructure non-iterable instance");
+      }
+    };
+  }();
+
+  var consolePrefix = 'SweetAlert2:';
+
+  /**
+   * Filter the unique values into a new array
+   * @param arr
+   */
+  var uniqueArray = function uniqueArray(arr) {
+    var result = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (result.indexOf(arr[i]) === -1) {
+        result.push(arr[i]);
+      }
+    }
+    return result;
+  };
+
+  /**
+   * Converts `inputOptions` into an array of `[value, label]`s
+   * @param inputOptions
+   */
+  var formatInputOptions = function formatInputOptions(inputOptions) {
+    var result = [];
+    if (inputOptions instanceof Map) {
+      inputOptions.forEach(function (value, key) {
+        result.push([key, value]);
+      });
+    } else {
+      Object.keys(inputOptions).forEach(function (key) {
+        result.push([key, inputOptions[key]]);
+      });
+    }
+    return result;
+  };
+
+  /**
+   * Standardise console warnings
+   * @param message
+   */
+  var warn = function warn(message) {
+    console.warn(consolePrefix + ' ' + message);
+  };
+
+  /**
+   * Standardise console errors
+   * @param message
+   */
+  var error = function error(message) {
+    console.error(consolePrefix + ' ' + message);
+  };
+
+  /**
+   * Private global state for `warnOnce`
+   * @type {Array}
+   * @private
+   */
+  var previousWarnOnceMessages = [];
+
+  /**
+   * Show a console warning, but only if it hasn't already been shown
+   * @param message
+   */
+  var warnOnce = function warnOnce(message) {
+    if (!(previousWarnOnceMessages.indexOf(message) !== -1)) {
+      previousWarnOnceMessages.push(message);
+      warn(message);
+    }
+  };
+
+  /**
+   * If `arg` is a function, call it (with no arguments or context) and return the result.
+   * Otherwise, just pass the value through
+   * @param arg
+   */
+  var callIfFunction = function callIfFunction(arg) {
+    return typeof arg === 'function' ? arg() : arg;
+  };
+
+  var isThenable = function isThenable(arg) {
+    return (typeof arg === 'undefined' ? 'undefined' : _typeof(arg)) === 'object' && typeof arg.then === 'function';
+  };
+
+  var DismissReason = Object.freeze({
+    cancel: 'cancel',
+    backdrop: 'overlay',
+    close: 'close',
+    esc: 'esc',
+    timer: 'timer'
+  });
+
+  var version = "7.18.0";
+
+  var argsToParams = function argsToParams(args) {
+    var params = {};
+    switch (_typeof(args[0])) {
+      case 'string':
+        ['title', 'html', 'type'].forEach(function (name, index) {
+          if (args[index] !== undefined) {
+            params[name] = args[index];
+          }
+        });
+        break;
+
+      case 'object':
+        _extends(params, args[0]);
+        break;
+
+      default:
+        error('Unexpected type of argument! Expected "string" or "object", got ' + _typeof(args[0]));
+        return false;
+    }
+    return params;
+  };
+
+  /**
+   * Adapt a legacy inputValidator for use with expectRejections=false
+   */
+  var adaptInputValidator = function adaptInputValidator(legacyValidator) {
+    return function adaptedInputValidator(inputValue, extraParams) {
+      return legacyValidator.call(this, inputValue, extraParams).then(function () {
+        return undefined;
+      }, function (validationError) {
+        return validationError;
+      });
+    };
+  };
+
+  var swalPrefix = 'swal2-';
+
+  var prefix = function prefix(items) {
+    var result = {};
+    for (var i in items) {
+      result[items[i]] = swalPrefix + items[i];
+    }
+    return result;
+  };
+
+  var swalClasses = prefix(['container', 'shown', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'fade', 'show', 'hide', 'noanimation', 'close', 'title', 'header', 'content', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-text', 'image', 'input', 'has-input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea', 'inputerror', 'validationerror', 'progresssteps', 'activeprogressstep', 'progresscircle', 'progressline', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen']);
+
+  var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
+
+  // Remember state in cases where opening and handling a modal will fiddle with it.
+  var states = {
+    previousActiveElement: null,
+    previousBodyPadding: null
+  };
+
+  var hasClass = function hasClass(elem, className) {
+    if (elem.classList) {
+      return elem.classList.contains(className);
+    }
+    return false;
+  };
+
+  var focusInput = function focusInput(input) {
+    input.focus();
+
+    // place cursor at end of text in text input
+    if (input.type !== 'file') {
+      // http://stackoverflow.com/a/2345915/1331425
+      var val = input.value;
+      input.value = '';
+      input.value = val;
+    }
+  };
+
+  var addOrRemoveClass = function addOrRemoveClass(target, classList, add) {
+    if (!target || !classList) {
+      return;
+    }
+    if (typeof classList === 'string') {
+      classList = classList.split(/\s+/).filter(Boolean);
+    }
+    classList.forEach(function (className) {
+      if (target.forEach) {
+        target.forEach(function (elem) {
+          add ? elem.classList.add(className) : elem.classList.remove(className);
+        });
+      } else {
+        add ? target.classList.add(className) : target.classList.remove(className);
+      }
+    });
+  };
+
+  var addClass = function addClass(target, classList) {
+    addOrRemoveClass(target, classList, true);
+  };
+
+  var removeClass = function removeClass(target, classList) {
+    addOrRemoveClass(target, classList, false);
+  };
+
+  var getChildByClass = function getChildByClass(elem, className) {
+    for (var i = 0; i < elem.childNodes.length; i++) {
+      if (hasClass(elem.childNodes[i], className)) {
+        return elem.childNodes[i];
+      }
+    }
+  };
+
+  var show = function show(elem) {
+    elem.style.opacity = '';
+    elem.style.display = elem.id === swalClasses.content ? 'block' : 'flex';
+  };
+
+  var hide = function hide(elem) {
+    elem.style.opacity = '';
+    elem.style.display = 'none';
+  };
+
+  var empty = function empty(elem) {
+    while (elem.firstChild) {
+      elem.removeChild(elem.firstChild);
+    }
+  };
+
+  // borrowed from jquery $(elem).is(':visible') implementation
+  var isVisible = function isVisible(elem) {
+    return elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+  };
+
+  var removeStyleProperty = function removeStyleProperty(elem, property) {
+    if (elem.style.removeProperty) {
+      elem.style.removeProperty(property);
+    } else {
+      elem.style.removeAttribute(property);
+    }
+  };
+
+  // Reset previous window keydown handler and focued element
+  var resetPrevState = function resetPrevState() {
+    if (states.previousActiveElement && states.previousActiveElement.focus) {
+      var x = window.scrollX;
+      var y = window.scrollY;
+      states.previousActiveElement.focus();
+      if (typeof x !== 'undefined' && typeof y !== 'undefined') {
+        // IE doesn't have scrollX/scrollY support
+        window.scrollTo(x, y);
+      }
+    }
+  };
+
+  var getContainer = function getContainer() {
+    return document.body.querySelector('.' + swalClasses.container);
+  };
+
+  var elementByClass = function elementByClass(className) {
+    var container = getContainer();
+    return container ? container.querySelector('.' + className) : null;
+  };
+
+  var getPopup = function getPopup() {
+    return elementByClass(swalClasses.popup);
+  };
+
+  var getIcons = function getIcons() {
+    var popup = getPopup();
+    return popup.querySelectorAll('.' + swalClasses.icon);
+  };
+
+  var getTitle = function getTitle() {
+    return elementByClass(swalClasses.title);
+  };
+
+  var getContent = function getContent() {
+    return elementByClass(swalClasses.content);
+  };
+
+  var getImage = function getImage() {
+    return elementByClass(swalClasses.image);
+  };
+
+  var getProgressSteps = function getProgressSteps() {
+    return elementByClass(swalClasses.progresssteps);
+  };
+
+  var getValidationError = function getValidationError() {
+    return elementByClass(swalClasses.validationerror);
+  };
+
+  var getConfirmButton = function getConfirmButton() {
+    return elementByClass(swalClasses.confirm);
+  };
+
+  var getCancelButton = function getCancelButton() {
+    return elementByClass(swalClasses.cancel);
+  };
+
+  var getButtonsWrapper = function getButtonsWrapper() {
+    warnOnce('swal.getButtonsWrapper() is deprecated and will be removed in the next major release, use swal.getActions() instead');
+    return elementByClass(swalClasses.actions);
+  };
+
+  var getActions = function getActions() {
+    return elementByClass(swalClasses.actions);
+  };
+
+  var getFooter = function getFooter() {
+    return elementByClass(swalClasses.footer);
+  };
+
+  var getCloseButton = function getCloseButton() {
+    return elementByClass(swalClasses.close);
+  };
+
+  var getFocusableElements = function getFocusableElements() {
+    var focusableElementsWithTabindex = Array.prototype.slice.call(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])'))
+    // sort according to tabindex
+    .sort(function (a, b) {
+      a = parseInt(a.getAttribute('tabindex'));
+      b = parseInt(b.getAttribute('tabindex'));
+      if (a > b) {
+        return 1;
+      } else if (a < b) {
+        return -1;
+      }
+      return 0;
+    });
+
+    // https://github.com/jkup/focusable/blob/master/index.js
+    var otherFocusableElements = Array.prototype.slice.call(getPopup().querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable], audio[controls], video[controls]'));
+
+    return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements));
+  };
+
+  var isModal = function isModal() {
+    return !document.body.classList.contains(swalClasses['toast-shown']);
+  };
+
+  var isToast = function isToast() {
+    return document.body.classList.contains(swalClasses['toast-shown']);
+  };
+
+  var isLoading = function isLoading() {
+    return getPopup().hasAttribute('data-loading');
+  };
+
+  // Detect Node env
+  var isNodeEnv = function isNodeEnv() {
+    return typeof window === 'undefined' || typeof document === 'undefined';
+  };
+
+  var sweetHTML = ('\n <div aria-labelledby="' + swalClasses.title + '" aria-describedby="' + swalClasses.content + '" class="' + swalClasses.popup + '" tabindex="-1">\n   <div class="' + swalClasses.header + '">\n     <ul class="' + swalClasses.progresssteps + '"></ul>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.error + '">\n       <span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span>\n     </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.question + '">\n       <span class="' + swalClasses['icon-text'] + '">?</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.warning + '">\n       <span class="' + swalClasses['icon-text'] + '">!</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.info + '">\n       <span class="' + swalClasses['icon-text'] + '">i</span>\n      </div>\n     <div class="' + swalClasses.icon + ' ' + iconTypes.success + '">\n       <div class="swal2-success-circular-line-left"></div>\n       <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n       <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>\n       <div class="swal2-success-circular-line-right"></div>\n     </div>\n     <img class="' + swalClasses.image + '" />\n     <h2 class="' + swalClasses.title + '" id="' + swalClasses.title + '"></h2>\n     <button type="button" class="' + swalClasses.close + '">\xD7</button>\n   </div>\n   <div class="' + swalClasses.content + '">\n     <div id="' + swalClasses.content + '"></div>\n     <input class="' + swalClasses.input + '" />\n     <input type="file" class="' + swalClasses.file + '" />\n     <div class="' + swalClasses.range + '">\n       <input type="range" />\n       <output></output>\n     </div>\n     <select class="' + swalClasses.select + '"></select>\n     <div class="' + swalClasses.radio + '"></div>\n     <label for="' + swalClasses.checkbox + '" class="' + swalClasses.checkbox + '">\n       <input type="checkbox" />\n     </label>\n     <textarea class="' + swalClasses.textarea + '"></textarea>\n     <div class="' + swalClasses.validationerror + '" id="' + swalClasses.validationerror + '"></div>\n   </div>\n   <div class="' + swalClasses.actions + '">\n     <button type="button" class="' + swalClasses.confirm + '">OK</button>\n     <button type="button" class="' + swalClasses.cancel + '">Cancel</button>\n   </div>\n   <div class="' + swalClasses.footer + '">\n   </div>\n </div>\n').replace(/(^|\n)\s*/g, '');
+
+  /*
+   * Add modal + backdrop to DOM
+   */
+  var init = function init(params) {
+    // Clean up the old popup if it exists
+    var c = getContainer();
+    if (c) {
+      c.parentNode.removeChild(c);
+      removeClass([document.documentElement, document.body], [swalClasses['no-backdrop'], swalClasses['has-input'], swalClasses['toast-shown']]);
+    }
+
+    if (isNodeEnv()) {
+      error('SweetAlert2 requires document to initialize');
+      return;
+    }
+
+    var container = document.createElement('div');
+    container.className = swalClasses.container;
+    container.innerHTML = sweetHTML;
+
+    var targetElement = typeof params.target === 'string' ? document.querySelector(params.target) : params.target;
+    targetElement.appendChild(container);
+
+    var popup = getPopup();
+    var content = getContent();
+    var input = getChildByClass(content, swalClasses.input);
+    var file = getChildByClass(content, swalClasses.file);
+    var range = content.querySelector('.' + swalClasses.range + ' input');
+    var rangeOutput = content.querySelector('.' + swalClasses.range + ' output');
+    var select = getChildByClass(content, swalClasses.select);
+    var checkbox = content.querySelector('.' + swalClasses.checkbox + ' input');
+    var textarea = getChildByClass(content, swalClasses.textarea);
+
+    // a11y
+    popup.setAttribute('role', params.toast ? 'alert' : 'dialog');
+    popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive');
+    if (!params.toast) {
+      popup.setAttribute('aria-modal', 'true');
+    }
+
+    var resetValidationError = function resetValidationError() {
+      SweetAlert.isVisible() && SweetAlert.resetValidationError();
+    };
+
+    input.oninput = resetValidationError;
+    file.onchange = resetValidationError;
+    select.onchange = resetValidationError;
+    checkbox.onchange = resetValidationError;
+    textarea.oninput = resetValidationError;
+
+    range.oninput = function () {
+      resetValidationError();
+      rangeOutput.value = range.value;
+    };
+
+    range.onchange = function () {
+      resetValidationError();
+      range.nextSibling.value = range.value;
+    };
+
+    return popup;
+  };
+
+  var parseHtmlToContainer = function parseHtmlToContainer(param, target) {
+    if (!param) {
+      return hide(target);
+    }
+
+    if ((typeof param === 'undefined' ? 'undefined' : _typeof(param)) === 'object') {
+      target.innerHTML = '';
+      if (0 in param) {
+        for (var i = 0; i in param; i++) {
+          target.appendChild(param[i].cloneNode(true));
+        }
+      } else {
+        target.appendChild(param.cloneNode(true));
+      }
+    } else if (param) {
+      target.innerHTML = param;
+    } else {}
+    show(target);
+  };
+
+  var animationEndEvent = function () {
+    // Prevent run in Node env
+    if (isNodeEnv()) {
+      return false;
+    }
+
+    var testEl = document.createElement('div');
+    var transEndEventNames = {
+      'WebkitAnimation': 'webkitAnimationEnd',
+      'OAnimation': 'oAnimationEnd oanimationend',
+      'animation': 'animationend'
+    };
+    for (var i in transEndEventNames) {
+      if (transEndEventNames.hasOwnProperty(i) && typeof testEl.style[i] !== 'undefined') {
+        return transEndEventNames[i];
+      }
+    }
+
+    return false;
+  }();
+
+  // Measure width of scrollbar
+  // https://github.com/twbs/bootstrap/blob/master/js/modal.js#L279-L286
+  var measureScrollbar = function measureScrollbar() {
+    var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+    if (supportsTouch) {
+      return 0;
+    }
+    var scrollDiv = document.createElement('div');
+    scrollDiv.style.width = '50px';
+    scrollDiv.style.height = '50px';
+    scrollDiv.style.overflow = 'scroll';
+    document.body.appendChild(scrollDiv);
+    var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return scrollbarWidth;
+  };
+
+  var fixScrollbar = function fixScrollbar() {
+    // for queues, do not do this more than once
+    if (states.previousBodyPadding !== null) {
+      return;
+    }
+    // if the body has overflow
+    if (document.body.scrollHeight > window.innerHeight) {
+      // add padding so the content doesn't shift after removal of scrollbar
+      states.previousBodyPadding = document.body.style.paddingRight;
+      document.body.style.paddingRight = measureScrollbar() + 'px';
+    }
+  };
+
+  var undoScrollbar = function undoScrollbar() {
+    if (states.previousBodyPadding !== null) {
+      document.body.style.paddingRight = states.previousBodyPadding;
+      states.previousBodyPadding = null;
+    }
+  };
+
+  // Fix iOS scrolling http://stackoverflow.com/q/39626302/1331425
+  var iOSfix = function iOSfix() {
+    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
+      var offset = document.body.scrollTop;
+      document.body.style.top = offset * -1 + 'px';
+      addClass(document.body, swalClasses.iosfix);
+    }
+  };
+
+  var undoIOSfix = function undoIOSfix() {
+    if (hasClass(document.body, swalClasses.iosfix)) {
+      var offset = parseInt(document.body.style.top, 10);
+      removeClass(document.body, swalClasses.iosfix);
+      document.body.style.top = '';
+      document.body.scrollTop = offset * -1;
+    }
+  };
+
+  var defaultParams = {
+    title: '',
+    titleText: '',
+    text: '',
+    html: '',
+    footer: '',
+    type: null,
+    toast: false,
+    customClass: '',
+    target: 'body',
+    backdrop: true,
+    animation: true,
+    allowOutsideClick: true,
+    allowEscapeKey: true,
+    allowEnterKey: true,
+    showConfirmButton: true,
+    showCancelButton: false,
+    preConfirm: null,
+    confirmButtonText: 'OK',
+    confirmButtonAriaLabel: '',
+    confirmButtonColor: null,
+    confirmButtonClass: null,
+    cancelButtonText: 'Cancel',
+    cancelButtonAriaLabel: '',
+    cancelButtonColor: null,
+    cancelButtonClass: null,
+    buttonsStyling: true,
+    reverseButtons: false,
+    focusConfirm: true,
+    focusCancel: false,
+    showCloseButton: false,
+    closeButtonAriaLabel: 'Close this dialog',
+    showLoaderOnConfirm: false,
+    imageUrl: null,
+    imageWidth: null,
+    imageHeight: null,
+    imageAlt: '',
+    imageClass: null,
+    timer: null,
+    width: null,
+    padding: null,
+    background: null,
+    input: null,
+    inputPlaceholder: '',
+    inputValue: '',
+    inputOptions: {},
+    inputAutoTrim: true,
+    inputClass: null,
+    inputAttributes: {},
+    inputValidator: null,
+    grow: false,
+    position: 'center',
+    progressSteps: [],
+    currentProgressStep: null,
+    progressStepsDistance: null,
+    onBeforeOpen: null,
+    onAfterClose: null,
+    onOpen: null,
+    onClose: null,
+    useRejections: false,
+    expectRejections: false
+  };
+
+  var deprecatedParams = ['useRejections', 'expectRejections'];
+
+  /**
+   * Is valid parameter
+   * @param {String} paramName
+   */
+  var isValidParameter = function isValidParameter(paramName) {
+    return defaultParams.hasOwnProperty(paramName) || paramName === 'extraParams';
+  };
+
+  /**
+   * Is deprecated parameter
+   * @param {String} paramName
+   */
+  var isDeprecatedParameter = function isDeprecatedParameter(paramName) {
+    return deprecatedParams.indexOf(paramName) !== -1;
+  };
+
+  /**
+   * Show relevant warnings for given params
+   *
+   * @param params
+   */
+  var showWarningsForParams = function showWarningsForParams(params) {
+    for (var param in params) {
+      if (!isValidParameter(param)) {
+        warn('Unknown parameter "' + param + '"');
+      }
+      if (isDeprecatedParameter(param)) {
+        warnOnce('The parameter "' + param + '" is deprecated and will be removed in the next major release.');
+      }
+    }
+  };
+
+  var globalState = {
+    popupParams: _extends({}, defaultParams)
+  };
+
+  /*
+   * Global function to close sweetAlert
+   */
+  var close = function close(onClose, onAfterClose) {
+    var container = getContainer();
+    var popup = getPopup();
+    if (!popup) {
+      return;
+    }
+
+    if (onClose !== null && typeof onClose === 'function') {
+      onClose(popup);
+    }
+
+    removeClass(popup, swalClasses.show);
+    addClass(popup, swalClasses.hide);
+    clearTimeout(popup.timeout);
+
+    if (!isToast()) {
+      resetPrevState();
+      window.onkeydown = globalState.previousWindowKeyDown;
+      globalState.windowOnkeydownOverridden = false;
+    }
+
+    var removePopupAndResetState = function removePopupAndResetState() {
+      if (container.parentNode) {
+        container.parentNode.removeChild(container);
+      }
+      removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['no-backdrop'], swalClasses['has-input'], swalClasses['toast-shown']]);
+
+      if (isModal()) {
+        undoScrollbar();
+        undoIOSfix();
+      }
+
+      if (onAfterClose !== null && typeof onAfterClose === 'function') {
+        setTimeout(function () {
+          onAfterClose();
+        });
+      }
+    };
+
+    // If animation is supported, animate
+    if (animationEndEvent && !hasClass(popup, swalClasses.noanimation)) {
+      popup.addEventListener(animationEndEvent, function swalCloseEventFinished() {
+        popup.removeEventListener(animationEndEvent, swalCloseEventFinished);
+        if (hasClass(popup, swalClasses.hide)) {
+          removePopupAndResetState();
+        }
+      });
+    } else {
+      // Otherwise, remove immediately
+      removePopupAndResetState();
+    }
+  };
+
+  /*
+   * Global function to determine if swal2 popup is shown
+   */
+  var isVisible$1 = function isVisible() {
+    return !!getPopup();
+  };
+
+  /*
+   * Global function to click 'Confirm' button
+   */
+  var clickConfirm = function clickConfirm() {
+    return getConfirmButton().click();
+  };
+
+  /*
+   * Global function to click 'Cancel' button
+   */
+  var clickCancel = function clickCancel() {
+    return getCancelButton().click();
+  };
+
+  /**
+   * Returns an extended version of `Swal` containing `params` as defaults.
+   * Useful for reusing Swal configuration.
+   *
+   * For example:
+   *
+   * Before:
+   * const textPromptOptions = { input: 'text', showCancelButton: true }
+   * const {value: firstName} = await Swal({ ...textPromptOptions, title: 'What is your first name?' })
+   * const {value: lastName} = await Swal({ ...textPromptOptions, title: 'What is your last name?' })
+   *
+   * After:
+   * const TextPrompt = Swal.mixin({ input: 'text', showCancelButton: true })
+   * const {value: firstName} = await TextPrompt.fire('What is your first name?')
+   * const {value: lastName} = await TextPrompt.fire('What is your last name?')
+   *
+   * @param params
+   */
+  function mixin(mixinParams) {
+    var Swal = this;
+    return function (_Swal) {
+      inherits(MixinSwal, _Swal);
+
+      function MixinSwal() {
+        classCallCheck(this, MixinSwal);
+        return possibleConstructorReturn(this, (MixinSwal.__proto__ || Object.getPrototypeOf(MixinSwal)).apply(this, arguments));
+      }
+
+      createClass(MixinSwal, [{
+        key: "_main",
+        value: function _main(params) {
+          return get(MixinSwal.prototype.__proto__ || Object.getPrototypeOf(MixinSwal.prototype), "_main", this).call(this, _extends({}, mixinParams, params));
+        }
+      }]);
+      return MixinSwal;
+    }(Swal);
+  }
+
+  // private global state for the queue feature
+  var currentSteps = [];
+
+  /*
+   * Global function for chaining sweetAlert popups
+   */
+  var queue = function queue(steps) {
+    var swal = this;
+    currentSteps = steps;
+    var resetQueue = function resetQueue() {
+      currentSteps = [];
+      document.body.removeAttribute('data-swal2-queue-step');
+    };
+    var queueResult = [];
+    return new Promise(function (resolve, reject) {
+      (function step(i, callback) {
+        if (i < currentSteps.length) {
+          document.body.setAttribute('data-swal2-queue-step', i);
+
+          swal(currentSteps[i]).then(function (result) {
+            if (typeof result.value !== 'undefined') {
+              queueResult.push(result.value);
+              step(i + 1, callback);
+            } else {
+              resetQueue();
+              resolve({ dismiss: result.dismiss });
+            }
+          });
+        } else {
+          resetQueue();
+          resolve({ value: queueResult });
+        }
+      })(0);
+    });
+  };
+
+  /*
+   * Global function for getting the index of current popup in queue
+   */
+  var getQueueStep = function getQueueStep() {
+    return document.body.getAttribute('data-swal2-queue-step');
+  };
+
+  /*
+   * Global function for inserting a popup to the queue
+   */
+  var insertQueueStep = function insertQueueStep(step, index) {
+    if (index && index < currentSteps.length) {
+      return currentSteps.splice(index, 0, step);
+    }
+    return currentSteps.push(step);
+  };
+
+  /*
+   * Global function for deleting a popup from the queue
+   */
+  var deleteQueueStep = function deleteQueueStep(index) {
+    if (typeof currentSteps[index] !== 'undefined') {
+      currentSteps.splice(index, 1);
+    }
+  };
+
+  /**
+   * Set default params for each popup
+   * @param {Object} userParams
+   */
+  var setDefaults = function setDefaults(userParams) {
+    if (!userParams || (typeof userParams === 'undefined' ? 'undefined' : _typeof(userParams)) !== 'object') {
+      return error('the argument for setDefaults() is required and has to be a object');
+    }
+
+    showWarningsForParams(userParams);
+
+    // assign valid params from userParams to popupParams
+    for (var param in userParams) {
+      if (isValidParameter(param)) {
+        globalState.popupParams[param] = userParams[param];
+      }
+    }
+  };
+
+  /**
+   * Reset default params for each popup
+   */
+  var resetDefaults = function resetDefaults() {
+    globalState.popupParams = _extends({}, defaultParams);
+  };
+
+  /**
+   * Show spinner instead of Confirm button and disable Cancel button
+   */
+  var showLoading = function showLoading() {
+    var popup = getPopup();
+    if (!popup) {
+      SweetAlert('');
+    }
+    popup = getPopup();
+    var actions = getActions();
+    var confirmButton = getConfirmButton();
+    var cancelButton = getCancelButton();
+
+    show(actions);
+    show(confirmButton);
+    addClass([popup, actions], swalClasses.loading);
+    confirmButton.disabled = true;
+    cancelButton.disabled = true;
+
+    popup.setAttribute('data-loading', true);
+    popup.setAttribute('aria-busy', true);
+    popup.focus();
+  };
+
+  function fire() {
+    var Swal = this;
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return new (Function.prototype.bind.apply(Swal, [null].concat(args)))();
+  }
+
+  var staticMethods = Object.freeze({
+    isValidParameter: isValidParameter,
+    isDeprecatedParameter: isDeprecatedParameter,
+    argsToParams: argsToParams,
+    adaptInputValidator: adaptInputValidator,
+    close: close,
+    closePopup: close,
+    closeModal: close,
+    closeToast: close,
+    isVisible: isVisible$1,
+    clickConfirm: clickConfirm,
+    clickCancel: clickCancel,
+    getTitle: getTitle,
+    getContent: getContent,
+    getImage: getImage,
+    getButtonsWrapper: getButtonsWrapper,
+    getActions: getActions,
+    getConfirmButton: getConfirmButton,
+    getCancelButton: getCancelButton,
+    getFooter: getFooter,
+    isLoading: isLoading,
+    mixin: mixin,
+    queue: queue,
+    getQueueStep: getQueueStep,
+    insertQueueStep: insertQueueStep,
+    deleteQueueStep: deleteQueueStep,
+    setDefaults: setDefaults,
+    resetDefaults: resetDefaults,
+    showLoading: showLoading,
+    enableLoading: showLoading,
+    fire: fire
+  });
+
+  /**
+   * Show spinner instead of Confirm button and disable Cancel button
+   */
+  function hideLoading() {
+    var domCache = this._domCache;
+    if (!this.params.showConfirmButton) {
+      hide(domCache.confirmButton);
+      if (!this.params.showCancelButton) {
+        hide(domCache.actions);
+      }
+    }
+    removeClass([domCache.popup, domCache.actions], swalClasses.loading);
+    domCache.popup.removeAttribute('aria-busy');
+    domCache.popup.removeAttribute('data-loading');
+    domCache.confirmButton.disabled = false;
+    domCache.cancelButton.disabled = false;
+  }
+
+  // Get input element by specified type or, if type isn't specified, by params.input
+  function getInput(inputType) {
+    var domCache = this._domCache;
+    inputType = inputType || this.params.input;
+    if (!inputType) {
+      return null;
+    }
+    switch (inputType) {
+      case 'select':
+      case 'textarea':
+      case 'file':
+        return getChildByClass(domCache.content, swalClasses[inputType]);
+      case 'checkbox':
+        return domCache.popup.querySelector('.' + swalClasses.checkbox + ' input');
+      case 'radio':
+        return domCache.popup.querySelector('.' + swalClasses.radio + ' input:checked') || domCache.popup.querySelector('.' + swalClasses.radio + ' input:first-child');
+      case 'range':
+        return domCache.popup.querySelector('.' + swalClasses.range + ' input');
+      default:
+        return getChildByClass(domCache.content, swalClasses.input);
+    }
+  }
+
+  function enableButtons() {
+    this._domCache.confirmButton.disabled = false;
+    this._domCache.cancelButton.disabled = false;
+  }
+
+  function disableButtons() {
+    this._domCache.confirmButton.disabled = true;
+    this._domCache.cancelButton.disabled = true;
+  }
+
+  function enableConfirmButton() {
+    this._domCache.confirmButton.disabled = false;
+  }
+
+  function disableConfirmButton() {
+    this._domCache.confirmButton.disabled = true;
+  }
+
+  function enableInput() {
+    var input = this.getInput();
+    if (!input) {
+      return false;
+    }
+    if (input.type === 'radio') {
+      var radiosContainer = input.parentNode.parentNode;
+      var radios = radiosContainer.querySelectorAll('input');
+      for (var i = 0; i < radios.length; i++) {
+        radios[i].disabled = false;
+      }
+    } else {
+      input.disabled = false;
+    }
+  }
+
+  function disableInput() {
+    var input = this.getInput();
+    if (!input) {
+      return false;
+    }
+    if (input && input.type === 'radio') {
+      var radiosContainer = input.parentNode.parentNode;
+      var radios = radiosContainer.querySelectorAll('input');
+      for (var i = 0; i < radios.length; i++) {
+        radios[i].disabled = true;
+      }
+    } else {
+      input.disabled = true;
+    }
+  }
+
+  // Show block with validation error
+  function showValidationError(error) {
+    var domCache = this._domCache;
+    domCache.validationError.innerHTML = error;
+    var popupComputedStyle = window.getComputedStyle(domCache.popup);
+    domCache.validationError.style.marginLeft = '-' + popupComputedStyle.getPropertyValue('padding-left');
+    domCache.validationError.style.marginRight = '-' + popupComputedStyle.getPropertyValue('padding-right');
+    show(domCache.validationError);
+
+    var input = this.getInput();
+    if (input) {
+      input.setAttribute('aria-invalid', true);
+      input.setAttribute('aria-describedBy', swalClasses.validationerror);
+      focusInput(input);
+      addClass(input, swalClasses.inputerror);
+    }
+  }
+
+  // Hide block with validation error
+  function resetValidationError() {
+    var domCache = this._domCache;
+    if (domCache.validationError) {
+      hide(domCache.validationError);
+    }
+
+    var input = this.getInput();
+    if (input) {
+      input.removeAttribute('aria-invalid');
+      input.removeAttribute('aria-describedBy');
+      removeClass(input, swalClasses.inputerror);
+    }
+  }
+
+  var defaultInputValidators = {
+    email: function email(string) {
+      return (/^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.reject('Invalid email address')
+      );
+    },
+    url: function url(string) {
+      // taken from https://stackoverflow.com/a/3809435/1331425
+      return (/^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)$/.test(string) ? Promise.resolve() : Promise.reject('Invalid URL')
+      );
+    }
+  };
+
+  /**
+   * Set type, text and actions on popup
+   *
+   * @param params
+   * @returns {boolean}
+   */
+  function setParameters(params) {
+    // Use default `inputValidator` for supported input types if not provided
+    if (!params.inputValidator) {
+      Object.keys(defaultInputValidators).forEach(function (key) {
+        if (params.input === key) {
+          params.inputValidator = params.expectRejections ? defaultInputValidators[key] : SweetAlert.adaptInputValidator(defaultInputValidators[key]);
+        }
+      });
+    }
+
+    // Determine if the custom target element is valid
+    if (!params.target || typeof params.target === 'string' && !document.querySelector(params.target) || typeof params.target !== 'string' && !params.target.appendChild) {
+      warn('Target parameter is not valid, defaulting to "body"');
+      params.target = 'body';
+    }
+
+    var popup = void 0;
+    var oldPopup = getPopup();
+    var targetElement = typeof params.target === 'string' ? document.querySelector(params.target) : params.target;
+    // If the model target has changed, refresh the popup
+    if (oldPopup && targetElement && oldPopup.parentNode !== targetElement.parentNode) {
+      popup = init(params);
+    } else {
+      popup = oldPopup || init(params);
+    }
+
+    // Set popup width
+    if (params.width) {
+      popup.style.width = typeof params.width === 'number' ? params.width + 'px' : params.width;
+    }
+
+    // Set popup padding
+    if (params.padding) {
+      popup.style.padding = typeof params.padding === 'number' ? params.padding + 'px' : params.padding;
+    }
+
+    // Set popup background
+    if (params.background) {
+      popup.style.background = params.background;
+    }
+    var popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
+    var successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
+    for (var i = 0; i < successIconParts.length; i++) {
+      successIconParts[i].style.backgroundColor = popupBackgroundColor;
+    }
+
+    var container = getContainer();
+    var title = getTitle();
+    var content = getContent().querySelector('#' + swalClasses.content);
+    var actions = getActions();
+    var confirmButton = getConfirmButton();
+    var cancelButton = getCancelButton();
+    var closeButton = getCloseButton();
+    var footer = getFooter();
+
+    // Title
+    if (params.titleText) {
+      title.innerText = params.titleText;
+    } else if (params.title) {
+      title.innerHTML = params.title.split('\n').join('<br />');
+    }
+
+    if (typeof params.backdrop === 'string') {
+      getContainer().style.background = params.backdrop;
+    } else if (!params.backdrop) {
+      addClass([document.documentElement, document.body], swalClasses['no-backdrop']);
+    }
+
+    // Content as HTML
+    if (params.html) {
+      parseHtmlToContainer(params.html, content);
+
+      // Content as plain text
+    } else if (params.text) {
+      content.textContent = params.text;
+      show(content);
+    } else {
+      hide(content);
+    }
+
+    // Position
+    if (params.position in swalClasses) {
+      addClass(container, swalClasses[params.position]);
+    } else {
+      warn('The "position" parameter is not valid, defaulting to "center"');
+      addClass(container, swalClasses.center);
+    }
+
+    // Grow
+    if (params.grow && typeof params.grow === 'string') {
+      var growClass = 'grow-' + params.grow;
+      if (growClass in swalClasses) {
+        addClass(container, swalClasses[growClass]);
+      }
+    }
+
+    // Animation
+    if (typeof params.animation === 'function') {
+      params.animation = params.animation.call();
+    }
+
+    // Close button
+    if (params.showCloseButton) {
+      closeButton.setAttribute('aria-label', params.closeButtonAriaLabel);
+      show(closeButton);
+    } else {
+      hide(closeButton);
+    }
+
+    // Default Class
+    popup.className = swalClasses.popup;
+    if (params.toast) {
+      addClass([document.documentElement, document.body], swalClasses['toast-shown']);
+      addClass(popup, swalClasses.toast);
+    } else {
+      addClass(popup, swalClasses.modal);
+    }
+
+    // Custom Class
+    if (params.customClass) {
+      addClass(popup, params.customClass);
+    }
+
+    // Progress steps
+    var progressStepsContainer = getProgressSteps();
+    var currentProgressStep = parseInt(params.currentProgressStep === null ? SweetAlert.getQueueStep() : params.currentProgressStep, 10);
+    if (params.progressSteps && params.progressSteps.length) {
+      show(progressStepsContainer);
+      empty(progressStepsContainer);
+      if (currentProgressStep >= params.progressSteps.length) {
+        warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
+      }
+      params.progressSteps.forEach(function (step, index) {
+        var circle = document.createElement('li');
+        addClass(circle, swalClasses.progresscircle);
+        circle.innerHTML = step;
+        if (index === currentProgressStep) {
+          addClass(circle, swalClasses.activeprogressstep);
+        }
+        progressStepsContainer.appendChild(circle);
+        if (index !== params.progressSteps.length - 1) {
+          var line = document.createElement('li');
+          addClass(line, swalClasses.progressline);
+          if (params.progressStepsDistance) {
+            line.style.width = params.progressStepsDistance;
+          }
+          progressStepsContainer.appendChild(line);
+        }
+      });
+    } else {
+      hide(progressStepsContainer);
+    }
+
+    // Icon
+    var icons = getIcons();
+    for (var _i = 0; _i < icons.length; _i++) {
+      hide(icons[_i]);
+    }
+    if (params.type) {
+      var validType = false;
+      for (var iconType in iconTypes) {
+        if (params.type === iconType) {
+          validType = true;
+          break;
+        }
+      }
+      if (!validType) {
+        error('Unknown alert type: ' + params.type);
+        return false;
+      }
+      var icon = popup.querySelector('.' + swalClasses.icon + '.' + iconTypes[params.type]);
+      show(icon);
+
+      // Animate icon
+      if (params.animation) {
+        addClass(icon, 'swal2-animate-' + params.type + '-icon');
+      }
+    }
+
+    // Custom image
+    var image = getImage();
+    if (params.imageUrl) {
+      image.setAttribute('src', params.imageUrl);
+      image.setAttribute('alt', params.imageAlt);
+      show(image);
+
+      if (params.imageWidth) {
+        image.setAttribute('width', params.imageWidth);
+      } else {
+        image.removeAttribute('width');
+      }
+
+      if (params.imageHeight) {
+        image.setAttribute('height', params.imageHeight);
+      } else {
+        image.removeAttribute('height');
+      }
+
+      image.className = swalClasses.image;
+      if (params.imageClass) {
+        addClass(image, params.imageClass);
+      }
+    } else {
+      hide(image);
+    }
+
+    // Cancel button
+    if (params.showCancelButton) {
+      cancelButton.style.display = 'inline-block';
+    } else {
+      hide(cancelButton);
+    }
+
+    // Confirm button
+    if (params.showConfirmButton) {
+      removeStyleProperty(confirmButton, 'display');
+    } else {
+      hide(confirmButton);
+    }
+
+    // Actions (buttons) wrapper
+    if (!params.showConfirmButton && !params.showCancelButton) {
+      hide(actions);
+    } else {
+      show(actions);
+    }
+
+    // Edit text on confirm and cancel buttons
+    confirmButton.innerHTML = params.confirmButtonText;
+    cancelButton.innerHTML = params.cancelButtonText;
+
+    // ARIA labels for confirm and cancel buttons
+    confirmButton.setAttribute('aria-label', params.confirmButtonAriaLabel);
+    cancelButton.setAttribute('aria-label', params.cancelButtonAriaLabel);
+
+    // Add buttons custom classes
+    confirmButton.className = swalClasses.confirm;
+    addClass(confirmButton, params.confirmButtonClass);
+    cancelButton.className = swalClasses.cancel;
+    addClass(cancelButton, params.cancelButtonClass);
+
+    // Buttons styling
+    if (params.buttonsStyling) {
+      addClass([confirmButton, cancelButton], swalClasses.styled);
+
+      // Buttons background colors
+      if (params.confirmButtonColor) {
+        confirmButton.style.backgroundColor = params.confirmButtonColor;
+      }
+      if (params.cancelButtonColor) {
+        cancelButton.style.backgroundColor = params.cancelButtonColor;
+      }
+
+      // Loading state
+      var confirmButtonBackgroundColor = window.getComputedStyle(confirmButton).getPropertyValue('background-color');
+      confirmButton.style.borderLeftColor = confirmButtonBackgroundColor;
+      confirmButton.style.borderRightColor = confirmButtonBackgroundColor;
+    } else {
+      removeClass([confirmButton, cancelButton], swalClasses.styled);
+
+      confirmButton.style.backgroundColor = confirmButton.style.borderLeftColor = confirmButton.style.borderRightColor = '';
+      cancelButton.style.backgroundColor = cancelButton.style.borderLeftColor = cancelButton.style.borderRightColor = '';
+    }
+
+    // Footer
+    parseHtmlToContainer(params.footer, footer);
+
+    // CSS animation
+    if (params.animation === true) {
+      removeClass(popup, swalClasses.noanimation);
+    } else {
+      addClass(popup, swalClasses.noanimation);
+    }
+
+    // showLoaderOnConfirm && preConfirm
+    if (params.showLoaderOnConfirm && !params.preConfirm) {
+      warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
+    }
+  }
+
+  /**
+   * Animations
+   *
+   * @param animation
+   * @param onBeforeOpen
+   * @param onComplete
+   */
+  var openPopup = function openPopup(animation, onBeforeOpen, onOpen) {
+    var container = getContainer();
+    var popup = getPopup();
+
+    if (onBeforeOpen !== null && typeof onBeforeOpen === 'function') {
+      onBeforeOpen(popup);
+    }
+
+    if (animation) {
+      addClass(popup, swalClasses.show);
+      addClass(container, swalClasses.fade);
+      removeClass(popup, swalClasses.hide);
+    } else {
+      removeClass(popup, swalClasses.fade);
+    }
+    show(popup);
+
+    // scrolling is 'hidden' until animation is done, after that 'auto'
+    container.style.overflowY = 'hidden';
+    if (animationEndEvent && !hasClass(popup, swalClasses.noanimation)) {
+      popup.addEventListener(animationEndEvent, function swalCloseEventFinished() {
+        popup.removeEventListener(animationEndEvent, swalCloseEventFinished);
+        container.style.overflowY = 'auto';
+      });
+    } else {
+      container.style.overflowY = 'auto';
+    }
+
+    addClass([document.documentElement, document.body, container], swalClasses.shown);
+    if (isModal()) {
+      fixScrollbar();
+      iOSfix();
+    }
+    states.previousActiveElement = document.activeElement;
+    if (onOpen !== null && typeof onOpen === 'function') {
+      setTimeout(function () {
+        onOpen(popup);
+      });
+    }
+  };
+
+  function _main(userParams) {
+    var _this = this;
+
+    showWarningsForParams(userParams);
+
+    var params = this.params = _extends({}, globalState.popupParams, userParams);
+    setParameters(params);
+    Object.freeze(params);
+
+    var domCache = this._domCache = {
+      popup: getPopup(),
+      container: getContainer(),
+      content: getContent(),
+      actions: getActions(),
+      confirmButton: getConfirmButton(),
+      cancelButton: getCancelButton(),
+      closeButton: getCloseButton(),
+      validationError: getValidationError(),
+      progressSteps: getProgressSteps()
+    };
+
+    var constructor = this.constructor;
+
+    return new Promise(function (resolve, reject) {
+      // functions to handle all resolving/rejecting/settling
+      var succeedWith = function succeedWith(value) {
+        constructor.closePopup(params.onClose, params.onAfterClose); // TODO: make closePopup an *instance* method
+        if (params.useRejections) {
+          resolve(value);
+        } else {
+          resolve({ value: value });
+        }
+      };
+      var dismissWith = function dismissWith(dismiss) {
+        constructor.closePopup(params.onClose, params.onAfterClose);
+        if (params.useRejections) {
+          reject(dismiss);
+        } else {
+          resolve({ dismiss: dismiss });
+        }
+      };
+      var errorWith = function errorWith(error$$1) {
+        constructor.closePopup(params.onClose, params.onAfterClose);
+        reject(error$$1);
+      };
+
+      // Close on timer
+      if (params.timer) {
+        domCache.popup.timeout = setTimeout(function () {
+          return dismissWith('timer');
+        }, params.timer);
+      }
+
+      // Get the value of the popup input
+      var getInputValue = function getInputValue() {
+        var input = _this.getInput();
+        if (!input) {
+          return null;
+        }
+        switch (params.input) {
+          case 'checkbox':
+            return input.checked ? 1 : 0;
+          case 'radio':
+            return input.checked ? input.value : null;
+          case 'file':
+            return input.files.length ? input.files[0] : null;
+          default:
+            return params.inputAutoTrim ? input.value.trim() : input.value;
+        }
+      };
+
+      // input autofocus
+      if (params.input) {
+        setTimeout(function () {
+          var input = _this.getInput();
+          if (input) {
+            focusInput(input);
+          }
+        }, 0);
+      }
+
+      var confirm = function confirm(value) {
+        if (params.showLoaderOnConfirm) {
+          constructor.showLoading(); // TODO: make showLoading an *instance* method
+        }
+
+        if (params.preConfirm) {
+          _this.resetValidationError();
+          var preConfirmPromise = Promise.resolve().then(function () {
+            return params.preConfirm(value, params.extraParams);
+          });
+          if (params.expectRejections) {
+            preConfirmPromise.then(function (preConfirmValue) {
+              return succeedWith(preConfirmValue || value);
+            }, function (validationError) {
+              _this.hideLoading();
+              if (validationError) {
+                _this.showValidationError(validationError);
+              }
+            });
+          } else {
+            preConfirmPromise.then(function (preConfirmValue) {
+              if (isVisible(domCache.validationError) || preConfirmValue === false) {
+                _this.hideLoading();
+              } else {
+                succeedWith(preConfirmValue || value);
+              }
+            }, function (error$$1) {
+              return errorWith(error$$1);
+            });
+          }
+        } else {
+          succeedWith(value);
+        }
+      };
+
+      // Mouse interactions
+      var onButtonEvent = function onButtonEvent(event) {
+        var e = event || window.event;
+        var target = e.target || e.srcElement;
+        var confirmButton = domCache.confirmButton,
+            cancelButton = domCache.cancelButton;
+
+        var targetedConfirm = confirmButton && (confirmButton === target || confirmButton.contains(target));
+        var targetedCancel = cancelButton && (cancelButton === target || cancelButton.contains(target));
+
+        switch (e.type) {
+          case 'click':
+            // Clicked 'confirm'
+            if (targetedConfirm && constructor.isVisible()) {
+              _this.disableButtons();
+              if (params.input) {
+                var inputValue = getInputValue();
+
+                if (params.inputValidator) {
+                  _this.disableInput();
+                  var validationPromise = Promise.resolve().then(function () {
+                    return params.inputValidator(inputValue, params.extraParams);
+                  });
+                  if (params.expectRejections) {
+                    validationPromise.then(function () {
+                      _this.enableButtons();
+                      _this.enableInput();
+                      confirm(inputValue);
+                    }, function (validationError) {
+                      _this.enableButtons();
+                      _this.enableInput();
+                      if (validationError) {
+                        _this.showValidationError(validationError);
+                      }
+                    });
+                  } else {
+                    validationPromise.then(function (validationError) {
+                      _this.enableButtons();
+                      _this.enableInput();
+                      if (validationError) {
+                        _this.showValidationError(validationError);
+                      } else {
+                        confirm(inputValue);
+                      }
+                    }, function (error$$1) {
+                      return errorWith(error$$1);
+                    });
+                  }
+                } else {
+                  confirm(inputValue);
+                }
+              } else {
+                confirm(true);
+              }
+
+              // Clicked 'cancel'
+            } else if (targetedCancel && constructor.isVisible()) {
+              _this.disableButtons();
+              dismissWith(constructor.DismissReason.cancel);
+            }
+            break;
+          default:
+        }
+      };
+
+      var buttons = domCache.popup.querySelectorAll('button');
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = onButtonEvent;
+        buttons[i].onmouseover = onButtonEvent;
+        buttons[i].onmouseout = onButtonEvent;
+        buttons[i].onmousedown = onButtonEvent;
+      }
+
+      // Closing popup by close button
+      domCache.closeButton.onclick = function () {
+        dismissWith(constructor.DismissReason.close);
+      };
+
+      if (params.toast) {
+        // Closing popup by internal click
+        domCache.popup.onclick = function (e) {
+          if (params.showConfirmButton || params.showCancelButton || params.showCloseButton || params.input) {
+            return;
+          }
+          constructor.closePopup(params.onClose, params.onAfterClose);
+          dismissWith(constructor.DismissReason.close);
+        };
+      } else {
+        var ignoreOutsideClick = false;
+
+        // Ignore click events that had mousedown on the popup but mouseup on the container
+        // This can happen when the user drags a slider
+        domCache.popup.onmousedown = function () {
+          domCache.container.onmouseup = function (e) {
+            domCache.container.onmouseup = undefined;
+            // We only check if the mouseup target is the container because usually it doesn't
+            // have any other direct children aside of the popup
+            if (e.target === domCache.container) {
+              ignoreOutsideClick = true;
+            }
+          };
+        };
+
+        // Ignore click events that had mousedown on the container but mouseup on the popup
+        domCache.container.onmousedown = function () {
+          domCache.popup.onmouseup = function (e) {
+            domCache.popup.onmouseup = undefined;
+            // We also need to check if the mouseup target is a child of the popup
+            if (e.target === domCache.popup || domCache.popup.contains(e.target)) {
+              ignoreOutsideClick = true;
+            }
+          };
+        };
+
+        domCache.container.onclick = function (e) {
+          if (ignoreOutsideClick) {
+            ignoreOutsideClick = false;
+            return;
+          }
+          if (e.target !== domCache.container) {
+            return;
+          }
+          if (callIfFunction(params.allowOutsideClick)) {
+            dismissWith(constructor.DismissReason.backdrop);
+          }
+        };
+      }
+
+      // Reverse buttons (Confirm on the right side)
+      if (params.reverseButtons) {
+        domCache.confirmButton.parentNode.insertBefore(domCache.cancelButton, domCache.confirmButton);
+      } else {
+        domCache.confirmButton.parentNode.insertBefore(domCache.confirmButton, domCache.cancelButton);
+      }
+
+      // Focus handling
+      var setFocus = function setFocus(index, increment) {
+        var focusableElements = getFocusableElements(params.focusCancel);
+        // search for visible elements and select the next possible match
+        for (var _i = 0; _i < focusableElements.length; _i++) {
+          index = index + increment;
+
+          // rollover to first item
+          if (index === focusableElements.length) {
+            index = 0;
+
+            // go to last item
+          } else if (index === -1) {
+            index = focusableElements.length - 1;
+          }
+
+          // determine if element is visible
+          var el = focusableElements[index];
+          if (isVisible(el)) {
+            return el.focus();
+          }
+        }
+      };
+
+      var handleKeyDown = function handleKeyDown(event) {
+        var e = event || window.event;
+
+        var arrowKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Left', 'Right', 'Up', 'Down' // IE11
+        ];
+
+        if (e.key === 'Enter' && !e.isComposing) {
+          if (e.target === _this.getInput()) {
+            if (['textarea', 'file'].indexOf(params.input) !== -1) {
+              return; // do not submit
+            }
+
+            constructor.clickConfirm();
+            e.preventDefault();
+          }
+
+          // TAB
+        } else if (e.key === 'Tab') {
+          var targetElement = e.target || e.srcElement;
+
+          var focusableElements = getFocusableElements(params.focusCancel);
+          var btnIndex = -1; // Find the button - note, this is a nodelist, not an array.
+          for (var _i2 = 0; _i2 < focusableElements.length; _i2++) {
+            if (targetElement === focusableElements[_i2]) {
+              btnIndex = _i2;
+              break;
+            }
+          }
+
+          if (!e.shiftKey) {
+            // Cycle to the next button
+            setFocus(btnIndex, 1);
+          } else {
+            // Cycle to the prev button
+            setFocus(btnIndex, -1);
+          }
+          e.stopPropagation();
+          e.preventDefault();
+
+          // ARROWS - switch focus between buttons
+        } else if (arrowKeys.indexOf(e.key) !== -1) {
+          // focus Cancel button if Confirm button is currently focused
+          if (document.activeElement === domCache.confirmButton && isVisible(domCache.cancelButton)) {
+            domCache.cancelButton.focus();
+            // and vice versa
+          } else if (document.activeElement === domCache.cancelButton && isVisible(domCache.confirmButton)) {
+            domCache.confirmButton.focus();
+          }
+
+          // ESC
+        } else if ((e.key === 'Escape' || e.key === 'Esc') && callIfFunction(params.allowEscapeKey) === true) {
+          dismissWith(constructor.DismissReason.esc);
+        }
+      };
+
+      if (params.toast && globalState.windowOnkeydownOverridden) {
+        window.onkeydown = globalState.previousWindowKeyDown;
+        globalState.windowOnkeydownOverridden = false;
+      }
+
+      if (!params.toast && !globalState.windowOnkeydownOverridden) {
+        globalState.previousWindowKeyDown = window.onkeydown;
+        globalState.windowOnkeydownOverridden = true;
+        window.onkeydown = handleKeyDown;
+      }
+
+      _this.enableButtons();
+      _this.hideLoading();
+      _this.resetValidationError();
+
+      if (params.input) {
+        addClass(document.body, swalClasses['has-input']);
+      }
+
+      // inputs
+      var inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
+      var input = void 0;
+      for (var _i3 = 0; _i3 < inputTypes.length; _i3++) {
+        var inputClass = swalClasses[inputTypes[_i3]];
+        var inputContainer = getChildByClass(domCache.content, inputClass);
+        input = _this.getInput(inputTypes[_i3]);
+
+        // set attributes
+        if (input) {
+          for (var j in input.attributes) {
+            if (input.attributes.hasOwnProperty(j)) {
+              var attrName = input.attributes[j].name;
+              if (attrName !== 'type' && attrName !== 'value') {
+                input.removeAttribute(attrName);
+              }
+            }
+          }
+          for (var attr in params.inputAttributes) {
+            input.setAttribute(attr, params.inputAttributes[attr]);
+          }
+        }
+
+        // set class
+        inputContainer.className = inputClass;
+        if (params.inputClass) {
+          addClass(inputContainer, params.inputClass);
+        }
+
+        hide(inputContainer);
+      }
+
+      var populateInputOptions = void 0;
+      switch (params.input) {
+        case 'text':
+        case 'email':
+        case 'password':
+        case 'number':
+        case 'tel':
+        case 'url':
+          input = getChildByClass(domCache.content, swalClasses.input);
+          input.value = params.inputValue;
+          input.placeholder = params.inputPlaceholder;
+          input.type = params.input;
+          show(input);
+          break;
+        case 'file':
+          input = getChildByClass(domCache.content, swalClasses.file);
+          input.placeholder = params.inputPlaceholder;
+          input.type = params.input;
+          show(input);
+          break;
+        case 'range':
+          var range = getChildByClass(domCache.content, swalClasses.range);
+          var rangeInput = range.querySelector('input');
+          var rangeOutput = range.querySelector('output');
+          rangeInput.value = params.inputValue;
+          rangeInput.type = params.input;
+          rangeOutput.value = params.inputValue;
+          show(range);
+          break;
+        case 'select':
+          var select = getChildByClass(domCache.content, swalClasses.select);
+          select.innerHTML = '';
+          if (params.inputPlaceholder) {
+            var placeholder = document.createElement('option');
+            placeholder.innerHTML = params.inputPlaceholder;
+            placeholder.value = '';
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            select.appendChild(placeholder);
+          }
+          populateInputOptions = function populateInputOptions(inputOptions) {
+            inputOptions.forEach(function (_ref) {
+              var _ref2 = slicedToArray(_ref, 2),
+                  optionValue = _ref2[0],
+                  optionLabel = _ref2[1];
+
+              var option = document.createElement('option');
+              option.value = optionValue;
+              option.innerHTML = optionLabel;
+              if (params.inputValue.toString() === optionValue.toString()) {
+                option.selected = true;
+              }
+              select.appendChild(option);
+            });
+            show(select);
+            select.focus();
+          };
+          break;
+        case 'radio':
+          var radio = getChildByClass(domCache.content, swalClasses.radio);
+          radio.innerHTML = '';
+          populateInputOptions = function populateInputOptions(inputOptions) {
+            inputOptions.forEach(function (_ref3) {
+              var _ref4 = slicedToArray(_ref3, 2),
+                  radioValue = _ref4[0],
+                  radioLabel = _ref4[1];
+
+              var radioInput = document.createElement('input');
+              var radioLabelElement = document.createElement('label');
+              radioInput.type = 'radio';
+              radioInput.name = swalClasses.radio;
+              radioInput.value = radioValue;
+              if (params.inputValue.toString() === radioValue.toString()) {
+                radioInput.checked = true;
+              }
+              radioLabelElement.innerHTML = radioLabel;
+              radioLabelElement.insertBefore(radioInput, radioLabelElement.firstChild);
+              radio.appendChild(radioLabelElement);
+            });
+            show(radio);
+            var radios = radio.querySelectorAll('input');
+            if (radios.length) {
+              radios[0].focus();
+            }
+          };
+          break;
+        case 'checkbox':
+          var checkbox = getChildByClass(domCache.content, swalClasses.checkbox);
+          var checkboxInput = _this.getInput('checkbox');
+          checkboxInput.type = 'checkbox';
+          checkboxInput.value = 1;
+          checkboxInput.id = swalClasses.checkbox;
+          checkboxInput.checked = Boolean(params.inputValue);
+          var label = checkbox.getElementsByTagName('span');
+          if (label.length) {
+            checkbox.removeChild(label[0]);
+          }
+          label = document.createElement('span');
+          label.innerHTML = params.inputPlaceholder;
+          checkbox.appendChild(label);
+          show(checkbox);
+          break;
+        case 'textarea':
+          var textarea = getChildByClass(domCache.content, swalClasses.textarea);
+          textarea.value = params.inputValue;
+          textarea.placeholder = params.inputPlaceholder;
+          show(textarea);
+          break;
+        case null:
+          break;
+        default:
+          error('Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "' + params.input + '"');
+          break;
+      }
+
+      if (params.input === 'select' || params.input === 'radio') {
+        var processInputOptions = function processInputOptions(inputOptions) {
+          return populateInputOptions(formatInputOptions(inputOptions));
+        };
+        if (isThenable(params.inputOptions)) {
+          constructor.showLoading();
+          params.inputOptions.then(function (inputOptions) {
+            _this.hideLoading();
+            processInputOptions(inputOptions);
+          });
+        } else if (_typeof(params.inputOptions) === 'object') {
+          processInputOptions(params.inputOptions);
+        } else {
+          error('Unexpected type of inputOptions! Expected object, Map or Promise, got ' + _typeof(params.inputOptions));
+        }
+      } else if (['text', 'email', 'number', 'tel', 'textarea'].indexOf(params.input) !== -1 && isThenable(params.inputValue)) {
+        constructor.showLoading();
+        hide(input);
+        params.inputValue.then(function (inputValue) {
+          input.value = params.input === 'number' ? parseFloat(inputValue) || 0 : inputValue + '';
+          show(input);
+          _this.hideLoading();
+        }).catch(function (err) {
+          error('Error in inputValue promise: ' + err);
+          input.value = '';
+          show(input);
+          _this.hideLoading();
+        });
+      }
+
+      openPopup(params.animation, params.onBeforeOpen, params.onOpen);
+
+      if (!params.toast) {
+        if (!callIfFunction(params.allowEnterKey)) {
+          if (document.activeElement) {
+            document.activeElement.blur();
+          }
+        } else if (params.focusCancel && isVisible(domCache.cancelButton)) {
+          domCache.cancelButton.focus();
+        } else if (params.focusConfirm && isVisible(domCache.confirmButton)) {
+          domCache.confirmButton.focus();
+        } else {
+          setFocus(-1, 1);
+        }
+      }
+
+      // fix scroll
+      domCache.container.scrollTop = 0;
+    });
+  }
+
+  var instanceMethods = Object.freeze({
+    hideLoading: hideLoading,
+    disableLoading: hideLoading,
+    getInput: getInput,
+    enableButtons: enableButtons,
+    disableButtons: disableButtons,
+    enableConfirmButton: enableConfirmButton,
+    disableConfirmButton: disableConfirmButton,
+    enableInput: enableInput,
+    disableInput: disableInput,
+    showValidationError: showValidationError,
+    resetValidationError: resetValidationError,
+    _main: _main
+  });
+
+  var currentInstance = void 0;
+
+  // SweetAlert constructor
+  function SweetAlert() {
+    // Prevent run in Node env
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    // Check for the existence of Promise
+    if (typeof Promise === 'undefined') {
+      error('This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)');
+    }
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    if (typeof args[0] === 'undefined') {
+      error('SweetAlert2 expects at least 1 attribute!');
+      return false;
+    }
+
+    // handle things when constructor is invoked without the `new` keyword
+    if (!(this instanceof SweetAlert)) {
+      return new (Function.prototype.bind.apply(SweetAlert, [null].concat(args)))();
+    }
+
+    currentInstance = this;
+
+    this._promise = this._main(this.constructor.argsToParams(args));
+  }
+
+  // `catch` cannot be the name of a module export, so we define our thenable methods here instead
+  SweetAlert.prototype.then = function (onFulfilled, onRejected) {
+    return this._promise.then(onFulfilled, onRejected);
+  };
+  SweetAlert.prototype.catch = function (onRejected) {
+    return this._promise.catch(onRejected);
+  };
+  SweetAlert.prototype.finally = function (onFinally) {
+    return this._promise.finally(onFinally);
+  };
+
+  // Assign instance methods from src/instanceMethods/*.js to prototype
+  _extends(SweetAlert.prototype, instanceMethods);
+
+  // Assign static methods from src/staticMethods/*.js to constructor
+  _extends(SweetAlert, staticMethods);
+
+  // Proxy to instance methods to constructor, for now, for backwards compatibility
+  Object.keys(instanceMethods).forEach(function (key) {
+    SweetAlert[key] = function () {
+      if (currentInstance) {
+        var _currentInstance;
+
+        return (_currentInstance = currentInstance)[key].apply(_currentInstance, arguments);
+      }
+    };
+  });
+
+  SweetAlert.DismissReason = DismissReason;
+
+  SweetAlert.noop = function () {};
+
+  SweetAlert.version = version;
+
+  SweetAlert.default = SweetAlert;
+
+  /**
+   * Set default params if `window._swalDefaults` is an object
+   */
+  if (typeof window !== 'undefined' && _typeof(window._swalDefaults) === 'object') {
+    SweetAlert.setDefaults(window._swalDefaults);
+  }
+
+  return SweetAlert;
+});
+if (typeof window !== 'undefined' && window.Sweetalert2) {
+  window.swal = window.sweetAlert = window.Swal = window.SweetAlert = window.Sweetalert2;
+}
+
+"undefined" != typeof document && function (e, t) {
+  var n = e.createElement("style");if (e.getElementsByTagName("head")[0].appendChild(n), n.styleSheet) n.styleSheet.disabled || (n.styleSheet.cssText = t);else try {
+    n.innerHTML = t;
+  } catch (e) {
+    n.innerText = t;
+  }
+}(document, "@-webkit-keyframes swal2-show {\n" + "  0% {\n" + "    -webkit-transform: scale(0.7);\n" + "            transform: scale(0.7); }\n" + "  45% {\n" + "    -webkit-transform: scale(1.05);\n" + "            transform: scale(1.05); }\n" + "  80% {\n" + "    -webkit-transform: scale(0.95);\n" + "            transform: scale(0.95); }\n" + "  100% {\n" + "    -webkit-transform: scale(1);\n" + "            transform: scale(1); } }\n" + "\n" + "@keyframes swal2-show {\n" + "  0% {\n" + "    -webkit-transform: scale(0.7);\n" + "            transform: scale(0.7); }\n" + "  45% {\n" + "    -webkit-transform: scale(1.05);\n" + "            transform: scale(1.05); }\n" + "  80% {\n" + "    -webkit-transform: scale(0.95);\n" + "            transform: scale(0.95); }\n" + "  100% {\n" + "    -webkit-transform: scale(1);\n" + "            transform: scale(1); } }\n" + "\n" + "@-webkit-keyframes swal2-hide {\n" + "  0% {\n" + "    -webkit-transform: scale(1);\n" + "            transform: scale(1);\n" + "    opacity: 1; }\n" + "  100% {\n" + "    -webkit-transform: scale(0.5);\n" + "            transform: scale(0.5);\n" + "    opacity: 0; } }\n" + "\n" + "@keyframes swal2-hide {\n" + "  0% {\n" + "    -webkit-transform: scale(1);\n" + "            transform: scale(1);\n" + "    opacity: 1; }\n" + "  100% {\n" + "    -webkit-transform: scale(0.5);\n" + "            transform: scale(0.5);\n" + "    opacity: 0; } }\n" + "\n" + "@-webkit-keyframes swal2-animate-success-line-tip {\n" + "  0% {\n" + "    top: 1.1875em;\n" + "    left: .0625em;\n" + "    width: 0; }\n" + "  54% {\n" + "    top: 1.0625em;\n" + "    left: .125em;\n" + "    width: 0; }\n" + "  70% {\n" + "    top: 2.1875em;\n" + "    left: -.375em;\n" + "    width: 3.125em; }\n" + "  84% {\n" + "    top: 3em;\n" + "    left: 1.3125em;\n" + "    width: 1.0625em; }\n" + "  100% {\n" + "    top: 2.8125em;\n" + "    left: .875em;\n" + "    width: 1.5625em; } }\n" + "\n" + "@keyframes swal2-animate-success-line-tip {\n" + "  0% {\n" + "    top: 1.1875em;\n" + "    left: .0625em;\n" + "    width: 0; }\n" + "  54% {\n" + "    top: 1.0625em;\n" + "    left: .125em;\n" + "    width: 0; }\n" + "  70% {\n" + "    top: 2.1875em;\n" + "    left: -.375em;\n" + "    width: 3.125em; }\n" + "  84% {\n" + "    top: 3em;\n" + "    left: 1.3125em;\n" + "    width: 1.0625em; }\n" + "  100% {\n" + "    top: 2.8125em;\n" + "    left: .875em;\n" + "    width: 1.5625em; } }\n" + "\n" + "@-webkit-keyframes swal2-animate-success-line-long {\n" + "  0% {\n" + "    top: 3.375em;\n" + "    right: 2.875em;\n" + "    width: 0; }\n" + "  65% {\n" + "    top: 3.375em;\n" + "    right: 2.875em;\n" + "    width: 0; }\n" + "  84% {\n" + "    top: 2.1875em;\n" + "    right: 0;\n" + "    width: 3.4375em; }\n" + "  100% {\n" + "    top: 2.375em;\n" + "    right: .5em;\n" + "    width: 2.9375em; } }\n" + "\n" + "@keyframes swal2-animate-success-line-long {\n" + "  0% {\n" + "    top: 3.375em;\n" + "    right: 2.875em;\n" + "    width: 0; }\n" + "  65% {\n" + "    top: 3.375em;\n" + "    right: 2.875em;\n" + "    width: 0; }\n" + "  84% {\n" + "    top: 2.1875em;\n" + "    right: 0;\n" + "    width: 3.4375em; }\n" + "  100% {\n" + "    top: 2.375em;\n" + "    right: .5em;\n" + "    width: 2.9375em; } }\n" + "\n" + "@-webkit-keyframes swal2-rotate-success-circular-line {\n" + "  0% {\n" + "    -webkit-transform: rotate(-45deg);\n" + "            transform: rotate(-45deg); }\n" + "  5% {\n" + "    -webkit-transform: rotate(-45deg);\n" + "            transform: rotate(-45deg); }\n" + "  12% {\n" + "    -webkit-transform: rotate(-405deg);\n" + "            transform: rotate(-405deg); }\n" + "  100% {\n" + "    -webkit-transform: rotate(-405deg);\n" + "            transform: rotate(-405deg); } }\n" + "\n" + "@keyframes swal2-rotate-success-circular-line {\n" + "  0% {\n" + "    -webkit-transform: rotate(-45deg);\n" + "            transform: rotate(-45deg); }\n" + "  5% {\n" + "    -webkit-transform: rotate(-45deg);\n" + "            transform: rotate(-45deg); }\n" + "  12% {\n" + "    -webkit-transform: rotate(-405deg);\n" + "            transform: rotate(-405deg); }\n" + "  100% {\n" + "    -webkit-transform: rotate(-405deg);\n" + "            transform: rotate(-405deg); } }\n" + "\n" + "@-webkit-keyframes swal2-animate-error-x-mark {\n" + "  0% {\n" + "    margin-top: 1.625em;\n" + "    -webkit-transform: scale(0.4);\n" + "            transform: scale(0.4);\n" + "    opacity: 0; }\n" + "  50% {\n" + "    margin-top: 1.625em;\n" + "    -webkit-transform: scale(0.4);\n" + "            transform: scale(0.4);\n" + "    opacity: 0; }\n" + "  80% {\n" + "    margin-top: -.375em;\n" + "    -webkit-transform: scale(1.15);\n" + "            transform: scale(1.15); }\n" + "  100% {\n" + "    margin-top: 0;\n" + "    -webkit-transform: scale(1);\n" + "            transform: scale(1);\n" + "    opacity: 1; } }\n" + "\n" + "@keyframes swal2-animate-error-x-mark {\n" + "  0% {\n" + "    margin-top: 1.625em;\n" + "    -webkit-transform: scale(0.4);\n" + "            transform: scale(0.4);\n" + "    opacity: 0; }\n" + "  50% {\n" + "    margin-top: 1.625em;\n" + "    -webkit-transform: scale(0.4);\n" + "            transform: scale(0.4);\n" + "    opacity: 0; }\n" + "  80% {\n" + "    margin-top: -.375em;\n" + "    -webkit-transform: scale(1.15);\n" + "            transform: scale(1.15); }\n" + "  100% {\n" + "    margin-top: 0;\n" + "    -webkit-transform: scale(1);\n" + "            transform: scale(1);\n" + "    opacity: 1; } }\n" + "\n" + "@-webkit-keyframes swal2-animate-error-icon {\n" + "  0% {\n" + "    -webkit-transform: rotateX(100deg);\n" + "            transform: rotateX(100deg);\n" + "    opacity: 0; }\n" + "  100% {\n" + "    -webkit-transform: rotateX(0deg);\n" + "            transform: rotateX(0deg);\n" + "    opacity: 1; } }\n" + "\n" + "@keyframes swal2-animate-error-icon {\n" + "  0% {\n" + "    -webkit-transform: rotateX(100deg);\n" + "            transform: rotateX(100deg);\n" + "    opacity: 0; }\n" + "  100% {\n" + "    -webkit-transform: rotateX(0deg);\n" + "            transform: rotateX(0deg);\n" + "    opacity: 1; } }\n" + "\n" + "body.swal2-toast-shown.swal2-has-input > .swal2-container > .swal2-toast {\n" + "  flex-direction: column;\n" + "  align-items: stretch; }\n" + "  body.swal2-toast-shown.swal2-has-input > .swal2-container > .swal2-toast .swal2-actions {\n" + "    flex: 1;\n" + "    align-self: stretch;\n" + "    justify-content: flex-end;\n" + "    height: 2.2em; }\n" + "  body.swal2-toast-shown.swal2-has-input > .swal2-container > .swal2-toast .swal2-loading {\n" + "    justify-content: center; }\n" + "  body.swal2-toast-shown.swal2-has-input > .swal2-container > .swal2-toast .swal2-input {\n" + "    height: 2em;\n" + "    margin: .3125em auto;\n" + "    font-size: 1em; }\n" + "  body.swal2-toast-shown.swal2-has-input > .swal2-container > .swal2-toast .swal2-validationerror {\n" + "    font-size: 1em; }\n" + "\n" + "body.swal2-toast-shown > .swal2-container {\n" + "  position: fixed;\n" + "  background-color: transparent; }\n" + "  body.swal2-toast-shown > .swal2-container.swal2-shown {\n" + "    background-color: transparent; }\n" + "  body.swal2-toast-shown > .swal2-container.swal2-top {\n" + "    top: 0;\n" + "    right: auto;\n" + "    bottom: auto;\n" + "    left: 50%;\n" + "    -webkit-transform: translateX(-50%);\n" + "            transform: translateX(-50%); }\n" + "  body.swal2-toast-shown > .swal2-container.swal2-top-end, body.swal2-toast-shown > .swal2-container.swal2-top-right {\n" + "    top: 0;\n" + "    right: 0;\n" + "    bottom: auto;\n" + "    left: auto; }\n" + "  body.swal2-toast-shown > .swal2-container.swal2-top-start, body.swal2-toast-shown > .swal2-container.swal2-top-left {\n" + "    top: 0;\n" + "    right: auto;\n" + "    bottom: auto;\n" + "    left: 0; }\n" + "  body.swal2-toast-shown > .swal2-container.swal2-center-start, body.swal2-toast-shown > .swal2-container.swal2-center-left {\n" + "    top: 50%;\n" + "    right: auto;\n" + "    bottom: auto;\n" + "    left: 0;\n" + "    -webkit-transform: translateY(-50%);\n" + "            transform: translateY(-50%); }\n" + "  body.swal2-toast-shown > .swal2-container.swal2-center {\n" + "    top: 50%;\n" + "    right: auto;\n" + "    bottom: auto;\n" + "    left: 50%;\n" + "    -webkit-transform: translate(-50%, -50%);\n" + "            transform: translate(-50%, -50%); }\n" + "  body.swal2-toast-shown > .swal2-container.swal2-center-end, body.swal2-toast-shown > .swal2-container.swal2-center-right {\n" + "    top: 50%;\n" + "    right: 0;\n" + "    bottom: auto;\n" + "    left: auto;\n" + "    -webkit-transform: translateY(-50%);\n" + "            transform: translateY(-50%); }\n" + "  body.swal2-toast-shown > .swal2-container.swal2-bottom-start, body.swal2-toast-shown > .swal2-container.swal2-bottom-left {\n" + "    top: auto;\n" + "    right: auto;\n" + "    bottom: 0;\n" + "    left: 0; }\n" + "  body.swal2-toast-shown > .swal2-container.swal2-bottom {\n" + "    top: auto;\n" + "    right: auto;\n" + "    bottom: 0;\n" + "    left: 50%;\n" + "    -webkit-transform: translateX(-50%);\n" + "            transform: translateX(-50%); }\n" + "  body.swal2-toast-shown > .swal2-container.swal2-bottom-end, body.swal2-toast-shown > .swal2-container.swal2-bottom-right {\n" + "    top: auto;\n" + "    right: 0;\n" + "    bottom: 0;\n" + "    left: auto; }\n" + "\n" + ".swal2-popup.swal2-toast {\n" + "  flex-direction: row;\n" + "  align-items: center;\n" + "  width: auto;\n" + "  padding: 0.625em;\n" + "  box-shadow: 0 0 0.625em #d9d9d9;\n" + "  overflow-y: hidden; }\n" + "  .swal2-popup.swal2-toast .swal2-header {\n" + "    flex-direction: row; }\n" + "  .swal2-popup.swal2-toast .swal2-title {\n" + "    justify-content: flex-start;\n" + "    margin: 0 .6em;\n" + "    font-size: 1em; }\n" + "  .swal2-popup.swal2-toast .swal2-close {\n" + "    position: initial; }\n" + "  .swal2-popup.swal2-toast .swal2-content {\n" + "    justify-content: flex-start;\n" + "    font-size: 1em; }\n" + "  .swal2-popup.swal2-toast .swal2-icon {\n" + "    width: 2em;\n" + "    min-width: 2em;\n" + "    height: 2em;\n" + "    margin: 0; }\n" + "    .swal2-popup.swal2-toast .swal2-icon-text {\n" + "      font-size: 2em;\n" + "      font-weight: bold;\n" + "      line-height: 1em; }\n" + "    .swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring {\n" + "      width: 2em;\n" + "      height: 2em; }\n" + "    .swal2-popup.swal2-toast .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {\n" + "      top: .875em;\n" + "      width: 1.375em; }\n" + "      .swal2-popup.swal2-toast .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='left'] {\n" + "        left: .3125em; }\n" + "      .swal2-popup.swal2-toast .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='right'] {\n" + "        right: .3125em; }\n" + "  .swal2-popup.swal2-toast .swal2-actions {\n" + "    height: auto;\n" + "    margin: 0 .3125em; }\n" + "  .swal2-popup.swal2-toast .swal2-styled {\n" + "    margin: 0 .3125em;\n" + "    padding: .3125em .625em;\n" + "    font-size: 1em; }\n" + "    .swal2-popup.swal2-toast .swal2-styled:focus {\n" + "      box-shadow: 0 0 0 0.0625em #fff, 0 0 0 0.125em rgba(50, 100, 150, 0.4); }\n" + "  .swal2-popup.swal2-toast .swal2-success {\n" + "    border-color: #a5dc86; }\n" + "    .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-circular-line'] {\n" + "      position: absolute;\n" + "      width: 2em;\n" + "      height: 2.8125em;\n" + "      -webkit-transform: rotate(45deg);\n" + "              transform: rotate(45deg);\n" + "      border-radius: 50%; }\n" + "      .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-circular-line'][class$='left'] {\n" + "        top: -.25em;\n" + "        left: -.9375em;\n" + "        -webkit-transform: rotate(-45deg);\n" + "                transform: rotate(-45deg);\n" + "        -webkit-transform-origin: 2em 2em;\n" + "                transform-origin: 2em 2em;\n" + "        border-radius: 4em 0 0 4em; }\n" + "      .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-circular-line'][class$='right'] {\n" + "        top: -.25em;\n" + "        left: .9375em;\n" + "        -webkit-transform-origin: 0 2em;\n" + "                transform-origin: 0 2em;\n" + "        border-radius: 0 4em 4em 0; }\n" + "    .swal2-popup.swal2-toast .swal2-success .swal2-success-ring {\n" + "      width: 2em;\n" + "      height: 2em; }\n" + "    .swal2-popup.swal2-toast .swal2-success .swal2-success-fix {\n" + "      top: 0;\n" + "      left: .4375em;\n" + "      width: .4375em;\n" + "      height: 2.6875em; }\n" + "    .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-line'] {\n" + "      height: .3125em; }\n" + "      .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-line'][class$='tip'] {\n" + "        top: 1.125em;\n" + "        left: .1875em;\n" + "        width: .75em; }\n" + "      .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-line'][class$='long'] {\n" + "        top: .9375em;\n" + "        right: .1875em;\n" + "        width: 1.375em; }\n" + "  .swal2-popup.swal2-toast.swal2-show {\n" + "    -webkit-animation: showSweetToast .5s;\n" + "            animation: showSweetToast .5s; }\n" + "  .swal2-popup.swal2-toast.swal2-hide {\n" + "    -webkit-animation: hideSweetToast .2s forwards;\n" + "            animation: hideSweetToast .2s forwards; }\n" + "  .swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-tip {\n" + "    -webkit-animation: animate-toast-success-tip .75s;\n" + "            animation: animate-toast-success-tip .75s; }\n" + "  .swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-long {\n" + "    -webkit-animation: animate-toast-success-long .75s;\n" + "            animation: animate-toast-success-long .75s; }\n" + "\n" + "@-webkit-keyframes showSweetToast {\n" + "  0% {\n" + "    -webkit-transform: translateY(-0.625em) rotateZ(2deg);\n" + "            transform: translateY(-0.625em) rotateZ(2deg);\n" + "    opacity: 0; }\n" + "  33% {\n" + "    -webkit-transform: translateY(0) rotateZ(-2deg);\n" + "            transform: translateY(0) rotateZ(-2deg);\n" + "    opacity: .5; }\n" + "  66% {\n" + "    -webkit-transform: translateY(0.3125em) rotateZ(2deg);\n" + "            transform: translateY(0.3125em) rotateZ(2deg);\n" + "    opacity: .7; }\n" + "  100% {\n" + "    -webkit-transform: translateY(0) rotateZ(0);\n" + "            transform: translateY(0) rotateZ(0);\n" + "    opacity: 1; } }\n" + "\n" + "@keyframes showSweetToast {\n" + "  0% {\n" + "    -webkit-transform: translateY(-0.625em) rotateZ(2deg);\n" + "            transform: translateY(-0.625em) rotateZ(2deg);\n" + "    opacity: 0; }\n" + "  33% {\n" + "    -webkit-transform: translateY(0) rotateZ(-2deg);\n" + "            transform: translateY(0) rotateZ(-2deg);\n" + "    opacity: .5; }\n" + "  66% {\n" + "    -webkit-transform: translateY(0.3125em) rotateZ(2deg);\n" + "            transform: translateY(0.3125em) rotateZ(2deg);\n" + "    opacity: .7; }\n" + "  100% {\n" + "    -webkit-transform: translateY(0) rotateZ(0);\n" + "            transform: translateY(0) rotateZ(0);\n" + "    opacity: 1; } }\n" + "\n" + "@-webkit-keyframes hideSweetToast {\n" + "  0% {\n" + "    opacity: 1; }\n" + "  33% {\n" + "    opacity: .5; }\n" + "  100% {\n" + "    -webkit-transform: rotateZ(1deg);\n" + "            transform: rotateZ(1deg);\n" + "    opacity: 0; } }\n" + "\n" + "@keyframes hideSweetToast {\n" + "  0% {\n" + "    opacity: 1; }\n" + "  33% {\n" + "    opacity: .5; }\n" + "  100% {\n" + "    -webkit-transform: rotateZ(1deg);\n" + "            transform: rotateZ(1deg);\n" + "    opacity: 0; } }\n" + "\n" + "@-webkit-keyframes animate-toast-success-tip {\n" + "  0% {\n" + "    top: .5625em;\n" + "    left: .0625em;\n" + "    width: 0; }\n" + "  54% {\n" + "    top: .125em;\n" + "    left: .125em;\n" + "    width: 0; }\n" + "  70% {\n" + "    top: .625em;\n" + "    left: -.25em;\n" + "    width: 1.625em; }\n" + "  84% {\n" + "    top: 1.0625em;\n" + "    left: .75em;\n" + "    width: .5em; }\n" + "  100% {\n" + "    top: 1.125em;\n" + "    left: .1875em;\n" + "    width: .75em; } }\n" + "\n" + "@keyframes animate-toast-success-tip {\n" + "  0% {\n" + "    top: .5625em;\n" + "    left: .0625em;\n" + "    width: 0; }\n" + "  54% {\n" + "    top: .125em;\n" + "    left: .125em;\n" + "    width: 0; }\n" + "  70% {\n" + "    top: .625em;\n" + "    left: -.25em;\n" + "    width: 1.625em; }\n" + "  84% {\n" + "    top: 1.0625em;\n" + "    left: .75em;\n" + "    width: .5em; }\n" + "  100% {\n" + "    top: 1.125em;\n" + "    left: .1875em;\n" + "    width: .75em; } }\n" + "\n" + "@-webkit-keyframes animate-toast-success-long {\n" + "  0% {\n" + "    top: 1.625em;\n" + "    right: 1.375em;\n" + "    width: 0; }\n" + "  65% {\n" + "    top: 1.25em;\n" + "    right: .9375em;\n" + "    width: 0; }\n" + "  84% {\n" + "    top: .9375em;\n" + "    right: 0;\n" + "    width: 1.125em; }\n" + "  100% {\n" + "    top: .9375em;\n" + "    right: .1875em;\n" + "    width: 1.375em; } }\n" + "\n" + "@keyframes animate-toast-success-long {\n" + "  0% {\n" + "    top: 1.625em;\n" + "    right: 1.375em;\n" + "    width: 0; }\n" + "  65% {\n" + "    top: 1.25em;\n" + "    right: .9375em;\n" + "    width: 0; }\n" + "  84% {\n" + "    top: .9375em;\n" + "    right: 0;\n" + "    width: 1.125em; }\n" + "  100% {\n" + "    top: .9375em;\n" + "    right: .1875em;\n" + "    width: 1.375em; } }\n" + "\n" + "html.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown),\n" + "body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {\n" + "  height: auto;\n" + "  overflow-y: hidden; }\n" + "\n" + "body.swal2-no-backdrop .swal2-shown {\n" + "  top: auto;\n" + "  right: auto;\n" + "  bottom: auto;\n" + "  left: auto;\n" + "  background-color: transparent; }\n" + "  body.swal2-no-backdrop .swal2-shown > .swal2-modal {\n" + "    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }\n" + "  body.swal2-no-backdrop .swal2-shown.swal2-top {\n" + "    top: 0;\n" + "    left: 50%;\n" + "    -webkit-transform: translateX(-50%);\n" + "            transform: translateX(-50%); }\n" + "  body.swal2-no-backdrop .swal2-shown.swal2-top-start, body.swal2-no-backdrop .swal2-shown.swal2-top-left {\n" + "    top: 0;\n" + "    left: 0; }\n" + "  body.swal2-no-backdrop .swal2-shown.swal2-top-end, body.swal2-no-backdrop .swal2-shown.swal2-top-right {\n" + "    top: 0;\n" + "    right: 0; }\n" + "  body.swal2-no-backdrop .swal2-shown.swal2-center {\n" + "    top: 50%;\n" + "    left: 50%;\n" + "    -webkit-transform: translate(-50%, -50%);\n" + "            transform: translate(-50%, -50%); }\n" + "  body.swal2-no-backdrop .swal2-shown.swal2-center-start, body.swal2-no-backdrop .swal2-shown.swal2-center-left {\n" + "    top: 50%;\n" + "    left: 0;\n" + "    -webkit-transform: translateY(-50%);\n" + "            transform: translateY(-50%); }\n" + "  body.swal2-no-backdrop .swal2-shown.swal2-center-end, body.swal2-no-backdrop .swal2-shown.swal2-center-right {\n" + "    top: 50%;\n" + "    right: 0;\n" + "    -webkit-transform: translateY(-50%);\n" + "            transform: translateY(-50%); }\n" + "  body.swal2-no-backdrop .swal2-shown.swal2-bottom {\n" + "    bottom: 0;\n" + "    left: 50%;\n" + "    -webkit-transform: translateX(-50%);\n" + "            transform: translateX(-50%); }\n" + "  body.swal2-no-backdrop .swal2-shown.swal2-bottom-start, body.swal2-no-backdrop .swal2-shown.swal2-bottom-left {\n" + "    bottom: 0;\n" + "    left: 0; }\n" + "  body.swal2-no-backdrop .swal2-shown.swal2-bottom-end, body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {\n" + "    right: 0;\n" + "    bottom: 0; }\n" + "\n" + ".swal2-container {\n" + "  display: flex;\n" + "  position: fixed;\n" + "  top: 0;\n" + "  right: 0;\n" + "  bottom: 0;\n" + "  left: 0;\n" + "  flex-direction: row;\n" + "  align-items: center;\n" + "  justify-content: center;\n" + "  padding: 10px;\n" + "  background-color: transparent;\n" + "  z-index: 1060;\n" + "  overflow-x: hidden;\n" + "  -webkit-overflow-scrolling: touch; }\n" + "  .swal2-container.swal2-top {\n" + "    align-items: flex-start; }\n" + "  .swal2-container.swal2-top-start, .swal2-container.swal2-top-left {\n" + "    align-items: flex-start;\n" + "    justify-content: flex-start; }\n" + "  .swal2-container.swal2-top-end, .swal2-container.swal2-top-right {\n" + "    align-items: flex-start;\n" + "    justify-content: flex-end; }\n" + "  .swal2-container.swal2-center {\n" + "    align-items: center; }\n" + "  .swal2-container.swal2-center-start, .swal2-container.swal2-center-left {\n" + "    align-items: center;\n" + "    justify-content: flex-start; }\n" + "  .swal2-container.swal2-center-end, .swal2-container.swal2-center-right {\n" + "    align-items: center;\n" + "    justify-content: flex-end; }\n" + "  .swal2-container.swal2-bottom {\n" + "    align-items: flex-end; }\n" + "  .swal2-container.swal2-bottom-start, .swal2-container.swal2-bottom-left {\n" + "    align-items: flex-end;\n" + "    justify-content: flex-start; }\n" + "  .swal2-container.swal2-bottom-end, .swal2-container.swal2-bottom-right {\n" + "    align-items: flex-end;\n" + "    justify-content: flex-end; }\n" + "  .swal2-container.swal2-grow-fullscreen > .swal2-modal {\n" + "    display: flex !important;\n" + "    flex: 1;\n" + "    align-self: stretch;\n" + "    justify-content: center; }\n" + "  .swal2-container.swal2-grow-row > .swal2-modal {\n" + "    display: flex !important;\n" + "    flex: 1;\n" + "    align-content: center;\n" + "    justify-content: center; }\n" + "  .swal2-container.swal2-grow-column {\n" + "    flex: 1;\n" + "    flex-direction: column; }\n" + "    .swal2-container.swal2-grow-column.swal2-top, .swal2-container.swal2-grow-column.swal2-center, .swal2-container.swal2-grow-column.swal2-bottom {\n" + "      align-items: center; }\n" + "    .swal2-container.swal2-grow-column.swal2-top-start, .swal2-container.swal2-grow-column.swal2-center-start, .swal2-container.swal2-grow-column.swal2-bottom-start, .swal2-container.swal2-grow-column.swal2-top-left, .swal2-container.swal2-grow-column.swal2-center-left, .swal2-container.swal2-grow-column.swal2-bottom-left {\n" + "      align-items: flex-start; }\n" + "    .swal2-container.swal2-grow-column.swal2-top-end, .swal2-container.swal2-grow-column.swal2-center-end, .swal2-container.swal2-grow-column.swal2-bottom-end, .swal2-container.swal2-grow-column.swal2-top-right, .swal2-container.swal2-grow-column.swal2-center-right, .swal2-container.swal2-grow-column.swal2-bottom-right {\n" + "      align-items: flex-end; }\n" + "    .swal2-container.swal2-grow-column > .swal2-modal {\n" + "      display: flex !important;\n" + "      flex: 1;\n" + "      align-content: center;\n" + "      justify-content: center; }\n" + "  .swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right) > .swal2-modal {\n" + "    margin: auto; }\n" + "  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {\n" + "    .swal2-container .swal2-modal {\n" + "      margin: 0 !important; } }\n" + "  .swal2-container.swal2-fade {\n" + "    transition: background-color .1s; }\n" + "  .swal2-container.swal2-shown {\n" + "    background-color: rgba(0, 0, 0, 0.4); }\n" + "\n" + ".swal2-popup {\n" + "  display: none;\n" + "  position: relative;\n" + "  flex-direction: column;\n" + "  justify-content: center;\n" + "  width: 32em;\n" + "  max-width: 100%;\n" + "  padding: 1.25em;\n" + "  border-radius: 0.3125em;\n" + "  background: #fff;\n" + "  font-family: inherit;\n" + "  font-size: 1rem;\n" + "  box-sizing: border-box; }\n" + "  .swal2-popup:focus {\n" + "    outline: none; }\n" + "  .swal2-popup.swal2-loading {\n" + "    overflow-y: hidden; }\n" + "  .swal2-popup .swal2-header {\n" + "    display: flex;\n" + "    flex-direction: column;\n" + "    align-items: center; }\n" + "  .swal2-popup .swal2-title {\n" + "    display: block;\n" + "    position: relative;\n" + "    max-width: 100%;\n" + "    margin: 0 0 0.4em;\n" + "    padding: 0;\n" + "    color: #595959;\n" + "    font-size: 1.875em;\n" + "    font-weight: 600;\n" + "    text-align: center;\n" + "    text-transform: none;\n" + "    word-wrap: break-word; }\n" + "  .swal2-popup .swal2-actions {\n" + "    align-items: center;\n" + "    justify-content: center;\n" + "    margin: 1.25em auto 0; }\n" + "    .swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled[disabled] {\n" + "      opacity: .4; }\n" + "    .swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:hover {\n" + "      background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)); }\n" + "    .swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:active {\n" + "      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); }\n" + "    .swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-confirm {\n" + "      width: 2.5em;\n" + "      height: 2.5em;\n" + "      margin: .46875em;\n" + "      padding: 0;\n" + "      border: .25em solid transparent;\n" + "      border-radius: 100%;\n" + "      border-color: transparent;\n" + "      background-color: transparent !important;\n" + "      color: transparent;\n" + "      cursor: default;\n" + "      box-sizing: border-box;\n" + "      -webkit-animation: swal2-rotate-loading 1.5s linear 0s infinite normal;\n" + "              animation: swal2-rotate-loading 1.5s linear 0s infinite normal;\n" + "      -webkit-user-select: none;\n" + "         -moz-user-select: none;\n" + "          -ms-user-select: none;\n" + "              user-select: none; }\n" + "    .swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-cancel {\n" + "      margin-right: 30px;\n" + "      margin-left: 30px; }\n" + "    .swal2-popup .swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after {\n" + "      display: inline-block;\n" + "      width: 15px;\n" + "      height: 15px;\n" + "      margin-left: 5px;\n" + "      border: 3px solid #999999;\n" + "      border-radius: 50%;\n" + "      border-right-color: transparent;\n" + "      box-shadow: 1px 1px 1px #fff;\n" + "      content: '';\n" + "      -webkit-animation: swal2-rotate-loading 1.5s linear 0s infinite normal;\n" + "              animation: swal2-rotate-loading 1.5s linear 0s infinite normal; }\n" + "  .swal2-popup .swal2-styled {\n" + "    margin: 0 .3125em;\n" + "    padding: .625em 2em;\n" + "    font-weight: 500;\n" + "    box-shadow: none; }\n" + "    .swal2-popup .swal2-styled:not([disabled]) {\n" + "      cursor: pointer; }\n" + "    .swal2-popup .swal2-styled.swal2-confirm {\n" + "      border: 0;\n" + "      border-radius: 0.25em;\n" + "      background: initial;\n" + "      background-color: #3085d6;\n" + "      color: #fff;\n" + "      font-size: 1.0625em; }\n" + "    .swal2-popup .swal2-styled.swal2-cancel {\n" + "      border: 0;\n" + "      border-radius: 0.25em;\n" + "      background: initial;\n" + "      background-color: #aaa;\n" + "      color: #fff;\n" + "      font-size: 1.0625em; }\n" + "    .swal2-popup .swal2-styled:focus {\n" + "      outline: none;\n" + "      box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(50, 100, 150, 0.4); }\n" + "    .swal2-popup .swal2-styled::-moz-focus-inner {\n" + "      border: 0; }\n" + "  .swal2-popup .swal2-footer {\n" + "    justify-content: center;\n" + "    margin: 1.25em 0 0;\n" + "    padding-top: 1em;\n" + "    border-top: 1px solid #eee;\n" + "    color: #545454;\n" + "    font-size: 1em; }\n" + "  .swal2-popup .swal2-image {\n" + "    max-width: 100%;\n" + "    margin: 1.25em auto; }\n" + "  .swal2-popup .swal2-close {\n" + "    position: absolute;\n" + "    top: 0;\n" + "    right: 0;\n" + "    justify-content: center;\n" + "    width: 1.2em;\n" + "    min-width: 1.2em;\n" + "    height: 1.2em;\n" + "    margin: 0;\n" + "    padding: 0;\n" + "    transition: color 0.1s ease-out;\n" + "    border: none;\n" + "    border-radius: 0;\n" + "    background: transparent;\n" + "    color: #cccccc;\n" + "    font-family: serif;\n" + "    font-size: calc(2.5em - 0.25em);\n" + "    line-height: 1.2em;\n" + "    cursor: pointer; }\n" + "    .swal2-popup .swal2-close:hover {\n" + "      -webkit-transform: none;\n" + "              transform: none;\n" + "      color: #f27474; }\n" + "  .swal2-popup > .swal2-input,\n" + "  .swal2-popup > .swal2-file,\n" + "  .swal2-popup > .swal2-textarea,\n" + "  .swal2-popup > .swal2-select,\n" + "  .swal2-popup > .swal2-radio,\n" + "  .swal2-popup > .swal2-checkbox {\n" + "    display: none; }\n" + "  .swal2-popup .swal2-content {\n" + "    justify-content: center;\n" + "    margin: 0;\n" + "    padding: 0;\n" + "    color: #545454;\n" + "    font-size: 1.125em;\n" + "    font-weight: 300;\n" + "    line-height: normal;\n" + "    word-wrap: break-word; }\n" + "  .swal2-popup #swal2-content {\n" + "    text-align: center; }\n" + "  .swal2-popup .swal2-input,\n" + "  .swal2-popup .swal2-file,\n" + "  .swal2-popup .swal2-textarea,\n" + "  .swal2-popup .swal2-select,\n" + "  .swal2-popup .swal2-radio,\n" + "  .swal2-popup .swal2-checkbox {\n" + "    margin: 1em auto; }\n" + "  .swal2-popup .swal2-input,\n" + "  .swal2-popup .swal2-file,\n" + "  .swal2-popup .swal2-textarea {\n" + "    width: 100%;\n" + "    transition: border-color .3s, box-shadow .3s;\n" + "    border: 1px solid #d9d9d9;\n" + "    border-radius: 0.1875em;\n" + "    font-size: 1.125em;\n" + "    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06);\n" + "    box-sizing: border-box; }\n" + "    .swal2-popup .swal2-input.swal2-inputerror,\n" + "    .swal2-popup .swal2-file.swal2-inputerror,\n" + "    .swal2-popup .swal2-textarea.swal2-inputerror {\n" + "      border-color: #f27474 !important;\n" + "      box-shadow: 0 0 2px #f27474 !important; }\n" + "    .swal2-popup .swal2-input:focus,\n" + "    .swal2-popup .swal2-file:focus,\n" + "    .swal2-popup .swal2-textarea:focus {\n" + "      border: 1px solid #b4dbed;\n" + "      outline: none;\n" + "      box-shadow: 0 0 3px #c4e6f5; }\n" + "    .swal2-popup .swal2-input::-webkit-input-placeholder,\n" + "    .swal2-popup .swal2-file::-webkit-input-placeholder,\n" + "    .swal2-popup .swal2-textarea::-webkit-input-placeholder {\n" + "      color: #cccccc; }\n" + "    .swal2-popup .swal2-input:-ms-input-placeholder,\n" + "    .swal2-popup .swal2-file:-ms-input-placeholder,\n" + "    .swal2-popup .swal2-textarea:-ms-input-placeholder {\n" + "      color: #cccccc; }\n" + "    .swal2-popup .swal2-input::-ms-input-placeholder,\n" + "    .swal2-popup .swal2-file::-ms-input-placeholder,\n" + "    .swal2-popup .swal2-textarea::-ms-input-placeholder {\n" + "      color: #cccccc; }\n" + "    .swal2-popup .swal2-input::placeholder,\n" + "    .swal2-popup .swal2-file::placeholder,\n" + "    .swal2-popup .swal2-textarea::placeholder {\n" + "      color: #cccccc; }\n" + "  .swal2-popup .swal2-range input {\n" + "    width: 80%; }\n" + "  .swal2-popup .swal2-range output {\n" + "    width: 20%;\n" + "    font-weight: 600;\n" + "    text-align: center; }\n" + "  .swal2-popup .swal2-range input,\n" + "  .swal2-popup .swal2-range output {\n" + "    height: 2.625em;\n" + "    margin: 1em auto;\n" + "    padding: 0;\n" + "    font-size: 1.125em;\n" + "    line-height: 2.625em; }\n" + "  .swal2-popup .swal2-input {\n" + "    height: 2.625em;\n" + "    padding: 0.75em; }\n" + "    .swal2-popup .swal2-input[type='number'] {\n" + "      max-width: 10em; }\n" + "  .swal2-popup .swal2-file {\n" + "    font-size: 1.125em; }\n" + "  .swal2-popup .swal2-textarea {\n" + "    height: 6.75em;\n" + "    padding: 0.75em; }\n" + "  .swal2-popup .swal2-select {\n" + "    min-width: 50%;\n" + "    max-width: 100%;\n" + "    padding: .375em .625em;\n" + "    color: #545454;\n" + "    font-size: 1.125em; }\n" + "  .swal2-popup .swal2-radio,\n" + "  .swal2-popup .swal2-checkbox {\n" + "    align-items: center;\n" + "    justify-content: center; }\n" + "    .swal2-popup .swal2-radio label,\n" + "    .swal2-popup .swal2-checkbox label {\n" + "      margin: 0 .6em;\n" + "      font-size: 1.125em; }\n" + "    .swal2-popup .swal2-radio input,\n" + "    .swal2-popup .swal2-checkbox input {\n" + "      margin: 0 .4em; }\n" + "  .swal2-popup .swal2-validationerror {\n" + "    display: none;\n" + "    align-items: center;\n" + "    justify-content: center;\n" + "    padding: 0.625em;\n" + "    background: #f0f0f0;\n" + "    color: #666666;\n" + "    font-size: 1em;\n" + "    font-weight: 300;\n" + "    overflow: hidden; }\n" + "    .swal2-popup .swal2-validationerror::before {\n" + "      display: inline-block;\n" + "      width: 1.5em;\n" + "      height: 1.5em;\n" + "      margin: 0 .625em;\n" + "      border-radius: 50%;\n" + "      background-color: #f27474;\n" + "      color: #fff;\n" + "      font-weight: 600;\n" + "      line-height: 1.5em;\n" + "      text-align: center;\n" + "      content: '!';\n" + "      zoom: normal; }\n" + "\n" + "@supports (-ms-accelerator: true) {\n" + "  .swal2-range input {\n" + "    width: 100% !important; }\n" + "  .swal2-range output {\n" + "    display: none; } }\n" + "\n" + "@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {\n" + "  .swal2-range input {\n" + "    width: 100% !important; }\n" + "  .swal2-range output {\n" + "    display: none; } }\n" + "\n" + ".swal2-icon {\n" + "  position: relative;\n" + "  justify-content: center;\n" + "  width: 5em;\n" + "  height: 5em;\n" + "  margin: 1.25em auto 1.875em;\n" + "  border: .25em solid transparent;\n" + "  border-radius: 50%;\n" + "  line-height: 5em;\n" + "  cursor: default;\n" + "  box-sizing: content-box;\n" + "  -webkit-user-select: none;\n" + "     -moz-user-select: none;\n" + "      -ms-user-select: none;\n" + "          user-select: none;\n" + "  zoom: normal; }\n" + "  .swal2-icon-text {\n" + "    font-size: 3.75em; }\n" + "  .swal2-icon.swal2-error {\n" + "    border-color: #f27474; }\n" + "    .swal2-icon.swal2-error .swal2-x-mark {\n" + "      position: relative;\n" + "      flex-grow: 1; }\n" + "    .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {\n" + "      display: block;\n" + "      position: absolute;\n" + "      top: 2.3125em;\n" + "      width: 2.9375em;\n" + "      height: .3125em;\n" + "      border-radius: .125em;\n" + "      background-color: #f27474; }\n" + "      .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='left'] {\n" + "        left: 1.0625em;\n" + "        -webkit-transform: rotate(45deg);\n" + "                transform: rotate(45deg); }\n" + "      .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='right'] {\n" + "        right: 1em;\n" + "        -webkit-transform: rotate(-45deg);\n" + "                transform: rotate(-45deg); }\n" + "  .swal2-icon.swal2-warning {\n" + "    border-color: #facea8;\n" + "    color: #f8bb86; }\n" + "  .swal2-icon.swal2-info {\n" + "    border-color: #9de0f6;\n" + "    color: #3fc3ee; }\n" + "  .swal2-icon.swal2-question {\n" + "    border-color: #c9dae1;\n" + "    color: #87adbd; }\n" + "  .swal2-icon.swal2-success {\n" + "    border-color: #a5dc86; }\n" + "    .swal2-icon.swal2-success [class^='swal2-success-circular-line'] {\n" + "      position: absolute;\n" + "      width: 3.75em;\n" + "      height: 7.5em;\n" + "      -webkit-transform: rotate(45deg);\n" + "              transform: rotate(45deg);\n" + "      border-radius: 50%; }\n" + "      .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='left'] {\n" + "        top: -.4375em;\n" + "        left: -2.0635em;\n" + "        -webkit-transform: rotate(-45deg);\n" + "                transform: rotate(-45deg);\n" + "        -webkit-transform-origin: 3.75em 3.75em;\n" + "                transform-origin: 3.75em 3.75em;\n" + "        border-radius: 7.5em 0 0 7.5em; }\n" + "      .swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='right'] {\n" + "        top: -.6875em;\n" + "        left: 1.875em;\n" + "        -webkit-transform: rotate(-45deg);\n" + "                transform: rotate(-45deg);\n" + "        -webkit-transform-origin: 0 3.75em;\n" + "                transform-origin: 0 3.75em;\n" + "        border-radius: 0 7.5em 7.5em 0; }\n" + "    .swal2-icon.swal2-success .swal2-success-ring {\n" + "      position: absolute;\n" + "      top: -.25em;\n" + "      left: -.25em;\n" + "      width: 100%;\n" + "      height: 100%;\n" + "      border: 0.25em solid rgba(165, 220, 134, 0.3);\n" + "      border-radius: 50%;\n" + "      z-index: 2;\n" + "      box-sizing: content-box; }\n" + "    .swal2-icon.swal2-success .swal2-success-fix {\n" + "      position: absolute;\n" + "      top: .5em;\n" + "      left: 1.625em;\n" + "      width: .4375em;\n" + "      height: 5.625em;\n" + "      -webkit-transform: rotate(-45deg);\n" + "              transform: rotate(-45deg);\n" + "      z-index: 1; }\n" + "    .swal2-icon.swal2-success [class^='swal2-success-line'] {\n" + "      display: block;\n" + "      position: absolute;\n" + "      height: .3125em;\n" + "      border-radius: .125em;\n" + "      background-color: #a5dc86;\n" + "      z-index: 2; }\n" + "      .swal2-icon.swal2-success [class^='swal2-success-line'][class$='tip'] {\n" + "        top: 2.875em;\n" + "        left: .875em;\n" + "        width: 1.5625em;\n" + "        -webkit-transform: rotate(45deg);\n" + "                transform: rotate(45deg); }\n" + "      .swal2-icon.swal2-success [class^='swal2-success-line'][class$='long'] {\n" + "        top: 2.375em;\n" + "        right: .5em;\n" + "        width: 2.9375em;\n" + "        -webkit-transform: rotate(-45deg);\n" + "                transform: rotate(-45deg); }\n" + "\n" + ".swal2-progresssteps {\n" + "  align-items: center;\n" + "  margin: 0 0 1.25em;\n" + "  padding: 0;\n" + "  font-weight: 600; }\n" + "  .swal2-progresssteps li {\n" + "    display: inline-block;\n" + "    position: relative; }\n" + "  .swal2-progresssteps .swal2-progresscircle {\n" + "    width: 2em;\n" + "    height: 2em;\n" + "    border-radius: 2em;\n" + "    background: #3085d6;\n" + "    color: #fff;\n" + "    line-height: 2em;\n" + "    text-align: center;\n" + "    z-index: 20; }\n" + "    .swal2-progresssteps .swal2-progresscircle:first-child {\n" + "      margin-left: 0; }\n" + "    .swal2-progresssteps .swal2-progresscircle:last-child {\n" + "      margin-right: 0; }\n" + "    .swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep {\n" + "      background: #3085d6; }\n" + "      .swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep ~ .swal2-progresscircle {\n" + "        background: #add8e6; }\n" + "      .swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep ~ .swal2-progressline {\n" + "        background: #add8e6; }\n" + "  .swal2-progresssteps .swal2-progressline {\n" + "    width: 2.5em;\n" + "    height: .4em;\n" + "    margin: 0 -1px;\n" + "    background: #3085d6;\n" + "    z-index: 10; }\n" + "\n" + "[class^='swal2'] {\n" + "  -webkit-tap-highlight-color: transparent; }\n" + "\n" + ".swal2-show {\n" + "  -webkit-animation: swal2-show 0.3s;\n" + "          animation: swal2-show 0.3s; }\n" + "  .swal2-show.swal2-noanimation {\n" + "    -webkit-animation: none;\n" + "            animation: none; }\n" + "\n" + ".swal2-hide {\n" + "  -webkit-animation: swal2-hide 0.15s forwards;\n" + "          animation: swal2-hide 0.15s forwards; }\n" + "  .swal2-hide.swal2-noanimation {\n" + "    -webkit-animation: none;\n" + "            animation: none; }\n" + "\n" + "[dir='rtl'] .swal2-close {\n" + "  right: auto;\n" + "  left: 0; }\n" + "\n" + ".swal2-animate-success-icon .swal2-success-line-tip {\n" + "  -webkit-animation: swal2-animate-success-line-tip 0.75s;\n" + "          animation: swal2-animate-success-line-tip 0.75s; }\n" + "\n" + ".swal2-animate-success-icon .swal2-success-line-long {\n" + "  -webkit-animation: swal2-animate-success-line-long 0.75s;\n" + "          animation: swal2-animate-success-line-long 0.75s; }\n" + "\n" + ".swal2-animate-success-icon .swal2-success-circular-line-right {\n" + "  -webkit-animation: swal2-rotate-success-circular-line 4.25s ease-in;\n" + "          animation: swal2-rotate-success-circular-line 4.25s ease-in; }\n" + "\n" + ".swal2-animate-error-icon {\n" + "  -webkit-animation: swal2-animate-error-icon 0.5s;\n" + "          animation: swal2-animate-error-icon 0.5s; }\n" + "  .swal2-animate-error-icon .swal2-x-mark {\n" + "    -webkit-animation: swal2-animate-error-x-mark 0.5s;\n" + "            animation: swal2-animate-error-x-mark 0.5s; }\n" + "\n" + "@-webkit-keyframes swal2-rotate-loading {\n" + "  0% {\n" + "    -webkit-transform: rotate(0deg);\n" + "            transform: rotate(0deg); }\n" + "  100% {\n" + "    -webkit-transform: rotate(360deg);\n" + "            transform: rotate(360deg); } }\n" + "\n" + "@keyframes swal2-rotate-loading {\n" + "  0% {\n" + "    -webkit-transform: rotate(0deg);\n" + "            transform: rotate(0deg); }\n" + "  100% {\n" + "    -webkit-transform: rotate(360deg);\n" + "            transform: rotate(360deg); } }");
+
+/***/ }),
+/* 40 */
 /***/ (function(module, exports) {
 
 (function ($, undefined) {
@@ -40711,7 +42921,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = ty
             axios.post('/company', formData).then(function (response) {
                 $('#myModalCreate').modal('hide');
                 $('#create').attr('data-dismiss', 'modal');
-                var str = "<tr>" + "<td class='align-middle company-logo'>" + "<img class='company-logo-img'  width='100px' " + "src=" + 'images/logo/' + response.data[0]['logo'] + " " + "alt=" + response.data[0]['name'] + "></td>" + "<td class='align-middle'>" + response.data[0]['name'] + "</td>" + "<td class='align-middle' >" + response.data[0]['country'] + "</td>" + "<td class='align-middle'>" + response.data[0]['city'] + "</td>" + "<td class=\"align-middle\"><a class=\"btn btn-primary\"   href=" + 'company/' + response.data[0]['id'] + '/edit' + ">Edit</a></td>" + (response.data[1] === 'admin' ? "<td class=\"align-middle\">" + "<button type=\"button\" class=\"btn btn-danger delete\" data-toggle=\"modal\" data-target=\"#myModalDelete\">Delete</button>" + "</td>" : '') + "</tr>";
+                var str = "<tr>" + "<td class='align-middle company-logo'>" + "<img class='company-logo-img'  width='100px' " + "src=" + 'images/logo/' + response.data[0]['logo'] + " " + "alt=" + response.data[0]['name'] + "></td>" + "<td class='align-middle link'>" + response.data[0]['name'] + "</td>" + "<td class='align-middle' >" + response.data[0]['country'] + "</td>" + "<td class='align-middle'>" + response.data[0]['city'] + "</td>" + "<td class=\"align-middle\"><a class=\"btn btn-primary\"   href=" + 'company/' + response.data[0]['id'] + '/edit' + ">Edit</a></td>" + (response.data[1] === 'admin' ? "<td class=\"align-middle\">" + "<form method=\"POST\" action=" + '/company/' + response.data[0]['id'] + ">" + "<input type=\"hidden\" name=\"_method\" value=\"DELETE\" />" + '<input type=\"hidden\" name=\"_token\" value=' + $('meta[name="csrf-token"]').attr('content') + '>' + "<button type=\"submit\" class=\"btn btn-danger delete\">Delete</button>" + "</form>" + "</td>" : '') + "</tr>";
                 $('tbody').prepend(str);
                 console.log(response);
             }).catch(function (error) {
@@ -40727,7 +42937,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = ty
 
         $('body').on('click', '.delete', function (e) {
             e.preventDefault();
-            var form = this;
+            var form = $(this).parent('form');
             swal({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -40736,15 +42946,2204 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = ty
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
-            }, function () {
-                $(form).submit();
+            }).then(function (result) {
+                if (result.value) {
+                    form.submit();
+                    //console.log(form);
+                }
+            }).catch(function (error) {
+                console.log(error);
             });
         });
+        $('.datepicker').datepicker();
     });
 })(jQuery);
 
 /***/ }),
-/* 39 */
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// jscs:disable maximumLineLength
+/* jscs:disable requireCamelCaseOrUpperCaseIdentifiers */
+/*!
+ * jQuery UI Datepicker 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Datepicker
+//>>group: Widgets
+//>>description: Displays a calendar from an input or inline for selecting dates.
+//>>docs: http://api.jqueryui.com/datepicker/
+//>>demos: http://jqueryui.com/datepicker/
+//>>css.structure: ../../themes/base/core.css
+//>>css.structure: ../../themes/base/datepicker.css
+//>>css.theme: ../../themes/base/theme.css
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+			__webpack_require__(1),
+			__webpack_require__(10),
+			__webpack_require__(42)
+		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+}( function( $ ) {
+
+$.extend( $.ui, { datepicker: { version: "1.12.1" } } );
+
+var datepicker_instActive;
+
+function datepicker_getZindex( elem ) {
+	var position, value;
+	while ( elem.length && elem[ 0 ] !== document ) {
+
+		// Ignore z-index if position is set to a value where z-index is ignored by the browser
+		// This makes behavior of this function consistent across browsers
+		// WebKit always returns auto if the element is positioned
+		position = elem.css( "position" );
+		if ( position === "absolute" || position === "relative" || position === "fixed" ) {
+
+			// IE returns 0 when zIndex is not specified
+			// other browsers return a string
+			// we ignore the case of nested elements with an explicit value of 0
+			// <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
+			value = parseInt( elem.css( "zIndex" ), 10 );
+			if ( !isNaN( value ) && value !== 0 ) {
+				return value;
+			}
+		}
+		elem = elem.parent();
+	}
+
+	return 0;
+}
+/* Date picker manager.
+   Use the singleton instance of this class, $.datepicker, to interact with the date picker.
+   Settings for (groups of) date pickers are maintained in an instance object,
+   allowing multiple different settings on the same page. */
+
+function Datepicker() {
+	this._curInst = null; // The current instance in use
+	this._keyEvent = false; // If the last event was a key event
+	this._disabledInputs = []; // List of date picker inputs that have been disabled
+	this._datepickerShowing = false; // True if the popup picker is showing , false if not
+	this._inDialog = false; // True if showing within a "dialog", false if not
+	this._mainDivId = "ui-datepicker-div"; // The ID of the main datepicker division
+	this._inlineClass = "ui-datepicker-inline"; // The name of the inline marker class
+	this._appendClass = "ui-datepicker-append"; // The name of the append marker class
+	this._triggerClass = "ui-datepicker-trigger"; // The name of the trigger marker class
+	this._dialogClass = "ui-datepicker-dialog"; // The name of the dialog marker class
+	this._disableClass = "ui-datepicker-disabled"; // The name of the disabled covering marker class
+	this._unselectableClass = "ui-datepicker-unselectable"; // The name of the unselectable cell marker class
+	this._currentClass = "ui-datepicker-current-day"; // The name of the current day marker class
+	this._dayOverClass = "ui-datepicker-days-cell-over"; // The name of the day hover marker class
+	this.regional = []; // Available regional settings, indexed by language code
+	this.regional[ "" ] = { // Default regional settings
+		closeText: "Done", // Display text for close link
+		prevText: "Prev", // Display text for previous month link
+		nextText: "Next", // Display text for next month link
+		currentText: "Today", // Display text for current month link
+		monthNames: [ "January","February","March","April","May","June",
+			"July","August","September","October","November","December" ], // Names of months for drop-down and formatting
+		monthNamesShort: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ], // For formatting
+		dayNames: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ], // For formatting
+		dayNamesShort: [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ], // For formatting
+		dayNamesMin: [ "Su","Mo","Tu","We","Th","Fr","Sa" ], // Column headings for days starting at Sunday
+		weekHeader: "Wk", // Column header for week of the year
+		dateFormat: "mm/dd/yy", // See format options on parseDate
+		firstDay: 0, // The first day of the week, Sun = 0, Mon = 1, ...
+		isRTL: false, // True if right-to-left language, false if left-to-right
+		showMonthAfterYear: false, // True if the year select precedes month, false for month then year
+		yearSuffix: "" // Additional text to append to the year in the month headers
+	};
+	this._defaults = { // Global defaults for all the date picker instances
+		showOn: "focus", // "focus" for popup on focus,
+			// "button" for trigger button, or "both" for either
+		showAnim: "fadeIn", // Name of jQuery animation for popup
+		showOptions: {}, // Options for enhanced animations
+		defaultDate: null, // Used when field is blank: actual date,
+			// +/-number for offset from today, null for today
+		appendText: "", // Display text following the input box, e.g. showing the format
+		buttonText: "...", // Text for trigger button
+		buttonImage: "", // URL for trigger button image
+		buttonImageOnly: false, // True if the image appears alone, false if it appears on a button
+		hideIfNoPrevNext: false, // True to hide next/previous month links
+			// if not applicable, false to just disable them
+		navigationAsDateFormat: false, // True if date formatting applied to prev/today/next links
+		gotoCurrent: false, // True if today link goes back to current selection instead
+		changeMonth: false, // True if month can be selected directly, false if only prev/next
+		changeYear: false, // True if year can be selected directly, false if only prev/next
+		yearRange: "c-10:c+10", // Range of years to display in drop-down,
+			// either relative to today's year (-nn:+nn), relative to currently displayed year
+			// (c-nn:c+nn), absolute (nnnn:nnnn), or a combination of the above (nnnn:-n)
+		showOtherMonths: false, // True to show dates in other months, false to leave blank
+		selectOtherMonths: false, // True to allow selection of dates in other months, false for unselectable
+		showWeek: false, // True to show week of the year, false to not show it
+		calculateWeek: this.iso8601Week, // How to calculate the week of the year,
+			// takes a Date and returns the number of the week for it
+		shortYearCutoff: "+10", // Short year values < this are in the current century,
+			// > this are in the previous century,
+			// string value starting with "+" for current year + value
+		minDate: null, // The earliest selectable date, or null for no limit
+		maxDate: null, // The latest selectable date, or null for no limit
+		duration: "fast", // Duration of display/closure
+		beforeShowDay: null, // Function that takes a date and returns an array with
+			// [0] = true if selectable, false if not, [1] = custom CSS class name(s) or "",
+			// [2] = cell title (optional), e.g. $.datepicker.noWeekends
+		beforeShow: null, // Function that takes an input field and
+			// returns a set of custom settings for the date picker
+		onSelect: null, // Define a callback function when a date is selected
+		onChangeMonthYear: null, // Define a callback function when the month or year is changed
+		onClose: null, // Define a callback function when the datepicker is closed
+		numberOfMonths: 1, // Number of months to show at a time
+		showCurrentAtPos: 0, // The position in multipe months at which to show the current month (starting at 0)
+		stepMonths: 1, // Number of months to step back/forward
+		stepBigMonths: 12, // Number of months to step back/forward for the big links
+		altField: "", // Selector for an alternate field to store selected dates into
+		altFormat: "", // The date format to use for the alternate field
+		constrainInput: true, // The input is constrained by the current date format
+		showButtonPanel: false, // True to show button panel, false to not show it
+		autoSize: false, // True to size the input for the date format, false to leave as is
+		disabled: false // The initial disabled state
+	};
+	$.extend( this._defaults, this.regional[ "" ] );
+	this.regional.en = $.extend( true, {}, this.regional[ "" ] );
+	this.regional[ "en-US" ] = $.extend( true, {}, this.regional.en );
+	this.dpDiv = datepicker_bindHover( $( "<div id='" + this._mainDivId + "' class='ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'></div>" ) );
+}
+
+$.extend( Datepicker.prototype, {
+	/* Class name added to elements to indicate already configured with a date picker. */
+	markerClassName: "hasDatepicker",
+
+	//Keep track of the maximum number of rows displayed (see #7043)
+	maxRows: 4,
+
+	// TODO rename to "widget" when switching to widget factory
+	_widgetDatepicker: function() {
+		return this.dpDiv;
+	},
+
+	/* Override the default settings for all instances of the date picker.
+	 * @param  settings  object - the new settings to use as defaults (anonymous object)
+	 * @return the manager object
+	 */
+	setDefaults: function( settings ) {
+		datepicker_extendRemove( this._defaults, settings || {} );
+		return this;
+	},
+
+	/* Attach the date picker to a jQuery selection.
+	 * @param  target	element - the target input field or division or span
+	 * @param  settings  object - the new settings to use for this date picker instance (anonymous)
+	 */
+	_attachDatepicker: function( target, settings ) {
+		var nodeName, inline, inst;
+		nodeName = target.nodeName.toLowerCase();
+		inline = ( nodeName === "div" || nodeName === "span" );
+		if ( !target.id ) {
+			this.uuid += 1;
+			target.id = "dp" + this.uuid;
+		}
+		inst = this._newInst( $( target ), inline );
+		inst.settings = $.extend( {}, settings || {} );
+		if ( nodeName === "input" ) {
+			this._connectDatepicker( target, inst );
+		} else if ( inline ) {
+			this._inlineDatepicker( target, inst );
+		}
+	},
+
+	/* Create a new instance object. */
+	_newInst: function( target, inline ) {
+		var id = target[ 0 ].id.replace( /([^A-Za-z0-9_\-])/g, "\\\\$1" ); // escape jQuery meta chars
+		return { id: id, input: target, // associated target
+			selectedDay: 0, selectedMonth: 0, selectedYear: 0, // current selection
+			drawMonth: 0, drawYear: 0, // month being drawn
+			inline: inline, // is datepicker inline or not
+			dpDiv: ( !inline ? this.dpDiv : // presentation div
+			datepicker_bindHover( $( "<div class='" + this._inlineClass + " ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'></div>" ) ) ) };
+	},
+
+	/* Attach the date picker to an input field. */
+	_connectDatepicker: function( target, inst ) {
+		var input = $( target );
+		inst.append = $( [] );
+		inst.trigger = $( [] );
+		if ( input.hasClass( this.markerClassName ) ) {
+			return;
+		}
+		this._attachments( input, inst );
+		input.addClass( this.markerClassName ).on( "keydown", this._doKeyDown ).
+			on( "keypress", this._doKeyPress ).on( "keyup", this._doKeyUp );
+		this._autoSize( inst );
+		$.data( target, "datepicker", inst );
+
+		//If disabled option is true, disable the datepicker once it has been attached to the input (see ticket #5665)
+		if ( inst.settings.disabled ) {
+			this._disableDatepicker( target );
+		}
+	},
+
+	/* Make attachments based on settings. */
+	_attachments: function( input, inst ) {
+		var showOn, buttonText, buttonImage,
+			appendText = this._get( inst, "appendText" ),
+			isRTL = this._get( inst, "isRTL" );
+
+		if ( inst.append ) {
+			inst.append.remove();
+		}
+		if ( appendText ) {
+			inst.append = $( "<span class='" + this._appendClass + "'>" + appendText + "</span>" );
+			input[ isRTL ? "before" : "after" ]( inst.append );
+		}
+
+		input.off( "focus", this._showDatepicker );
+
+		if ( inst.trigger ) {
+			inst.trigger.remove();
+		}
+
+		showOn = this._get( inst, "showOn" );
+		if ( showOn === "focus" || showOn === "both" ) { // pop-up date picker when in the marked field
+			input.on( "focus", this._showDatepicker );
+		}
+		if ( showOn === "button" || showOn === "both" ) { // pop-up date picker when button clicked
+			buttonText = this._get( inst, "buttonText" );
+			buttonImage = this._get( inst, "buttonImage" );
+			inst.trigger = $( this._get( inst, "buttonImageOnly" ) ?
+				$( "<img/>" ).addClass( this._triggerClass ).
+					attr( { src: buttonImage, alt: buttonText, title: buttonText } ) :
+				$( "<button type='button'></button>" ).addClass( this._triggerClass ).
+					html( !buttonImage ? buttonText : $( "<img/>" ).attr(
+					{ src:buttonImage, alt:buttonText, title:buttonText } ) ) );
+			input[ isRTL ? "before" : "after" ]( inst.trigger );
+			inst.trigger.on( "click", function() {
+				if ( $.datepicker._datepickerShowing && $.datepicker._lastInput === input[ 0 ] ) {
+					$.datepicker._hideDatepicker();
+				} else if ( $.datepicker._datepickerShowing && $.datepicker._lastInput !== input[ 0 ] ) {
+					$.datepicker._hideDatepicker();
+					$.datepicker._showDatepicker( input[ 0 ] );
+				} else {
+					$.datepicker._showDatepicker( input[ 0 ] );
+				}
+				return false;
+			} );
+		}
+	},
+
+	/* Apply the maximum length for the date format. */
+	_autoSize: function( inst ) {
+		if ( this._get( inst, "autoSize" ) && !inst.inline ) {
+			var findMax, max, maxI, i,
+				date = new Date( 2009, 12 - 1, 20 ), // Ensure double digits
+				dateFormat = this._get( inst, "dateFormat" );
+
+			if ( dateFormat.match( /[DM]/ ) ) {
+				findMax = function( names ) {
+					max = 0;
+					maxI = 0;
+					for ( i = 0; i < names.length; i++ ) {
+						if ( names[ i ].length > max ) {
+							max = names[ i ].length;
+							maxI = i;
+						}
+					}
+					return maxI;
+				};
+				date.setMonth( findMax( this._get( inst, ( dateFormat.match( /MM/ ) ?
+					"monthNames" : "monthNamesShort" ) ) ) );
+				date.setDate( findMax( this._get( inst, ( dateFormat.match( /DD/ ) ?
+					"dayNames" : "dayNamesShort" ) ) ) + 20 - date.getDay() );
+			}
+			inst.input.attr( "size", this._formatDate( inst, date ).length );
+		}
+	},
+
+	/* Attach an inline date picker to a div. */
+	_inlineDatepicker: function( target, inst ) {
+		var divSpan = $( target );
+		if ( divSpan.hasClass( this.markerClassName ) ) {
+			return;
+		}
+		divSpan.addClass( this.markerClassName ).append( inst.dpDiv );
+		$.data( target, "datepicker", inst );
+		this._setDate( inst, this._getDefaultDate( inst ), true );
+		this._updateDatepicker( inst );
+		this._updateAlternate( inst );
+
+		//If disabled option is true, disable the datepicker before showing it (see ticket #5665)
+		if ( inst.settings.disabled ) {
+			this._disableDatepicker( target );
+		}
+
+		// Set display:block in place of inst.dpDiv.show() which won't work on disconnected elements
+		// http://bugs.jqueryui.com/ticket/7552 - A Datepicker created on a detached div has zero height
+		inst.dpDiv.css( "display", "block" );
+	},
+
+	/* Pop-up the date picker in a "dialog" box.
+	 * @param  input element - ignored
+	 * @param  date	string or Date - the initial date to display
+	 * @param  onSelect  function - the function to call when a date is selected
+	 * @param  settings  object - update the dialog date picker instance's settings (anonymous object)
+	 * @param  pos int[2] - coordinates for the dialog's position within the screen or
+	 *					event - with x/y coordinates or
+	 *					leave empty for default (screen centre)
+	 * @return the manager object
+	 */
+	_dialogDatepicker: function( input, date, onSelect, settings, pos ) {
+		var id, browserWidth, browserHeight, scrollX, scrollY,
+			inst = this._dialogInst; // internal instance
+
+		if ( !inst ) {
+			this.uuid += 1;
+			id = "dp" + this.uuid;
+			this._dialogInput = $( "<input type='text' id='" + id +
+				"' style='position: absolute; top: -100px; width: 0px;'/>" );
+			this._dialogInput.on( "keydown", this._doKeyDown );
+			$( "body" ).append( this._dialogInput );
+			inst = this._dialogInst = this._newInst( this._dialogInput, false );
+			inst.settings = {};
+			$.data( this._dialogInput[ 0 ], "datepicker", inst );
+		}
+		datepicker_extendRemove( inst.settings, settings || {} );
+		date = ( date && date.constructor === Date ? this._formatDate( inst, date ) : date );
+		this._dialogInput.val( date );
+
+		this._pos = ( pos ? ( pos.length ? pos : [ pos.pageX, pos.pageY ] ) : null );
+		if ( !this._pos ) {
+			browserWidth = document.documentElement.clientWidth;
+			browserHeight = document.documentElement.clientHeight;
+			scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+			scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+			this._pos = // should use actual width/height below
+				[ ( browserWidth / 2 ) - 100 + scrollX, ( browserHeight / 2 ) - 150 + scrollY ];
+		}
+
+		// Move input on screen for focus, but hidden behind dialog
+		this._dialogInput.css( "left", ( this._pos[ 0 ] + 20 ) + "px" ).css( "top", this._pos[ 1 ] + "px" );
+		inst.settings.onSelect = onSelect;
+		this._inDialog = true;
+		this.dpDiv.addClass( this._dialogClass );
+		this._showDatepicker( this._dialogInput[ 0 ] );
+		if ( $.blockUI ) {
+			$.blockUI( this.dpDiv );
+		}
+		$.data( this._dialogInput[ 0 ], "datepicker", inst );
+		return this;
+	},
+
+	/* Detach a datepicker from its control.
+	 * @param  target	element - the target input field or division or span
+	 */
+	_destroyDatepicker: function( target ) {
+		var nodeName,
+			$target = $( target ),
+			inst = $.data( target, "datepicker" );
+
+		if ( !$target.hasClass( this.markerClassName ) ) {
+			return;
+		}
+
+		nodeName = target.nodeName.toLowerCase();
+		$.removeData( target, "datepicker" );
+		if ( nodeName === "input" ) {
+			inst.append.remove();
+			inst.trigger.remove();
+			$target.removeClass( this.markerClassName ).
+				off( "focus", this._showDatepicker ).
+				off( "keydown", this._doKeyDown ).
+				off( "keypress", this._doKeyPress ).
+				off( "keyup", this._doKeyUp );
+		} else if ( nodeName === "div" || nodeName === "span" ) {
+			$target.removeClass( this.markerClassName ).empty();
+		}
+
+		if ( datepicker_instActive === inst ) {
+			datepicker_instActive = null;
+		}
+	},
+
+	/* Enable the date picker to a jQuery selection.
+	 * @param  target	element - the target input field or division or span
+	 */
+	_enableDatepicker: function( target ) {
+		var nodeName, inline,
+			$target = $( target ),
+			inst = $.data( target, "datepicker" );
+
+		if ( !$target.hasClass( this.markerClassName ) ) {
+			return;
+		}
+
+		nodeName = target.nodeName.toLowerCase();
+		if ( nodeName === "input" ) {
+			target.disabled = false;
+			inst.trigger.filter( "button" ).
+				each( function() { this.disabled = false; } ).end().
+				filter( "img" ).css( { opacity: "1.0", cursor: "" } );
+		} else if ( nodeName === "div" || nodeName === "span" ) {
+			inline = $target.children( "." + this._inlineClass );
+			inline.children().removeClass( "ui-state-disabled" );
+			inline.find( "select.ui-datepicker-month, select.ui-datepicker-year" ).
+				prop( "disabled", false );
+		}
+		this._disabledInputs = $.map( this._disabledInputs,
+			function( value ) { return ( value === target ? null : value ); } ); // delete entry
+	},
+
+	/* Disable the date picker to a jQuery selection.
+	 * @param  target	element - the target input field or division or span
+	 */
+	_disableDatepicker: function( target ) {
+		var nodeName, inline,
+			$target = $( target ),
+			inst = $.data( target, "datepicker" );
+
+		if ( !$target.hasClass( this.markerClassName ) ) {
+			return;
+		}
+
+		nodeName = target.nodeName.toLowerCase();
+		if ( nodeName === "input" ) {
+			target.disabled = true;
+			inst.trigger.filter( "button" ).
+				each( function() { this.disabled = true; } ).end().
+				filter( "img" ).css( { opacity: "0.5", cursor: "default" } );
+		} else if ( nodeName === "div" || nodeName === "span" ) {
+			inline = $target.children( "." + this._inlineClass );
+			inline.children().addClass( "ui-state-disabled" );
+			inline.find( "select.ui-datepicker-month, select.ui-datepicker-year" ).
+				prop( "disabled", true );
+		}
+		this._disabledInputs = $.map( this._disabledInputs,
+			function( value ) { return ( value === target ? null : value ); } ); // delete entry
+		this._disabledInputs[ this._disabledInputs.length ] = target;
+	},
+
+	/* Is the first field in a jQuery collection disabled as a datepicker?
+	 * @param  target	element - the target input field or division or span
+	 * @return boolean - true if disabled, false if enabled
+	 */
+	_isDisabledDatepicker: function( target ) {
+		if ( !target ) {
+			return false;
+		}
+		for ( var i = 0; i < this._disabledInputs.length; i++ ) {
+			if ( this._disabledInputs[ i ] === target ) {
+				return true;
+			}
+		}
+		return false;
+	},
+
+	/* Retrieve the instance data for the target control.
+	 * @param  target  element - the target input field or division or span
+	 * @return  object - the associated instance data
+	 * @throws  error if a jQuery problem getting data
+	 */
+	_getInst: function( target ) {
+		try {
+			return $.data( target, "datepicker" );
+		}
+		catch ( err ) {
+			throw "Missing instance data for this datepicker";
+		}
+	},
+
+	/* Update or retrieve the settings for a date picker attached to an input field or division.
+	 * @param  target  element - the target input field or division or span
+	 * @param  name	object - the new settings to update or
+	 *				string - the name of the setting to change or retrieve,
+	 *				when retrieving also "all" for all instance settings or
+	 *				"defaults" for all global defaults
+	 * @param  value   any - the new value for the setting
+	 *				(omit if above is an object or to retrieve a value)
+	 */
+	_optionDatepicker: function( target, name, value ) {
+		var settings, date, minDate, maxDate,
+			inst = this._getInst( target );
+
+		if ( arguments.length === 2 && typeof name === "string" ) {
+			return ( name === "defaults" ? $.extend( {}, $.datepicker._defaults ) :
+				( inst ? ( name === "all" ? $.extend( {}, inst.settings ) :
+				this._get( inst, name ) ) : null ) );
+		}
+
+		settings = name || {};
+		if ( typeof name === "string" ) {
+			settings = {};
+			settings[ name ] = value;
+		}
+
+		if ( inst ) {
+			if ( this._curInst === inst ) {
+				this._hideDatepicker();
+			}
+
+			date = this._getDateDatepicker( target, true );
+			minDate = this._getMinMaxDate( inst, "min" );
+			maxDate = this._getMinMaxDate( inst, "max" );
+			datepicker_extendRemove( inst.settings, settings );
+
+			// reformat the old minDate/maxDate values if dateFormat changes and a new minDate/maxDate isn't provided
+			if ( minDate !== null && settings.dateFormat !== undefined && settings.minDate === undefined ) {
+				inst.settings.minDate = this._formatDate( inst, minDate );
+			}
+			if ( maxDate !== null && settings.dateFormat !== undefined && settings.maxDate === undefined ) {
+				inst.settings.maxDate = this._formatDate( inst, maxDate );
+			}
+			if ( "disabled" in settings ) {
+				if ( settings.disabled ) {
+					this._disableDatepicker( target );
+				} else {
+					this._enableDatepicker( target );
+				}
+			}
+			this._attachments( $( target ), inst );
+			this._autoSize( inst );
+			this._setDate( inst, date );
+			this._updateAlternate( inst );
+			this._updateDatepicker( inst );
+		}
+	},
+
+	// Change method deprecated
+	_changeDatepicker: function( target, name, value ) {
+		this._optionDatepicker( target, name, value );
+	},
+
+	/* Redraw the date picker attached to an input field or division.
+	 * @param  target  element - the target input field or division or span
+	 */
+	_refreshDatepicker: function( target ) {
+		var inst = this._getInst( target );
+		if ( inst ) {
+			this._updateDatepicker( inst );
+		}
+	},
+
+	/* Set the dates for a jQuery selection.
+	 * @param  target element - the target input field or division or span
+	 * @param  date	Date - the new date
+	 */
+	_setDateDatepicker: function( target, date ) {
+		var inst = this._getInst( target );
+		if ( inst ) {
+			this._setDate( inst, date );
+			this._updateDatepicker( inst );
+			this._updateAlternate( inst );
+		}
+	},
+
+	/* Get the date(s) for the first entry in a jQuery selection.
+	 * @param  target element - the target input field or division or span
+	 * @param  noDefault boolean - true if no default date is to be used
+	 * @return Date - the current date
+	 */
+	_getDateDatepicker: function( target, noDefault ) {
+		var inst = this._getInst( target );
+		if ( inst && !inst.inline ) {
+			this._setDateFromField( inst, noDefault );
+		}
+		return ( inst ? this._getDate( inst ) : null );
+	},
+
+	/* Handle keystrokes. */
+	_doKeyDown: function( event ) {
+		var onSelect, dateStr, sel,
+			inst = $.datepicker._getInst( event.target ),
+			handled = true,
+			isRTL = inst.dpDiv.is( ".ui-datepicker-rtl" );
+
+		inst._keyEvent = true;
+		if ( $.datepicker._datepickerShowing ) {
+			switch ( event.keyCode ) {
+				case 9: $.datepicker._hideDatepicker();
+						handled = false;
+						break; // hide on tab out
+				case 13: sel = $( "td." + $.datepicker._dayOverClass + ":not(." +
+									$.datepicker._currentClass + ")", inst.dpDiv );
+						if ( sel[ 0 ] ) {
+							$.datepicker._selectDay( event.target, inst.selectedMonth, inst.selectedYear, sel[ 0 ] );
+						}
+
+						onSelect = $.datepicker._get( inst, "onSelect" );
+						if ( onSelect ) {
+							dateStr = $.datepicker._formatDate( inst );
+
+							// Trigger custom callback
+							onSelect.apply( ( inst.input ? inst.input[ 0 ] : null ), [ dateStr, inst ] );
+						} else {
+							$.datepicker._hideDatepicker();
+						}
+
+						return false; // don't submit the form
+				case 27: $.datepicker._hideDatepicker();
+						break; // hide on escape
+				case 33: $.datepicker._adjustDate( event.target, ( event.ctrlKey ?
+							-$.datepicker._get( inst, "stepBigMonths" ) :
+							-$.datepicker._get( inst, "stepMonths" ) ), "M" );
+						break; // previous month/year on page up/+ ctrl
+				case 34: $.datepicker._adjustDate( event.target, ( event.ctrlKey ?
+							+$.datepicker._get( inst, "stepBigMonths" ) :
+							+$.datepicker._get( inst, "stepMonths" ) ), "M" );
+						break; // next month/year on page down/+ ctrl
+				case 35: if ( event.ctrlKey || event.metaKey ) {
+							$.datepicker._clearDate( event.target );
+						}
+						handled = event.ctrlKey || event.metaKey;
+						break; // clear on ctrl or command +end
+				case 36: if ( event.ctrlKey || event.metaKey ) {
+							$.datepicker._gotoToday( event.target );
+						}
+						handled = event.ctrlKey || event.metaKey;
+						break; // current on ctrl or command +home
+				case 37: if ( event.ctrlKey || event.metaKey ) {
+							$.datepicker._adjustDate( event.target, ( isRTL ? +1 : -1 ), "D" );
+						}
+						handled = event.ctrlKey || event.metaKey;
+
+						// -1 day on ctrl or command +left
+						if ( event.originalEvent.altKey ) {
+							$.datepicker._adjustDate( event.target, ( event.ctrlKey ?
+								-$.datepicker._get( inst, "stepBigMonths" ) :
+								-$.datepicker._get( inst, "stepMonths" ) ), "M" );
+						}
+
+						// next month/year on alt +left on Mac
+						break;
+				case 38: if ( event.ctrlKey || event.metaKey ) {
+							$.datepicker._adjustDate( event.target, -7, "D" );
+						}
+						handled = event.ctrlKey || event.metaKey;
+						break; // -1 week on ctrl or command +up
+				case 39: if ( event.ctrlKey || event.metaKey ) {
+							$.datepicker._adjustDate( event.target, ( isRTL ? -1 : +1 ), "D" );
+						}
+						handled = event.ctrlKey || event.metaKey;
+
+						// +1 day on ctrl or command +right
+						if ( event.originalEvent.altKey ) {
+							$.datepicker._adjustDate( event.target, ( event.ctrlKey ?
+								+$.datepicker._get( inst, "stepBigMonths" ) :
+								+$.datepicker._get( inst, "stepMonths" ) ), "M" );
+						}
+
+						// next month/year on alt +right
+						break;
+				case 40: if ( event.ctrlKey || event.metaKey ) {
+							$.datepicker._adjustDate( event.target, +7, "D" );
+						}
+						handled = event.ctrlKey || event.metaKey;
+						break; // +1 week on ctrl or command +down
+				default: handled = false;
+			}
+		} else if ( event.keyCode === 36 && event.ctrlKey ) { // display the date picker on ctrl+home
+			$.datepicker._showDatepicker( this );
+		} else {
+			handled = false;
+		}
+
+		if ( handled ) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+	},
+
+	/* Filter entered characters - based on date format. */
+	_doKeyPress: function( event ) {
+		var chars, chr,
+			inst = $.datepicker._getInst( event.target );
+
+		if ( $.datepicker._get( inst, "constrainInput" ) ) {
+			chars = $.datepicker._possibleChars( $.datepicker._get( inst, "dateFormat" ) );
+			chr = String.fromCharCode( event.charCode == null ? event.keyCode : event.charCode );
+			return event.ctrlKey || event.metaKey || ( chr < " " || !chars || chars.indexOf( chr ) > -1 );
+		}
+	},
+
+	/* Synchronise manual entry and field/alternate field. */
+	_doKeyUp: function( event ) {
+		var date,
+			inst = $.datepicker._getInst( event.target );
+
+		if ( inst.input.val() !== inst.lastVal ) {
+			try {
+				date = $.datepicker.parseDate( $.datepicker._get( inst, "dateFormat" ),
+					( inst.input ? inst.input.val() : null ),
+					$.datepicker._getFormatConfig( inst ) );
+
+				if ( date ) { // only if valid
+					$.datepicker._setDateFromField( inst );
+					$.datepicker._updateAlternate( inst );
+					$.datepicker._updateDatepicker( inst );
+				}
+			}
+			catch ( err ) {
+			}
+		}
+		return true;
+	},
+
+	/* Pop-up the date picker for a given input field.
+	 * If false returned from beforeShow event handler do not show.
+	 * @param  input  element - the input field attached to the date picker or
+	 *					event - if triggered by focus
+	 */
+	_showDatepicker: function( input ) {
+		input = input.target || input;
+		if ( input.nodeName.toLowerCase() !== "input" ) { // find from button/image trigger
+			input = $( "input", input.parentNode )[ 0 ];
+		}
+
+		if ( $.datepicker._isDisabledDatepicker( input ) || $.datepicker._lastInput === input ) { // already here
+			return;
+		}
+
+		var inst, beforeShow, beforeShowSettings, isFixed,
+			offset, showAnim, duration;
+
+		inst = $.datepicker._getInst( input );
+		if ( $.datepicker._curInst && $.datepicker._curInst !== inst ) {
+			$.datepicker._curInst.dpDiv.stop( true, true );
+			if ( inst && $.datepicker._datepickerShowing ) {
+				$.datepicker._hideDatepicker( $.datepicker._curInst.input[ 0 ] );
+			}
+		}
+
+		beforeShow = $.datepicker._get( inst, "beforeShow" );
+		beforeShowSettings = beforeShow ? beforeShow.apply( input, [ input, inst ] ) : {};
+		if ( beforeShowSettings === false ) {
+			return;
+		}
+		datepicker_extendRemove( inst.settings, beforeShowSettings );
+
+		inst.lastVal = null;
+		$.datepicker._lastInput = input;
+		$.datepicker._setDateFromField( inst );
+
+		if ( $.datepicker._inDialog ) { // hide cursor
+			input.value = "";
+		}
+		if ( !$.datepicker._pos ) { // position below input
+			$.datepicker._pos = $.datepicker._findPos( input );
+			$.datepicker._pos[ 1 ] += input.offsetHeight; // add the height
+		}
+
+		isFixed = false;
+		$( input ).parents().each( function() {
+			isFixed |= $( this ).css( "position" ) === "fixed";
+			return !isFixed;
+		} );
+
+		offset = { left: $.datepicker._pos[ 0 ], top: $.datepicker._pos[ 1 ] };
+		$.datepicker._pos = null;
+
+		//to avoid flashes on Firefox
+		inst.dpDiv.empty();
+
+		// determine sizing offscreen
+		inst.dpDiv.css( { position: "absolute", display: "block", top: "-1000px" } );
+		$.datepicker._updateDatepicker( inst );
+
+		// fix width for dynamic number of date pickers
+		// and adjust position before showing
+		offset = $.datepicker._checkOffset( inst, offset, isFixed );
+		inst.dpDiv.css( { position: ( $.datepicker._inDialog && $.blockUI ?
+			"static" : ( isFixed ? "fixed" : "absolute" ) ), display: "none",
+			left: offset.left + "px", top: offset.top + "px" } );
+
+		if ( !inst.inline ) {
+			showAnim = $.datepicker._get( inst, "showAnim" );
+			duration = $.datepicker._get( inst, "duration" );
+			inst.dpDiv.css( "z-index", datepicker_getZindex( $( input ) ) + 1 );
+			$.datepicker._datepickerShowing = true;
+
+			if ( $.effects && $.effects.effect[ showAnim ] ) {
+				inst.dpDiv.show( showAnim, $.datepicker._get( inst, "showOptions" ), duration );
+			} else {
+				inst.dpDiv[ showAnim || "show" ]( showAnim ? duration : null );
+			}
+
+			if ( $.datepicker._shouldFocusInput( inst ) ) {
+				inst.input.trigger( "focus" );
+			}
+
+			$.datepicker._curInst = inst;
+		}
+	},
+
+	/* Generate the date picker content. */
+	_updateDatepicker: function( inst ) {
+		this.maxRows = 4; //Reset the max number of rows being displayed (see #7043)
+		datepicker_instActive = inst; // for delegate hover events
+		inst.dpDiv.empty().append( this._generateHTML( inst ) );
+		this._attachHandlers( inst );
+
+		var origyearshtml,
+			numMonths = this._getNumberOfMonths( inst ),
+			cols = numMonths[ 1 ],
+			width = 17,
+			activeCell = inst.dpDiv.find( "." + this._dayOverClass + " a" );
+
+		if ( activeCell.length > 0 ) {
+			datepicker_handleMouseover.apply( activeCell.get( 0 ) );
+		}
+
+		inst.dpDiv.removeClass( "ui-datepicker-multi-2 ui-datepicker-multi-3 ui-datepicker-multi-4" ).width( "" );
+		if ( cols > 1 ) {
+			inst.dpDiv.addClass( "ui-datepicker-multi-" + cols ).css( "width", ( width * cols ) + "em" );
+		}
+		inst.dpDiv[ ( numMonths[ 0 ] !== 1 || numMonths[ 1 ] !== 1 ? "add" : "remove" ) +
+			"Class" ]( "ui-datepicker-multi" );
+		inst.dpDiv[ ( this._get( inst, "isRTL" ) ? "add" : "remove" ) +
+			"Class" ]( "ui-datepicker-rtl" );
+
+		if ( inst === $.datepicker._curInst && $.datepicker._datepickerShowing && $.datepicker._shouldFocusInput( inst ) ) {
+			inst.input.trigger( "focus" );
+		}
+
+		// Deffered render of the years select (to avoid flashes on Firefox)
+		if ( inst.yearshtml ) {
+			origyearshtml = inst.yearshtml;
+			setTimeout( function() {
+
+				//assure that inst.yearshtml didn't change.
+				if ( origyearshtml === inst.yearshtml && inst.yearshtml ) {
+					inst.dpDiv.find( "select.ui-datepicker-year:first" ).replaceWith( inst.yearshtml );
+				}
+				origyearshtml = inst.yearshtml = null;
+			}, 0 );
+		}
+	},
+
+	// #6694 - don't focus the input if it's already focused
+	// this breaks the change event in IE
+	// Support: IE and jQuery <1.9
+	_shouldFocusInput: function( inst ) {
+		return inst.input && inst.input.is( ":visible" ) && !inst.input.is( ":disabled" ) && !inst.input.is( ":focus" );
+	},
+
+	/* Check positioning to remain on screen. */
+	_checkOffset: function( inst, offset, isFixed ) {
+		var dpWidth = inst.dpDiv.outerWidth(),
+			dpHeight = inst.dpDiv.outerHeight(),
+			inputWidth = inst.input ? inst.input.outerWidth() : 0,
+			inputHeight = inst.input ? inst.input.outerHeight() : 0,
+			viewWidth = document.documentElement.clientWidth + ( isFixed ? 0 : $( document ).scrollLeft() ),
+			viewHeight = document.documentElement.clientHeight + ( isFixed ? 0 : $( document ).scrollTop() );
+
+		offset.left -= ( this._get( inst, "isRTL" ) ? ( dpWidth - inputWidth ) : 0 );
+		offset.left -= ( isFixed && offset.left === inst.input.offset().left ) ? $( document ).scrollLeft() : 0;
+		offset.top -= ( isFixed && offset.top === ( inst.input.offset().top + inputHeight ) ) ? $( document ).scrollTop() : 0;
+
+		// Now check if datepicker is showing outside window viewport - move to a better place if so.
+		offset.left -= Math.min( offset.left, ( offset.left + dpWidth > viewWidth && viewWidth > dpWidth ) ?
+			Math.abs( offset.left + dpWidth - viewWidth ) : 0 );
+		offset.top -= Math.min( offset.top, ( offset.top + dpHeight > viewHeight && viewHeight > dpHeight ) ?
+			Math.abs( dpHeight + inputHeight ) : 0 );
+
+		return offset;
+	},
+
+	/* Find an object's position on the screen. */
+	_findPos: function( obj ) {
+		var position,
+			inst = this._getInst( obj ),
+			isRTL = this._get( inst, "isRTL" );
+
+		while ( obj && ( obj.type === "hidden" || obj.nodeType !== 1 || $.expr.filters.hidden( obj ) ) ) {
+			obj = obj[ isRTL ? "previousSibling" : "nextSibling" ];
+		}
+
+		position = $( obj ).offset();
+		return [ position.left, position.top ];
+	},
+
+	/* Hide the date picker from view.
+	 * @param  input  element - the input field attached to the date picker
+	 */
+	_hideDatepicker: function( input ) {
+		var showAnim, duration, postProcess, onClose,
+			inst = this._curInst;
+
+		if ( !inst || ( input && inst !== $.data( input, "datepicker" ) ) ) {
+			return;
+		}
+
+		if ( this._datepickerShowing ) {
+			showAnim = this._get( inst, "showAnim" );
+			duration = this._get( inst, "duration" );
+			postProcess = function() {
+				$.datepicker._tidyDialog( inst );
+			};
+
+			// DEPRECATED: after BC for 1.8.x $.effects[ showAnim ] is not needed
+			if ( $.effects && ( $.effects.effect[ showAnim ] || $.effects[ showAnim ] ) ) {
+				inst.dpDiv.hide( showAnim, $.datepicker._get( inst, "showOptions" ), duration, postProcess );
+			} else {
+				inst.dpDiv[ ( showAnim === "slideDown" ? "slideUp" :
+					( showAnim === "fadeIn" ? "fadeOut" : "hide" ) ) ]( ( showAnim ? duration : null ), postProcess );
+			}
+
+			if ( !showAnim ) {
+				postProcess();
+			}
+			this._datepickerShowing = false;
+
+			onClose = this._get( inst, "onClose" );
+			if ( onClose ) {
+				onClose.apply( ( inst.input ? inst.input[ 0 ] : null ), [ ( inst.input ? inst.input.val() : "" ), inst ] );
+			}
+
+			this._lastInput = null;
+			if ( this._inDialog ) {
+				this._dialogInput.css( { position: "absolute", left: "0", top: "-100px" } );
+				if ( $.blockUI ) {
+					$.unblockUI();
+					$( "body" ).append( this.dpDiv );
+				}
+			}
+			this._inDialog = false;
+		}
+	},
+
+	/* Tidy up after a dialog display. */
+	_tidyDialog: function( inst ) {
+		inst.dpDiv.removeClass( this._dialogClass ).off( ".ui-datepicker-calendar" );
+	},
+
+	/* Close date picker if clicked elsewhere. */
+	_checkExternalClick: function( event ) {
+		if ( !$.datepicker._curInst ) {
+			return;
+		}
+
+		var $target = $( event.target ),
+			inst = $.datepicker._getInst( $target[ 0 ] );
+
+		if ( ( ( $target[ 0 ].id !== $.datepicker._mainDivId &&
+				$target.parents( "#" + $.datepicker._mainDivId ).length === 0 &&
+				!$target.hasClass( $.datepicker.markerClassName ) &&
+				!$target.closest( "." + $.datepicker._triggerClass ).length &&
+				$.datepicker._datepickerShowing && !( $.datepicker._inDialog && $.blockUI ) ) ) ||
+			( $target.hasClass( $.datepicker.markerClassName ) && $.datepicker._curInst !== inst ) ) {
+				$.datepicker._hideDatepicker();
+		}
+	},
+
+	/* Adjust one of the date sub-fields. */
+	_adjustDate: function( id, offset, period ) {
+		var target = $( id ),
+			inst = this._getInst( target[ 0 ] );
+
+		if ( this._isDisabledDatepicker( target[ 0 ] ) ) {
+			return;
+		}
+		this._adjustInstDate( inst, offset +
+			( period === "M" ? this._get( inst, "showCurrentAtPos" ) : 0 ), // undo positioning
+			period );
+		this._updateDatepicker( inst );
+	},
+
+	/* Action for current link. */
+	_gotoToday: function( id ) {
+		var date,
+			target = $( id ),
+			inst = this._getInst( target[ 0 ] );
+
+		if ( this._get( inst, "gotoCurrent" ) && inst.currentDay ) {
+			inst.selectedDay = inst.currentDay;
+			inst.drawMonth = inst.selectedMonth = inst.currentMonth;
+			inst.drawYear = inst.selectedYear = inst.currentYear;
+		} else {
+			date = new Date();
+			inst.selectedDay = date.getDate();
+			inst.drawMonth = inst.selectedMonth = date.getMonth();
+			inst.drawYear = inst.selectedYear = date.getFullYear();
+		}
+		this._notifyChange( inst );
+		this._adjustDate( target );
+	},
+
+	/* Action for selecting a new month/year. */
+	_selectMonthYear: function( id, select, period ) {
+		var target = $( id ),
+			inst = this._getInst( target[ 0 ] );
+
+		inst[ "selected" + ( period === "M" ? "Month" : "Year" ) ] =
+		inst[ "draw" + ( period === "M" ? "Month" : "Year" ) ] =
+			parseInt( select.options[ select.selectedIndex ].value, 10 );
+
+		this._notifyChange( inst );
+		this._adjustDate( target );
+	},
+
+	/* Action for selecting a day. */
+	_selectDay: function( id, month, year, td ) {
+		var inst,
+			target = $( id );
+
+		if ( $( td ).hasClass( this._unselectableClass ) || this._isDisabledDatepicker( target[ 0 ] ) ) {
+			return;
+		}
+
+		inst = this._getInst( target[ 0 ] );
+		inst.selectedDay = inst.currentDay = $( "a", td ).html();
+		inst.selectedMonth = inst.currentMonth = month;
+		inst.selectedYear = inst.currentYear = year;
+		this._selectDate( id, this._formatDate( inst,
+			inst.currentDay, inst.currentMonth, inst.currentYear ) );
+	},
+
+	/* Erase the input field and hide the date picker. */
+	_clearDate: function( id ) {
+		var target = $( id );
+		this._selectDate( target, "" );
+	},
+
+	/* Update the input field with the selected date. */
+	_selectDate: function( id, dateStr ) {
+		var onSelect,
+			target = $( id ),
+			inst = this._getInst( target[ 0 ] );
+
+		dateStr = ( dateStr != null ? dateStr : this._formatDate( inst ) );
+		if ( inst.input ) {
+			inst.input.val( dateStr );
+		}
+		this._updateAlternate( inst );
+
+		onSelect = this._get( inst, "onSelect" );
+		if ( onSelect ) {
+			onSelect.apply( ( inst.input ? inst.input[ 0 ] : null ), [ dateStr, inst ] );  // trigger custom callback
+		} else if ( inst.input ) {
+			inst.input.trigger( "change" ); // fire the change event
+		}
+
+		if ( inst.inline ) {
+			this._updateDatepicker( inst );
+		} else {
+			this._hideDatepicker();
+			this._lastInput = inst.input[ 0 ];
+			if ( typeof( inst.input[ 0 ] ) !== "object" ) {
+				inst.input.trigger( "focus" ); // restore focus
+			}
+			this._lastInput = null;
+		}
+	},
+
+	/* Update any alternate field to synchronise with the main field. */
+	_updateAlternate: function( inst ) {
+		var altFormat, date, dateStr,
+			altField = this._get( inst, "altField" );
+
+		if ( altField ) { // update alternate field too
+			altFormat = this._get( inst, "altFormat" ) || this._get( inst, "dateFormat" );
+			date = this._getDate( inst );
+			dateStr = this.formatDate( altFormat, date, this._getFormatConfig( inst ) );
+			$( altField ).val( dateStr );
+		}
+	},
+
+	/* Set as beforeShowDay function to prevent selection of weekends.
+	 * @param  date  Date - the date to customise
+	 * @return [boolean, string] - is this date selectable?, what is its CSS class?
+	 */
+	noWeekends: function( date ) {
+		var day = date.getDay();
+		return [ ( day > 0 && day < 6 ), "" ];
+	},
+
+	/* Set as calculateWeek to determine the week of the year based on the ISO 8601 definition.
+	 * @param  date  Date - the date to get the week for
+	 * @return  number - the number of the week within the year that contains this date
+	 */
+	iso8601Week: function( date ) {
+		var time,
+			checkDate = new Date( date.getTime() );
+
+		// Find Thursday of this week starting on Monday
+		checkDate.setDate( checkDate.getDate() + 4 - ( checkDate.getDay() || 7 ) );
+
+		time = checkDate.getTime();
+		checkDate.setMonth( 0 ); // Compare with Jan 1
+		checkDate.setDate( 1 );
+		return Math.floor( Math.round( ( time - checkDate ) / 86400000 ) / 7 ) + 1;
+	},
+
+	/* Parse a string value into a date object.
+	 * See formatDate below for the possible formats.
+	 *
+	 * @param  format string - the expected format of the date
+	 * @param  value string - the date in the above format
+	 * @param  settings Object - attributes include:
+	 *					shortYearCutoff  number - the cutoff year for determining the century (optional)
+	 *					dayNamesShort	string[7] - abbreviated names of the days from Sunday (optional)
+	 *					dayNames		string[7] - names of the days from Sunday (optional)
+	 *					monthNamesShort string[12] - abbreviated names of the months (optional)
+	 *					monthNames		string[12] - names of the months (optional)
+	 * @return  Date - the extracted date value or null if value is blank
+	 */
+	parseDate: function( format, value, settings ) {
+		if ( format == null || value == null ) {
+			throw "Invalid arguments";
+		}
+
+		value = ( typeof value === "object" ? value.toString() : value + "" );
+		if ( value === "" ) {
+			return null;
+		}
+
+		var iFormat, dim, extra,
+			iValue = 0,
+			shortYearCutoffTemp = ( settings ? settings.shortYearCutoff : null ) || this._defaults.shortYearCutoff,
+			shortYearCutoff = ( typeof shortYearCutoffTemp !== "string" ? shortYearCutoffTemp :
+				new Date().getFullYear() % 100 + parseInt( shortYearCutoffTemp, 10 ) ),
+			dayNamesShort = ( settings ? settings.dayNamesShort : null ) || this._defaults.dayNamesShort,
+			dayNames = ( settings ? settings.dayNames : null ) || this._defaults.dayNames,
+			monthNamesShort = ( settings ? settings.monthNamesShort : null ) || this._defaults.monthNamesShort,
+			monthNames = ( settings ? settings.monthNames : null ) || this._defaults.monthNames,
+			year = -1,
+			month = -1,
+			day = -1,
+			doy = -1,
+			literal = false,
+			date,
+
+			// Check whether a format character is doubled
+			lookAhead = function( match ) {
+				var matches = ( iFormat + 1 < format.length && format.charAt( iFormat + 1 ) === match );
+				if ( matches ) {
+					iFormat++;
+				}
+				return matches;
+			},
+
+			// Extract a number from the string value
+			getNumber = function( match ) {
+				var isDoubled = lookAhead( match ),
+					size = ( match === "@" ? 14 : ( match === "!" ? 20 :
+					( match === "y" && isDoubled ? 4 : ( match === "o" ? 3 : 2 ) ) ) ),
+					minSize = ( match === "y" ? size : 1 ),
+					digits = new RegExp( "^\\d{" + minSize + "," + size + "}" ),
+					num = value.substring( iValue ).match( digits );
+				if ( !num ) {
+					throw "Missing number at position " + iValue;
+				}
+				iValue += num[ 0 ].length;
+				return parseInt( num[ 0 ], 10 );
+			},
+
+			// Extract a name from the string value and convert to an index
+			getName = function( match, shortNames, longNames ) {
+				var index = -1,
+					names = $.map( lookAhead( match ) ? longNames : shortNames, function( v, k ) {
+						return [ [ k, v ] ];
+					} ).sort( function( a, b ) {
+						return -( a[ 1 ].length - b[ 1 ].length );
+					} );
+
+				$.each( names, function( i, pair ) {
+					var name = pair[ 1 ];
+					if ( value.substr( iValue, name.length ).toLowerCase() === name.toLowerCase() ) {
+						index = pair[ 0 ];
+						iValue += name.length;
+						return false;
+					}
+				} );
+				if ( index !== -1 ) {
+					return index + 1;
+				} else {
+					throw "Unknown name at position " + iValue;
+				}
+			},
+
+			// Confirm that a literal character matches the string value
+			checkLiteral = function() {
+				if ( value.charAt( iValue ) !== format.charAt( iFormat ) ) {
+					throw "Unexpected literal at position " + iValue;
+				}
+				iValue++;
+			};
+
+		for ( iFormat = 0; iFormat < format.length; iFormat++ ) {
+			if ( literal ) {
+				if ( format.charAt( iFormat ) === "'" && !lookAhead( "'" ) ) {
+					literal = false;
+				} else {
+					checkLiteral();
+				}
+			} else {
+				switch ( format.charAt( iFormat ) ) {
+					case "d":
+						day = getNumber( "d" );
+						break;
+					case "D":
+						getName( "D", dayNamesShort, dayNames );
+						break;
+					case "o":
+						doy = getNumber( "o" );
+						break;
+					case "m":
+						month = getNumber( "m" );
+						break;
+					case "M":
+						month = getName( "M", monthNamesShort, monthNames );
+						break;
+					case "y":
+						year = getNumber( "y" );
+						break;
+					case "@":
+						date = new Date( getNumber( "@" ) );
+						year = date.getFullYear();
+						month = date.getMonth() + 1;
+						day = date.getDate();
+						break;
+					case "!":
+						date = new Date( ( getNumber( "!" ) - this._ticksTo1970 ) / 10000 );
+						year = date.getFullYear();
+						month = date.getMonth() + 1;
+						day = date.getDate();
+						break;
+					case "'":
+						if ( lookAhead( "'" ) ) {
+							checkLiteral();
+						} else {
+							literal = true;
+						}
+						break;
+					default:
+						checkLiteral();
+				}
+			}
+		}
+
+		if ( iValue < value.length ) {
+			extra = value.substr( iValue );
+			if ( !/^\s+/.test( extra ) ) {
+				throw "Extra/unparsed characters found in date: " + extra;
+			}
+		}
+
+		if ( year === -1 ) {
+			year = new Date().getFullYear();
+		} else if ( year < 100 ) {
+			year += new Date().getFullYear() - new Date().getFullYear() % 100 +
+				( year <= shortYearCutoff ? 0 : -100 );
+		}
+
+		if ( doy > -1 ) {
+			month = 1;
+			day = doy;
+			do {
+				dim = this._getDaysInMonth( year, month - 1 );
+				if ( day <= dim ) {
+					break;
+				}
+				month++;
+				day -= dim;
+			} while ( true );
+		}
+
+		date = this._daylightSavingAdjust( new Date( year, month - 1, day ) );
+		if ( date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day ) {
+			throw "Invalid date"; // E.g. 31/02/00
+		}
+		return date;
+	},
+
+	/* Standard date formats. */
+	ATOM: "yy-mm-dd", // RFC 3339 (ISO 8601)
+	COOKIE: "D, dd M yy",
+	ISO_8601: "yy-mm-dd",
+	RFC_822: "D, d M y",
+	RFC_850: "DD, dd-M-y",
+	RFC_1036: "D, d M y",
+	RFC_1123: "D, d M yy",
+	RFC_2822: "D, d M yy",
+	RSS: "D, d M y", // RFC 822
+	TICKS: "!",
+	TIMESTAMP: "@",
+	W3C: "yy-mm-dd", // ISO 8601
+
+	_ticksTo1970: ( ( ( 1970 - 1 ) * 365 + Math.floor( 1970 / 4 ) - Math.floor( 1970 / 100 ) +
+		Math.floor( 1970 / 400 ) ) * 24 * 60 * 60 * 10000000 ),
+
+	/* Format a date object into a string value.
+	 * The format can be combinations of the following:
+	 * d  - day of month (no leading zero)
+	 * dd - day of month (two digit)
+	 * o  - day of year (no leading zeros)
+	 * oo - day of year (three digit)
+	 * D  - day name short
+	 * DD - day name long
+	 * m  - month of year (no leading zero)
+	 * mm - month of year (two digit)
+	 * M  - month name short
+	 * MM - month name long
+	 * y  - year (two digit)
+	 * yy - year (four digit)
+	 * @ - Unix timestamp (ms since 01/01/1970)
+	 * ! - Windows ticks (100ns since 01/01/0001)
+	 * "..." - literal text
+	 * '' - single quote
+	 *
+	 * @param  format string - the desired format of the date
+	 * @param  date Date - the date value to format
+	 * @param  settings Object - attributes include:
+	 *					dayNamesShort	string[7] - abbreviated names of the days from Sunday (optional)
+	 *					dayNames		string[7] - names of the days from Sunday (optional)
+	 *					monthNamesShort string[12] - abbreviated names of the months (optional)
+	 *					monthNames		string[12] - names of the months (optional)
+	 * @return  string - the date in the above format
+	 */
+	formatDate: function( format, date, settings ) {
+		if ( !date ) {
+			return "";
+		}
+
+		var iFormat,
+			dayNamesShort = ( settings ? settings.dayNamesShort : null ) || this._defaults.dayNamesShort,
+			dayNames = ( settings ? settings.dayNames : null ) || this._defaults.dayNames,
+			monthNamesShort = ( settings ? settings.monthNamesShort : null ) || this._defaults.monthNamesShort,
+			monthNames = ( settings ? settings.monthNames : null ) || this._defaults.monthNames,
+
+			// Check whether a format character is doubled
+			lookAhead = function( match ) {
+				var matches = ( iFormat + 1 < format.length && format.charAt( iFormat + 1 ) === match );
+				if ( matches ) {
+					iFormat++;
+				}
+				return matches;
+			},
+
+			// Format a number, with leading zero if necessary
+			formatNumber = function( match, value, len ) {
+				var num = "" + value;
+				if ( lookAhead( match ) ) {
+					while ( num.length < len ) {
+						num = "0" + num;
+					}
+				}
+				return num;
+			},
+
+			// Format a name, short or long as requested
+			formatName = function( match, value, shortNames, longNames ) {
+				return ( lookAhead( match ) ? longNames[ value ] : shortNames[ value ] );
+			},
+			output = "",
+			literal = false;
+
+		if ( date ) {
+			for ( iFormat = 0; iFormat < format.length; iFormat++ ) {
+				if ( literal ) {
+					if ( format.charAt( iFormat ) === "'" && !lookAhead( "'" ) ) {
+						literal = false;
+					} else {
+						output += format.charAt( iFormat );
+					}
+				} else {
+					switch ( format.charAt( iFormat ) ) {
+						case "d":
+							output += formatNumber( "d", date.getDate(), 2 );
+							break;
+						case "D":
+							output += formatName( "D", date.getDay(), dayNamesShort, dayNames );
+							break;
+						case "o":
+							output += formatNumber( "o",
+								Math.round( ( new Date( date.getFullYear(), date.getMonth(), date.getDate() ).getTime() - new Date( date.getFullYear(), 0, 0 ).getTime() ) / 86400000 ), 3 );
+							break;
+						case "m":
+							output += formatNumber( "m", date.getMonth() + 1, 2 );
+							break;
+						case "M":
+							output += formatName( "M", date.getMonth(), monthNamesShort, monthNames );
+							break;
+						case "y":
+							output += ( lookAhead( "y" ) ? date.getFullYear() :
+								( date.getFullYear() % 100 < 10 ? "0" : "" ) + date.getFullYear() % 100 );
+							break;
+						case "@":
+							output += date.getTime();
+							break;
+						case "!":
+							output += date.getTime() * 10000 + this._ticksTo1970;
+							break;
+						case "'":
+							if ( lookAhead( "'" ) ) {
+								output += "'";
+							} else {
+								literal = true;
+							}
+							break;
+						default:
+							output += format.charAt( iFormat );
+					}
+				}
+			}
+		}
+		return output;
+	},
+
+	/* Extract all possible characters from the date format. */
+	_possibleChars: function( format ) {
+		var iFormat,
+			chars = "",
+			literal = false,
+
+			// Check whether a format character is doubled
+			lookAhead = function( match ) {
+				var matches = ( iFormat + 1 < format.length && format.charAt( iFormat + 1 ) === match );
+				if ( matches ) {
+					iFormat++;
+				}
+				return matches;
+			};
+
+		for ( iFormat = 0; iFormat < format.length; iFormat++ ) {
+			if ( literal ) {
+				if ( format.charAt( iFormat ) === "'" && !lookAhead( "'" ) ) {
+					literal = false;
+				} else {
+					chars += format.charAt( iFormat );
+				}
+			} else {
+				switch ( format.charAt( iFormat ) ) {
+					case "d": case "m": case "y": case "@":
+						chars += "0123456789";
+						break;
+					case "D": case "M":
+						return null; // Accept anything
+					case "'":
+						if ( lookAhead( "'" ) ) {
+							chars += "'";
+						} else {
+							literal = true;
+						}
+						break;
+					default:
+						chars += format.charAt( iFormat );
+				}
+			}
+		}
+		return chars;
+	},
+
+	/* Get a setting value, defaulting if necessary. */
+	_get: function( inst, name ) {
+		return inst.settings[ name ] !== undefined ?
+			inst.settings[ name ] : this._defaults[ name ];
+	},
+
+	/* Parse existing date and initialise date picker. */
+	_setDateFromField: function( inst, noDefault ) {
+		if ( inst.input.val() === inst.lastVal ) {
+			return;
+		}
+
+		var dateFormat = this._get( inst, "dateFormat" ),
+			dates = inst.lastVal = inst.input ? inst.input.val() : null,
+			defaultDate = this._getDefaultDate( inst ),
+			date = defaultDate,
+			settings = this._getFormatConfig( inst );
+
+		try {
+			date = this.parseDate( dateFormat, dates, settings ) || defaultDate;
+		} catch ( event ) {
+			dates = ( noDefault ? "" : dates );
+		}
+		inst.selectedDay = date.getDate();
+		inst.drawMonth = inst.selectedMonth = date.getMonth();
+		inst.drawYear = inst.selectedYear = date.getFullYear();
+		inst.currentDay = ( dates ? date.getDate() : 0 );
+		inst.currentMonth = ( dates ? date.getMonth() : 0 );
+		inst.currentYear = ( dates ? date.getFullYear() : 0 );
+		this._adjustInstDate( inst );
+	},
+
+	/* Retrieve the default date shown on opening. */
+	_getDefaultDate: function( inst ) {
+		return this._restrictMinMax( inst,
+			this._determineDate( inst, this._get( inst, "defaultDate" ), new Date() ) );
+	},
+
+	/* A date may be specified as an exact value or a relative one. */
+	_determineDate: function( inst, date, defaultDate ) {
+		var offsetNumeric = function( offset ) {
+				var date = new Date();
+				date.setDate( date.getDate() + offset );
+				return date;
+			},
+			offsetString = function( offset ) {
+				try {
+					return $.datepicker.parseDate( $.datepicker._get( inst, "dateFormat" ),
+						offset, $.datepicker._getFormatConfig( inst ) );
+				}
+				catch ( e ) {
+
+					// Ignore
+				}
+
+				var date = ( offset.toLowerCase().match( /^c/ ) ?
+					$.datepicker._getDate( inst ) : null ) || new Date(),
+					year = date.getFullYear(),
+					month = date.getMonth(),
+					day = date.getDate(),
+					pattern = /([+\-]?[0-9]+)\s*(d|D|w|W|m|M|y|Y)?/g,
+					matches = pattern.exec( offset );
+
+				while ( matches ) {
+					switch ( matches[ 2 ] || "d" ) {
+						case "d" : case "D" :
+							day += parseInt( matches[ 1 ], 10 ); break;
+						case "w" : case "W" :
+							day += parseInt( matches[ 1 ], 10 ) * 7; break;
+						case "m" : case "M" :
+							month += parseInt( matches[ 1 ], 10 );
+							day = Math.min( day, $.datepicker._getDaysInMonth( year, month ) );
+							break;
+						case "y": case "Y" :
+							year += parseInt( matches[ 1 ], 10 );
+							day = Math.min( day, $.datepicker._getDaysInMonth( year, month ) );
+							break;
+					}
+					matches = pattern.exec( offset );
+				}
+				return new Date( year, month, day );
+			},
+			newDate = ( date == null || date === "" ? defaultDate : ( typeof date === "string" ? offsetString( date ) :
+				( typeof date === "number" ? ( isNaN( date ) ? defaultDate : offsetNumeric( date ) ) : new Date( date.getTime() ) ) ) );
+
+		newDate = ( newDate && newDate.toString() === "Invalid Date" ? defaultDate : newDate );
+		if ( newDate ) {
+			newDate.setHours( 0 );
+			newDate.setMinutes( 0 );
+			newDate.setSeconds( 0 );
+			newDate.setMilliseconds( 0 );
+		}
+		return this._daylightSavingAdjust( newDate );
+	},
+
+	/* Handle switch to/from daylight saving.
+	 * Hours may be non-zero on daylight saving cut-over:
+	 * > 12 when midnight changeover, but then cannot generate
+	 * midnight datetime, so jump to 1AM, otherwise reset.
+	 * @param  date  (Date) the date to check
+	 * @return  (Date) the corrected date
+	 */
+	_daylightSavingAdjust: function( date ) {
+		if ( !date ) {
+			return null;
+		}
+		date.setHours( date.getHours() > 12 ? date.getHours() + 2 : 0 );
+		return date;
+	},
+
+	/* Set the date(s) directly. */
+	_setDate: function( inst, date, noChange ) {
+		var clear = !date,
+			origMonth = inst.selectedMonth,
+			origYear = inst.selectedYear,
+			newDate = this._restrictMinMax( inst, this._determineDate( inst, date, new Date() ) );
+
+		inst.selectedDay = inst.currentDay = newDate.getDate();
+		inst.drawMonth = inst.selectedMonth = inst.currentMonth = newDate.getMonth();
+		inst.drawYear = inst.selectedYear = inst.currentYear = newDate.getFullYear();
+		if ( ( origMonth !== inst.selectedMonth || origYear !== inst.selectedYear ) && !noChange ) {
+			this._notifyChange( inst );
+		}
+		this._adjustInstDate( inst );
+		if ( inst.input ) {
+			inst.input.val( clear ? "" : this._formatDate( inst ) );
+		}
+	},
+
+	/* Retrieve the date(s) directly. */
+	_getDate: function( inst ) {
+		var startDate = ( !inst.currentYear || ( inst.input && inst.input.val() === "" ) ? null :
+			this._daylightSavingAdjust( new Date(
+			inst.currentYear, inst.currentMonth, inst.currentDay ) ) );
+			return startDate;
+	},
+
+	/* Attach the onxxx handlers.  These are declared statically so
+	 * they work with static code transformers like Caja.
+	 */
+	_attachHandlers: function( inst ) {
+		var stepMonths = this._get( inst, "stepMonths" ),
+			id = "#" + inst.id.replace( /\\\\/g, "\\" );
+		inst.dpDiv.find( "[data-handler]" ).map( function() {
+			var handler = {
+				prev: function() {
+					$.datepicker._adjustDate( id, -stepMonths, "M" );
+				},
+				next: function() {
+					$.datepicker._adjustDate( id, +stepMonths, "M" );
+				},
+				hide: function() {
+					$.datepicker._hideDatepicker();
+				},
+				today: function() {
+					$.datepicker._gotoToday( id );
+				},
+				selectDay: function() {
+					$.datepicker._selectDay( id, +this.getAttribute( "data-month" ), +this.getAttribute( "data-year" ), this );
+					return false;
+				},
+				selectMonth: function() {
+					$.datepicker._selectMonthYear( id, this, "M" );
+					return false;
+				},
+				selectYear: function() {
+					$.datepicker._selectMonthYear( id, this, "Y" );
+					return false;
+				}
+			};
+			$( this ).on( this.getAttribute( "data-event" ), handler[ this.getAttribute( "data-handler" ) ] );
+		} );
+	},
+
+	/* Generate the HTML for the current state of the date picker. */
+	_generateHTML: function( inst ) {
+		var maxDraw, prevText, prev, nextText, next, currentText, gotoDate,
+			controls, buttonPanel, firstDay, showWeek, dayNames, dayNamesMin,
+			monthNames, monthNamesShort, beforeShowDay, showOtherMonths,
+			selectOtherMonths, defaultDate, html, dow, row, group, col, selectedDate,
+			cornerClass, calender, thead, day, daysInMonth, leadDays, curRows, numRows,
+			printDate, dRow, tbody, daySettings, otherMonth, unselectable,
+			tempDate = new Date(),
+			today = this._daylightSavingAdjust(
+				new Date( tempDate.getFullYear(), tempDate.getMonth(), tempDate.getDate() ) ), // clear time
+			isRTL = this._get( inst, "isRTL" ),
+			showButtonPanel = this._get( inst, "showButtonPanel" ),
+			hideIfNoPrevNext = this._get( inst, "hideIfNoPrevNext" ),
+			navigationAsDateFormat = this._get( inst, "navigationAsDateFormat" ),
+			numMonths = this._getNumberOfMonths( inst ),
+			showCurrentAtPos = this._get( inst, "showCurrentAtPos" ),
+			stepMonths = this._get( inst, "stepMonths" ),
+			isMultiMonth = ( numMonths[ 0 ] !== 1 || numMonths[ 1 ] !== 1 ),
+			currentDate = this._daylightSavingAdjust( ( !inst.currentDay ? new Date( 9999, 9, 9 ) :
+				new Date( inst.currentYear, inst.currentMonth, inst.currentDay ) ) ),
+			minDate = this._getMinMaxDate( inst, "min" ),
+			maxDate = this._getMinMaxDate( inst, "max" ),
+			drawMonth = inst.drawMonth - showCurrentAtPos,
+			drawYear = inst.drawYear;
+
+		if ( drawMonth < 0 ) {
+			drawMonth += 12;
+			drawYear--;
+		}
+		if ( maxDate ) {
+			maxDraw = this._daylightSavingAdjust( new Date( maxDate.getFullYear(),
+				maxDate.getMonth() - ( numMonths[ 0 ] * numMonths[ 1 ] ) + 1, maxDate.getDate() ) );
+			maxDraw = ( minDate && maxDraw < minDate ? minDate : maxDraw );
+			while ( this._daylightSavingAdjust( new Date( drawYear, drawMonth, 1 ) ) > maxDraw ) {
+				drawMonth--;
+				if ( drawMonth < 0 ) {
+					drawMonth = 11;
+					drawYear--;
+				}
+			}
+		}
+		inst.drawMonth = drawMonth;
+		inst.drawYear = drawYear;
+
+		prevText = this._get( inst, "prevText" );
+		prevText = ( !navigationAsDateFormat ? prevText : this.formatDate( prevText,
+			this._daylightSavingAdjust( new Date( drawYear, drawMonth - stepMonths, 1 ) ),
+			this._getFormatConfig( inst ) ) );
+
+		prev = ( this._canAdjustMonth( inst, -1, drawYear, drawMonth ) ?
+			"<a class='ui-datepicker-prev ui-corner-all' data-handler='prev' data-event='click'" +
+			" title='" + prevText + "'><span class='ui-icon ui-icon-circle-triangle-" + ( isRTL ? "e" : "w" ) + "'>" + prevText + "</span></a>" :
+			( hideIfNoPrevNext ? "" : "<a class='ui-datepicker-prev ui-corner-all ui-state-disabled' title='" + prevText + "'><span class='ui-icon ui-icon-circle-triangle-" + ( isRTL ? "e" : "w" ) + "'>" + prevText + "</span></a>" ) );
+
+		nextText = this._get( inst, "nextText" );
+		nextText = ( !navigationAsDateFormat ? nextText : this.formatDate( nextText,
+			this._daylightSavingAdjust( new Date( drawYear, drawMonth + stepMonths, 1 ) ),
+			this._getFormatConfig( inst ) ) );
+
+		next = ( this._canAdjustMonth( inst, +1, drawYear, drawMonth ) ?
+			"<a class='ui-datepicker-next ui-corner-all' data-handler='next' data-event='click'" +
+			" title='" + nextText + "'><span class='ui-icon ui-icon-circle-triangle-" + ( isRTL ? "w" : "e" ) + "'>" + nextText + "</span></a>" :
+			( hideIfNoPrevNext ? "" : "<a class='ui-datepicker-next ui-corner-all ui-state-disabled' title='" + nextText + "'><span class='ui-icon ui-icon-circle-triangle-" + ( isRTL ? "w" : "e" ) + "'>" + nextText + "</span></a>" ) );
+
+		currentText = this._get( inst, "currentText" );
+		gotoDate = ( this._get( inst, "gotoCurrent" ) && inst.currentDay ? currentDate : today );
+		currentText = ( !navigationAsDateFormat ? currentText :
+			this.formatDate( currentText, gotoDate, this._getFormatConfig( inst ) ) );
+
+		controls = ( !inst.inline ? "<button type='button' class='ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all' data-handler='hide' data-event='click'>" +
+			this._get( inst, "closeText" ) + "</button>" : "" );
+
+		buttonPanel = ( showButtonPanel ) ? "<div class='ui-datepicker-buttonpane ui-widget-content'>" + ( isRTL ? controls : "" ) +
+			( this._isInRange( inst, gotoDate ) ? "<button type='button' class='ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all' data-handler='today' data-event='click'" +
+			">" + currentText + "</button>" : "" ) + ( isRTL ? "" : controls ) + "</div>" : "";
+
+		firstDay = parseInt( this._get( inst, "firstDay" ), 10 );
+		firstDay = ( isNaN( firstDay ) ? 0 : firstDay );
+
+		showWeek = this._get( inst, "showWeek" );
+		dayNames = this._get( inst, "dayNames" );
+		dayNamesMin = this._get( inst, "dayNamesMin" );
+		monthNames = this._get( inst, "monthNames" );
+		monthNamesShort = this._get( inst, "monthNamesShort" );
+		beforeShowDay = this._get( inst, "beforeShowDay" );
+		showOtherMonths = this._get( inst, "showOtherMonths" );
+		selectOtherMonths = this._get( inst, "selectOtherMonths" );
+		defaultDate = this._getDefaultDate( inst );
+		html = "";
+
+		for ( row = 0; row < numMonths[ 0 ]; row++ ) {
+			group = "";
+			this.maxRows = 4;
+			for ( col = 0; col < numMonths[ 1 ]; col++ ) {
+				selectedDate = this._daylightSavingAdjust( new Date( drawYear, drawMonth, inst.selectedDay ) );
+				cornerClass = " ui-corner-all";
+				calender = "";
+				if ( isMultiMonth ) {
+					calender += "<div class='ui-datepicker-group";
+					if ( numMonths[ 1 ] > 1 ) {
+						switch ( col ) {
+							case 0: calender += " ui-datepicker-group-first";
+								cornerClass = " ui-corner-" + ( isRTL ? "right" : "left" ); break;
+							case numMonths[ 1 ] - 1: calender += " ui-datepicker-group-last";
+								cornerClass = " ui-corner-" + ( isRTL ? "left" : "right" ); break;
+							default: calender += " ui-datepicker-group-middle"; cornerClass = ""; break;
+						}
+					}
+					calender += "'>";
+				}
+				calender += "<div class='ui-datepicker-header ui-widget-header ui-helper-clearfix" + cornerClass + "'>" +
+					( /all|left/.test( cornerClass ) && row === 0 ? ( isRTL ? next : prev ) : "" ) +
+					( /all|right/.test( cornerClass ) && row === 0 ? ( isRTL ? prev : next ) : "" ) +
+					this._generateMonthYearHeader( inst, drawMonth, drawYear, minDate, maxDate,
+					row > 0 || col > 0, monthNames, monthNamesShort ) + // draw month headers
+					"</div><table class='ui-datepicker-calendar'><thead>" +
+					"<tr>";
+				thead = ( showWeek ? "<th class='ui-datepicker-week-col'>" + this._get( inst, "weekHeader" ) + "</th>" : "" );
+				for ( dow = 0; dow < 7; dow++ ) { // days of the week
+					day = ( dow + firstDay ) % 7;
+					thead += "<th scope='col'" + ( ( dow + firstDay + 6 ) % 7 >= 5 ? " class='ui-datepicker-week-end'" : "" ) + ">" +
+						"<span title='" + dayNames[ day ] + "'>" + dayNamesMin[ day ] + "</span></th>";
+				}
+				calender += thead + "</tr></thead><tbody>";
+				daysInMonth = this._getDaysInMonth( drawYear, drawMonth );
+				if ( drawYear === inst.selectedYear && drawMonth === inst.selectedMonth ) {
+					inst.selectedDay = Math.min( inst.selectedDay, daysInMonth );
+				}
+				leadDays = ( this._getFirstDayOfMonth( drawYear, drawMonth ) - firstDay + 7 ) % 7;
+				curRows = Math.ceil( ( leadDays + daysInMonth ) / 7 ); // calculate the number of rows to generate
+				numRows = ( isMultiMonth ? this.maxRows > curRows ? this.maxRows : curRows : curRows ); //If multiple months, use the higher number of rows (see #7043)
+				this.maxRows = numRows;
+				printDate = this._daylightSavingAdjust( new Date( drawYear, drawMonth, 1 - leadDays ) );
+				for ( dRow = 0; dRow < numRows; dRow++ ) { // create date picker rows
+					calender += "<tr>";
+					tbody = ( !showWeek ? "" : "<td class='ui-datepicker-week-col'>" +
+						this._get( inst, "calculateWeek" )( printDate ) + "</td>" );
+					for ( dow = 0; dow < 7; dow++ ) { // create date picker days
+						daySettings = ( beforeShowDay ?
+							beforeShowDay.apply( ( inst.input ? inst.input[ 0 ] : null ), [ printDate ] ) : [ true, "" ] );
+						otherMonth = ( printDate.getMonth() !== drawMonth );
+						unselectable = ( otherMonth && !selectOtherMonths ) || !daySettings[ 0 ] ||
+							( minDate && printDate < minDate ) || ( maxDate && printDate > maxDate );
+						tbody += "<td class='" +
+							( ( dow + firstDay + 6 ) % 7 >= 5 ? " ui-datepicker-week-end" : "" ) + // highlight weekends
+							( otherMonth ? " ui-datepicker-other-month" : "" ) + // highlight days from other months
+							( ( printDate.getTime() === selectedDate.getTime() && drawMonth === inst.selectedMonth && inst._keyEvent ) || // user pressed key
+							( defaultDate.getTime() === printDate.getTime() && defaultDate.getTime() === selectedDate.getTime() ) ?
+
+							// or defaultDate is current printedDate and defaultDate is selectedDate
+							" " + this._dayOverClass : "" ) + // highlight selected day
+							( unselectable ? " " + this._unselectableClass + " ui-state-disabled" : "" ) +  // highlight unselectable days
+							( otherMonth && !showOtherMonths ? "" : " " + daySettings[ 1 ] + // highlight custom dates
+							( printDate.getTime() === currentDate.getTime() ? " " + this._currentClass : "" ) + // highlight selected day
+							( printDate.getTime() === today.getTime() ? " ui-datepicker-today" : "" ) ) + "'" + // highlight today (if different)
+							( ( !otherMonth || showOtherMonths ) && daySettings[ 2 ] ? " title='" + daySettings[ 2 ].replace( /'/g, "&#39;" ) + "'" : "" ) + // cell title
+							( unselectable ? "" : " data-handler='selectDay' data-event='click' data-month='" + printDate.getMonth() + "' data-year='" + printDate.getFullYear() + "'" ) + ">" + // actions
+							( otherMonth && !showOtherMonths ? "&#xa0;" : // display for other months
+							( unselectable ? "<span class='ui-state-default'>" + printDate.getDate() + "</span>" : "<a class='ui-state-default" +
+							( printDate.getTime() === today.getTime() ? " ui-state-highlight" : "" ) +
+							( printDate.getTime() === currentDate.getTime() ? " ui-state-active" : "" ) + // highlight selected day
+							( otherMonth ? " ui-priority-secondary" : "" ) + // distinguish dates from other months
+							"' href='#'>" + printDate.getDate() + "</a>" ) ) + "</td>"; // display selectable date
+						printDate.setDate( printDate.getDate() + 1 );
+						printDate = this._daylightSavingAdjust( printDate );
+					}
+					calender += tbody + "</tr>";
+				}
+				drawMonth++;
+				if ( drawMonth > 11 ) {
+					drawMonth = 0;
+					drawYear++;
+				}
+				calender += "</tbody></table>" + ( isMultiMonth ? "</div>" +
+							( ( numMonths[ 0 ] > 0 && col === numMonths[ 1 ] - 1 ) ? "<div class='ui-datepicker-row-break'></div>" : "" ) : "" );
+				group += calender;
+			}
+			html += group;
+		}
+		html += buttonPanel;
+		inst._keyEvent = false;
+		return html;
+	},
+
+	/* Generate the month and year header. */
+	_generateMonthYearHeader: function( inst, drawMonth, drawYear, minDate, maxDate,
+			secondary, monthNames, monthNamesShort ) {
+
+		var inMinYear, inMaxYear, month, years, thisYear, determineYear, year, endYear,
+			changeMonth = this._get( inst, "changeMonth" ),
+			changeYear = this._get( inst, "changeYear" ),
+			showMonthAfterYear = this._get( inst, "showMonthAfterYear" ),
+			html = "<div class='ui-datepicker-title'>",
+			monthHtml = "";
+
+		// Month selection
+		if ( secondary || !changeMonth ) {
+			monthHtml += "<span class='ui-datepicker-month'>" + monthNames[ drawMonth ] + "</span>";
+		} else {
+			inMinYear = ( minDate && minDate.getFullYear() === drawYear );
+			inMaxYear = ( maxDate && maxDate.getFullYear() === drawYear );
+			monthHtml += "<select class='ui-datepicker-month' data-handler='selectMonth' data-event='change'>";
+			for ( month = 0; month < 12; month++ ) {
+				if ( ( !inMinYear || month >= minDate.getMonth() ) && ( !inMaxYear || month <= maxDate.getMonth() ) ) {
+					monthHtml += "<option value='" + month + "'" +
+						( month === drawMonth ? " selected='selected'" : "" ) +
+						">" + monthNamesShort[ month ] + "</option>";
+				}
+			}
+			monthHtml += "</select>";
+		}
+
+		if ( !showMonthAfterYear ) {
+			html += monthHtml + ( secondary || !( changeMonth && changeYear ) ? "&#xa0;" : "" );
+		}
+
+		// Year selection
+		if ( !inst.yearshtml ) {
+			inst.yearshtml = "";
+			if ( secondary || !changeYear ) {
+				html += "<span class='ui-datepicker-year'>" + drawYear + "</span>";
+			} else {
+
+				// determine range of years to display
+				years = this._get( inst, "yearRange" ).split( ":" );
+				thisYear = new Date().getFullYear();
+				determineYear = function( value ) {
+					var year = ( value.match( /c[+\-].*/ ) ? drawYear + parseInt( value.substring( 1 ), 10 ) :
+						( value.match( /[+\-].*/ ) ? thisYear + parseInt( value, 10 ) :
+						parseInt( value, 10 ) ) );
+					return ( isNaN( year ) ? thisYear : year );
+				};
+				year = determineYear( years[ 0 ] );
+				endYear = Math.max( year, determineYear( years[ 1 ] || "" ) );
+				year = ( minDate ? Math.max( year, minDate.getFullYear() ) : year );
+				endYear = ( maxDate ? Math.min( endYear, maxDate.getFullYear() ) : endYear );
+				inst.yearshtml += "<select class='ui-datepicker-year' data-handler='selectYear' data-event='change'>";
+				for ( ; year <= endYear; year++ ) {
+					inst.yearshtml += "<option value='" + year + "'" +
+						( year === drawYear ? " selected='selected'" : "" ) +
+						">" + year + "</option>";
+				}
+				inst.yearshtml += "</select>";
+
+				html += inst.yearshtml;
+				inst.yearshtml = null;
+			}
+		}
+
+		html += this._get( inst, "yearSuffix" );
+		if ( showMonthAfterYear ) {
+			html += ( secondary || !( changeMonth && changeYear ) ? "&#xa0;" : "" ) + monthHtml;
+		}
+		html += "</div>"; // Close datepicker_header
+		return html;
+	},
+
+	/* Adjust one of the date sub-fields. */
+	_adjustInstDate: function( inst, offset, period ) {
+		var year = inst.selectedYear + ( period === "Y" ? offset : 0 ),
+			month = inst.selectedMonth + ( period === "M" ? offset : 0 ),
+			day = Math.min( inst.selectedDay, this._getDaysInMonth( year, month ) ) + ( period === "D" ? offset : 0 ),
+			date = this._restrictMinMax( inst, this._daylightSavingAdjust( new Date( year, month, day ) ) );
+
+		inst.selectedDay = date.getDate();
+		inst.drawMonth = inst.selectedMonth = date.getMonth();
+		inst.drawYear = inst.selectedYear = date.getFullYear();
+		if ( period === "M" || period === "Y" ) {
+			this._notifyChange( inst );
+		}
+	},
+
+	/* Ensure a date is within any min/max bounds. */
+	_restrictMinMax: function( inst, date ) {
+		var minDate = this._getMinMaxDate( inst, "min" ),
+			maxDate = this._getMinMaxDate( inst, "max" ),
+			newDate = ( minDate && date < minDate ? minDate : date );
+		return ( maxDate && newDate > maxDate ? maxDate : newDate );
+	},
+
+	/* Notify change of month/year. */
+	_notifyChange: function( inst ) {
+		var onChange = this._get( inst, "onChangeMonthYear" );
+		if ( onChange ) {
+			onChange.apply( ( inst.input ? inst.input[ 0 ] : null ),
+				[ inst.selectedYear, inst.selectedMonth + 1, inst ] );
+		}
+	},
+
+	/* Determine the number of months to show. */
+	_getNumberOfMonths: function( inst ) {
+		var numMonths = this._get( inst, "numberOfMonths" );
+		return ( numMonths == null ? [ 1, 1 ] : ( typeof numMonths === "number" ? [ 1, numMonths ] : numMonths ) );
+	},
+
+	/* Determine the current maximum date - ensure no time components are set. */
+	_getMinMaxDate: function( inst, minMax ) {
+		return this._determineDate( inst, this._get( inst, minMax + "Date" ), null );
+	},
+
+	/* Find the number of days in a given month. */
+	_getDaysInMonth: function( year, month ) {
+		return 32 - this._daylightSavingAdjust( new Date( year, month, 32 ) ).getDate();
+	},
+
+	/* Find the day of the week of the first of a month. */
+	_getFirstDayOfMonth: function( year, month ) {
+		return new Date( year, month, 1 ).getDay();
+	},
+
+	/* Determines if we should allow a "next/prev" month display change. */
+	_canAdjustMonth: function( inst, offset, curYear, curMonth ) {
+		var numMonths = this._getNumberOfMonths( inst ),
+			date = this._daylightSavingAdjust( new Date( curYear,
+			curMonth + ( offset < 0 ? offset : numMonths[ 0 ] * numMonths[ 1 ] ), 1 ) );
+
+		if ( offset < 0 ) {
+			date.setDate( this._getDaysInMonth( date.getFullYear(), date.getMonth() ) );
+		}
+		return this._isInRange( inst, date );
+	},
+
+	/* Is the given date in the accepted range? */
+	_isInRange: function( inst, date ) {
+		var yearSplit, currentYear,
+			minDate = this._getMinMaxDate( inst, "min" ),
+			maxDate = this._getMinMaxDate( inst, "max" ),
+			minYear = null,
+			maxYear = null,
+			years = this._get( inst, "yearRange" );
+			if ( years ) {
+				yearSplit = years.split( ":" );
+				currentYear = new Date().getFullYear();
+				minYear = parseInt( yearSplit[ 0 ], 10 );
+				maxYear = parseInt( yearSplit[ 1 ], 10 );
+				if ( yearSplit[ 0 ].match( /[+\-].*/ ) ) {
+					minYear += currentYear;
+				}
+				if ( yearSplit[ 1 ].match( /[+\-].*/ ) ) {
+					maxYear += currentYear;
+				}
+			}
+
+		return ( ( !minDate || date.getTime() >= minDate.getTime() ) &&
+			( !maxDate || date.getTime() <= maxDate.getTime() ) &&
+			( !minYear || date.getFullYear() >= minYear ) &&
+			( !maxYear || date.getFullYear() <= maxYear ) );
+	},
+
+	/* Provide the configuration settings for formatting/parsing. */
+	_getFormatConfig: function( inst ) {
+		var shortYearCutoff = this._get( inst, "shortYearCutoff" );
+		shortYearCutoff = ( typeof shortYearCutoff !== "string" ? shortYearCutoff :
+			new Date().getFullYear() % 100 + parseInt( shortYearCutoff, 10 ) );
+		return { shortYearCutoff: shortYearCutoff,
+			dayNamesShort: this._get( inst, "dayNamesShort" ), dayNames: this._get( inst, "dayNames" ),
+			monthNamesShort: this._get( inst, "monthNamesShort" ), monthNames: this._get( inst, "monthNames" ) };
+	},
+
+	/* Format the given date for display. */
+	_formatDate: function( inst, day, month, year ) {
+		if ( !day ) {
+			inst.currentDay = inst.selectedDay;
+			inst.currentMonth = inst.selectedMonth;
+			inst.currentYear = inst.selectedYear;
+		}
+		var date = ( day ? ( typeof day === "object" ? day :
+			this._daylightSavingAdjust( new Date( year, month, day ) ) ) :
+			this._daylightSavingAdjust( new Date( inst.currentYear, inst.currentMonth, inst.currentDay ) ) );
+		return this.formatDate( this._get( inst, "dateFormat" ), date, this._getFormatConfig( inst ) );
+	}
+} );
+
+/*
+ * Bind hover events for datepicker elements.
+ * Done via delegate so the binding only occurs once in the lifetime of the parent div.
+ * Global datepicker_instActive, set by _updateDatepicker allows the handlers to find their way back to the active picker.
+ */
+function datepicker_bindHover( dpDiv ) {
+	var selector = "button, .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar td a";
+	return dpDiv.on( "mouseout", selector, function() {
+			$( this ).removeClass( "ui-state-hover" );
+			if ( this.className.indexOf( "ui-datepicker-prev" ) !== -1 ) {
+				$( this ).removeClass( "ui-datepicker-prev-hover" );
+			}
+			if ( this.className.indexOf( "ui-datepicker-next" ) !== -1 ) {
+				$( this ).removeClass( "ui-datepicker-next-hover" );
+			}
+		} )
+		.on( "mouseover", selector, datepicker_handleMouseover );
+}
+
+function datepicker_handleMouseover() {
+	if ( !$.datepicker._isDisabledDatepicker( datepicker_instActive.inline ? datepicker_instActive.dpDiv.parent()[ 0 ] : datepicker_instActive.input[ 0 ] ) ) {
+		$( this ).parents( ".ui-datepicker-calendar" ).find( "a" ).removeClass( "ui-state-hover" );
+		$( this ).addClass( "ui-state-hover" );
+		if ( this.className.indexOf( "ui-datepicker-prev" ) !== -1 ) {
+			$( this ).addClass( "ui-datepicker-prev-hover" );
+		}
+		if ( this.className.indexOf( "ui-datepicker-next" ) !== -1 ) {
+			$( this ).addClass( "ui-datepicker-next-hover" );
+		}
+	}
+}
+
+/* jQuery extend now ignores nulls! */
+function datepicker_extendRemove( target, props ) {
+	$.extend( target, props );
+	for ( var name in props ) {
+		if ( props[ name ] == null ) {
+			target[ name ] = props[ name ];
+		}
+	}
+	return target;
+}
+
+/* Invoke the datepicker functionality.
+   @param  options  string - a command, optionally followed by additional parameters or
+					Object - settings for attaching new datepicker functionality
+   @return  jQuery object */
+$.fn.datepicker = function( options ) {
+
+	/* Verify an empty collection wasn't passed - Fixes #6976 */
+	if ( !this.length ) {
+		return this;
+	}
+
+	/* Initialise the date picker. */
+	if ( !$.datepicker.initialized ) {
+		$( document ).on( "mousedown", $.datepicker._checkExternalClick );
+		$.datepicker.initialized = true;
+	}
+
+	/* Append datepicker main container to body if not exist. */
+	if ( $( "#" + $.datepicker._mainDivId ).length === 0 ) {
+		$( "body" ).append( $.datepicker.dpDiv );
+	}
+
+	var otherArgs = Array.prototype.slice.call( arguments, 1 );
+	if ( typeof options === "string" && ( options === "isDisabled" || options === "getDate" || options === "widget" ) ) {
+		return $.datepicker[ "_" + options + "Datepicker" ].
+			apply( $.datepicker, [ this[ 0 ] ].concat( otherArgs ) );
+	}
+	if ( options === "option" && arguments.length === 2 && typeof arguments[ 1 ] === "string" ) {
+		return $.datepicker[ "_" + options + "Datepicker" ].
+			apply( $.datepicker, [ this[ 0 ] ].concat( otherArgs ) );
+	}
+	return this.each( function() {
+		typeof options === "string" ?
+			$.datepicker[ "_" + options + "Datepicker" ].
+				apply( $.datepicker, [ this ].concat( otherArgs ) ) :
+			$.datepicker._attachDatepicker( this, options );
+	} );
+};
+
+$.datepicker = new Datepicker(); // singleton instance
+$.datepicker.initialized = false;
+$.datepicker.uuid = new Date().getTime();
+$.datepicker.version = "1.12.1";
+
+return $.datepicker;
+
+} ) );
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery UI Keycode 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Keycode
+//>>group: Core
+//>>description: Provide keycodes as keynames
+//>>docs: http://api.jqueryui.com/jQuery.ui.keyCode/
+
+( function( factory ) {
+	if ( true ) {
+
+		// AMD. Register as an anonymous module.
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(1), __webpack_require__(10) ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} ( function( $ ) {
+return $.ui.keyCode = {
+	BACKSPACE: 8,
+	COMMA: 188,
+	DELETE: 46,
+	DOWN: 40,
+	END: 35,
+	ENTER: 13,
+	ESCAPE: 27,
+	HOME: 36,
+	LEFT: 37,
+	PAGE_DOWN: 34,
+	PAGE_UP: 33,
+	PERIOD: 190,
+	RIGHT: 39,
+	SPACE: 32,
+	TAB: 9,
+	UP: 38
+};
+
+} ) );
+
+
+/***/ }),
+/* 43 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -8,7 +8,7 @@ $factory->define(App\Models\Company::class, function (Faker $faker) {
         'name' => $faker->company,
         'adress_line1' => $faker->streetAddress,
         'adress_line2' => $faker->secondaryAddress,
-        'zip' => $faker->postcode,
+        'zip' => $faker->numberBetween($min = 1000, $max = 9000),
         'city' => $faker->city,
         'country' => $faker->country
     ];

@@ -29,7 +29,7 @@
                             <label for="birhdate" class="col-md-4 col-form-label text-md-right">{{ __('Birhdate') }}</label>
 
                             <div class="col-md-6">
-                                <input id="birhdate" type="date" class="form-control{{ $errors->has('birhdate') ? ' is-invalid' : '' }}" name="birhdate" value="{{ old('birhdate') }}" required autofocus>
+                                <input id="birhdate" type="text" class="datepicker form-control{{ $errors->has('birhdate') ? ' is-invalid' : '' }}" name="birhdate" value="{{ old('birhdate') }}" required autofocus>
 
                                 @if ($errors->has('birhdate'))
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                             <label for="job_start_date" class="col-md-4 col-form-label text-md-right">{{ __('Job start date') }}</label>
 
                             <div class="col-md-6">
-                                <input id="job_start_date" type="date" class="form-control{{ $errors->has('job_start_date') ? ' is-invalid' : '' }}" name="job_start_date" value="{{ old('job_start_date') }}" required autofocus>
+                                <input id="job_start_date" type="text" class="datepicker form-control{{ $errors->has('job_start_date') ? ' is-invalid' : '' }}" name="job_start_date" value="{{ old('job_start_date') }}" required autofocus>
 
                                 @if ($errors->has('job_start_date'))
                                     <span class="invalid-feedback" role="alert">
