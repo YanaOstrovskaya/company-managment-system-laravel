@@ -139,6 +139,10 @@ class UserController extends Controller
 
             //dd($company->id);
             $user->delete();
+            if ($user) {
+                alert()->success('Deleted!',"User has been deleted");
+                return redirect('/users');
+            }
             return redirect('/users');
         }
         else{

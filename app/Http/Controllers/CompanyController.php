@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\User;
 use Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\EditCompany;
 use App\Http\Requests\CreateCompany;
 use Intervention\Image\Facades\Image as ImageInt;
@@ -164,7 +165,7 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Company  $company
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function destroy(Company $company)
@@ -174,6 +175,10 @@ class CompanyController extends Controller
 
             //dd($company->id);
             $company->delete();
+            if ($company) {
+                alert()->success('Deleted!',"Company has been deleted");
+                return redirect('/company');
+            }
             return redirect('/company');
         }
         else{
