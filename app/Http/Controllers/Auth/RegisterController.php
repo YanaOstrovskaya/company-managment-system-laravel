@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\EmployeeProfile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Intervention\Image\Facades\Image as ImageInt;
@@ -54,8 +55,8 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255|min:2',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'birhdate' => 'required|date_format:Y-m-d|before:today',
-            'job_start_date' => 'required|date_format:Y-m-d|before:tomorrow',
+            'birhdate' => 'required|before:today',
+            'job_start_date' => 'required|before:tomorrow',
             'phone' => 'required',
             'job_title' => 'required|string|max:255|min:2',
             'photo' => 'required|image|file'
@@ -67,7 +68,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Models\User
      *
      *
      */
@@ -91,11 +92,14 @@ class RegisterController extends Controller
         else{
             $img->save(public_path("images/photo/$imgName"));
         }
+        $birhdate = Carbon::parse($data['birhdate'])->format('Y-m-d');
+        $job_start_date = Carbon::parse($data['job_start_date'])->format('Y-m-d');
 
+        $job_start_date = Carbon::parse($data['job_start_date']);
         $EmployeeProfile = EmployeeProfile::create([
-            'birhdate' => $data['birhdate'],
+            'birhdate' => $birhdate,
             'photo'=> $imgName,
-            'job_start_date' => $data['job_start_date'],
+            'job_start_date' => $job_start_date,
             'phone' => $data['phone'],
             'job_title' => $data['job_title']
         ]);

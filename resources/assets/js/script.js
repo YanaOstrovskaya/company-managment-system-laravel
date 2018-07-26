@@ -67,7 +67,6 @@
             }).catch((error)=>{
                 console.log(error);
             })
-
         });
         $('.datepicker').datepicker();
 

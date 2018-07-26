@@ -136,9 +136,9 @@ class UserController extends Controller
     {
         if (Auth::user()->role === 'admin') {
             $user = User::find($id);
-
-            //dd($company->id);
-            $user->delete();
+           $user->delete();
+           $employeeProfile = EmployeeProfile::find($id);
+           $employeeProfile->delete();
             if ($user) {
                 alert()->success('Deleted!',"User has been deleted");
                 return redirect('/users');
