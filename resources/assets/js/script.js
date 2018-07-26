@@ -17,14 +17,18 @@
                         "<img class='company-logo-img'  width='100px' " +
                         "src="+'images/logo/'+response.data[0]['logo']+" " +
                         "alt="+response.data[0]['name']+"></td>" +
-                        "<td class='align-middle'>"+response.data[0]['name']+"</td>" +
+                        "<td class='align-middle link'>"+response.data[0]['name']+"</td>" +
                         "<td class='align-middle' >"+response.data[0]['country']+"</td>" +
                         "<td class='align-middle'>"+response.data[0]['city']+"</td>" +
                         "<td class=\"align-middle\"><a class=\"btn btn-primary\"   href="+'company/'+response.data[0]['id']+'/edit'+">Edit</a></td>"+
                         (response.data[1]==='admin'?
-                        "<td class=\"align-middle\">" +
-                            "<button type=\"button\" class=\"btn btn-danger delete\" data-toggle=\"modal\" data-target=\"#myModalDelete\">Delete</button>"+
-                        "</td>"
+                            "<td class=\"align-middle\">" +
+                            "<form method=\"POST\" action="+'/company/'+response.data[0]['id']+">"+
+                            "<input type=\"hidden\" name=\"_method\" value=\"DELETE\" />"+
+                            '<input type=\"hidden\" name=\"_token\" value='+$('meta[name="csrf-token"]').attr('content')+'>'+
+                            "<button type=\"submit\" class=\"btn btn-danger delete\">Delete</button>"+
+                             "</form>" +
+                             "</td>"
                        :'')+
                         "</tr>";
                    $('tbody').prepend(str);
@@ -46,7 +50,7 @@
 
         $('body').on('click', '.delete', function(e) {
             e.preventDefault();
-            let form = this;
+            let form = $(this).parent('form');
             swal({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -57,19 +61,15 @@
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.value) {
-                    swal(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    ).then(()=>{
-                        console.log(form);
-                        form.submit();
-                    })
+                    form.submit();
+                    //console.log(form);
                 }
+            }).catch((error)=>{
+                console.log(error);
             })
 
         });
-
+        $('.datepicker').datepicker();
 
 
     })
