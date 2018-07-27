@@ -14,11 +14,14 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\Models\User::class, function (Faker $faker) {
+    $id=Auth::user()->lastInsertId();
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'job_title' => $faker->word,
+        'employee_profile_id' => $id,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => str_random(10),
     ];
 });
+
+
