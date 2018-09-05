@@ -27,7 +27,7 @@ class EditCompany extends FormRequest
             'name' => 'required|max:255|min:2',
             'adress_line1' => 'required',
             'adress_line2' => 'nullable',
-            'zip' => 'required|numeric',
+            'zip' => 'required|max:9',
             'province' => 'nullable',
             'city' => 'required',
             'country' => 'required',
